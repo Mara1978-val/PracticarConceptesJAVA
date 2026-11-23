@@ -1,117 +1,114 @@
-# 🧾 RUBRICA CORRECCIÓ
+# 🧾 Rúbrica Oficial de Correcció i Qualificació
 
-### 🟦 RA01
-#### Test RA01
+<div class="author-badge">
+  <span>✍️ Autora: Mara Vañó</span>
+</div>
 
-| Nº | Resp. | ✔️ | ✘ |
-|:---:|:---:|:---:|:---:|
-| 1 | C | ☐ | ☐ |
-| 2 | B | ☐ | ☐ |
-| 3 | D | ☐ | ☐ |
-| 4 | C | ☐ | ☐ |
-| 5 | C | ☐ | ☐ |
+La present rúbrica estableix els criteris formals i ponderacions utilitzats per a avaluar el simulacre d'examen de la primera avaluació de Programació Java (1r DAM).
 
-#### Exercici RA01
-- `int` declarat ✔️ ☐ ✘ ☐  
-- suma (`a + b`) ✔️ ☐ ✘ ☐  
-- `System.out.println()` ✔️ ☐ ✘ ☐  
-- comentari `//` ✔️ ☐ ✘ ☐  
-
-#### Qualificació
-> Test RA01 (5 preguntes × 0,2) = ____ /1  
-> Exercici RA01 (4 preguntes × 0,25) = ____ /1  
->  
-> **TOTAL RA01 = ____ /2**  
-> **50% mínim RA01 = 1 punt**  
-> **Superat RA01? ✔️ / ✘**  
+> **Important:** Per a considerar superada la primera avaluació és **imprescindible obtindre com a mínim el 50% de la puntuació en cadascun dels RAs avaluats**.
 
 ---
 
-### 🟩 RA02
-#### Test RA02
+### 🟦 RA01 — Estructura d’un programa (Màxim: 2 punts)
 
-| Nº | Resp. | ✔️ | ✘ |
-|:---:|:---:|:---:|:---:|
-| 1 | C | ☐ | ☐ |
-| 2 | B | ☐ | ☐ |
-| 3 | D | ☐ | ☐ |
-| 4 | C | ☐ | ☐ |
-| 5 | C | ☐ | ☐ |
+#### Test RA01 *(1 punt — 5 preguntes × 0.2)*
+| Nº Pregunta | Resposta Correcta | Puntuació |
+| :---: | :---: | :---: |
+| 1 | **C** | 0.2 pts |
+| 2 | **B** | 0.2 pts |
+| 3 | **D** | 0.2 pts |
+| 4 | **C** | 0.2 pts |
+| 5 | **C** | 0.2 pts |
 
-#### Exercici RA02
-- `Scanner` ✔️ ☐ ✘ ☐  
-- `nextLine()` ✔️ ☐ ✘ ☐  
-- `nextInt()` ✔️ ☐ ✘ ☐  
-- `2026 - edat` ✔️ ☐ ✘ ☐  
-- eixida correcta ✔️ ☐ ✘ ☐  
+#### Exercici Pràctic RA01 *(1 punt — 4 criteris × 0.25)*
+- Declaració de variables enteres (`int`): **0.25 pts**
+- Càlcul de la suma amb operador `+`: **0.25 pts**
+- Eixida per consola amb `System.out.println()`: **0.25 pts**
+- Comentari d'una sola línia amb `//`: **0.25 pts**
 
-#### Exercici RA02 avançat
-- funció `getLongitud()` ✔️ ☐ ✘ ☐  
-- `.length()` ✔️ ☐ ✘ ☐  
-- funció `compararLongitud()` ✔️ ☐ ✘ ☐  
-- ús de `return` ✔️ ☐ ✘ ☐  
-- mostra nom més llarg ✔️ ☐ ✘ ☐  
-
-#### Qualificació
-> Test RA02 (5 preguntes × 0,2) = ____ /1  
-> Exercici RA02 bàsic (5 preguntes × 0,2) = ____ /1  
-> Exercici RA02 avançat (5 preguntes × 0,2) = ____ /2  
->  
-> **TOTAL RA02 = ____ /4**  
-> **50% mínim RA02 = 2 punts**  
-> **Superat RA02? ✔️ / ✘**  
+> **Puntuació Total RA01 = Test (max 1) + Pràctica (max 1) = 2.0 punts**  
+> **Mínim exigit (50%): 1.0 punt**
 
 ---
 
-### 🟨 RA03
-#### Test RA03
+### 🟩 RA02 — Escriure i provar programes senzills (Màxim: 4 punts)
 
-| Nº | Resp. | ✔️ | ✘ |
-|:---:|:---:|:---:|:---:|
-| 1 | C | ☐ | ☐ |
-| 2 | B | ☐ | ☐ |
-| 3 | D | ☐ | ☐ |
-| 4 | C | ☐ | ☐ |
-| 5 | C | ☐ | ☐ |
+#### Test RA02 *(1 punt — 5 preguntes × 0.2)*
+| Nº Pregunta | Resposta Correcta | Puntuació |
+| :---: | :---: | :---: |
+| 1 | **C** | 0.2 pts |
+| 2 | **C** | 0.2 pts |
+| 3 | **C** | 0.2 pts |
+| 4 | **C** | 0.2 pts |
+| 5 | **B** | 0.2 pts |
 
-#### Exercici RA03
-- `if (num > 0)` ✔️ ☐ ✘ ☐  
-- `else if (num < 0)` ✔️ ☐ ✘ ☐  
-- `else` ✔️ ☐ ✘ ☐  
-- missatge correcte ✔️ ☐ ✘ ☐  
+#### Exercici Bàsic RA02 *(1 punt — 5 criteris × 0.2)*
+- Instanciació de `Scanner(System.in)`: **0.2 pts**
+- Lectura de text amb `nextLine()`: **0.2 pts**
+- Lectura d'enter amb `nextInt()`: **0.2 pts**
+- Càlcul correcte de l'any de naixement (`2026 - edat`): **0.2 pts**
+- Format de sortida exacte sol·licitat: **0.2 pts**
 
-#### Qualificació
-> Test RA03 (5 preguntes × 0,2) = ____ /1  
-> Exercici RA03 (4 preguntes × 0,25) = ____ /1  
->  
-> **TOTAL RA03 = ____ /2**  
-> **50% mínim RA03 = 1 punt**  
-> **Superat RA03? ✔️ / ✘**  
+#### Exercici Avançat RA02 — Funcions *(2 punts — 5 criteris × 0.4)*
+- Declaració correcta de la funció `getLongitud(String)`: **0.4 pts**
+- Càlcul de caràcters amb `.length()`: **0.4 pts**
+- Declaració de la funció `compararLongitud(int, int)`: **0.4 pts**
+- Ús de la sentència `return` per retornar valors: **0.4 pts**
+- Cridada des del `main` i impressió del nom guanyador: **0.4 pts**
+
+> **Puntuació Total RA02 = Test (max 1) + Bàsic (max 1) + Avançat (max 2) = 4.0 punts**  
+> **Mínim exigit (50%): 2.0 punts**
 
 ---
 
-### 🟦 RA06
-#### Test RA06
+### 🟨 RA03 — Estructures de control (Màxim: 2 punts)
 
-| Nº | Resp. | ✔️ | ✘ |
-|:---:|:---:|:---:|:---:|
-| 1 | C | ☐ | ☐ |
-| 2 | B | ☐ | ☐ |
-| 3 | D | ☐ | ☐ |
-| 4 | C | ☐ | ☐ |
-| 5 | C | ☐ | ☐ |
+#### Test RA03 *(1 punt — 5 preguntes × 0.2)*
+| Nº Pregunta | Resposta Correcta | Puntuació |
+| :---: | :---: | :---: |
+| 1 | **B** | 0.2 pts |
+| 2 | **B** | 0.2 pts |
+| 3 | **A** | 0.2 pts |
+| 4 | **B** | 0.2 pts |
+| 5 | **A** | 0.2 pts |
 
-#### Exercici RA06
-- `int[]` ✔️ ☐ ✘ ☐  
-- `for` per a lectura ✔️ ☐ ✘ ☐  
-- variables `max` i `min` ✔️ ☐ ✘ ☐  
-- comparacions ✔️ ☐ ✘ ☐  
-- mostrar resultats ✔️ ☐ ✘ ☐  
+#### Exercici Pràctic RA03 *(1 punt — 4 criteris × 0.25)*
+- Condicional per a positiu (`if (num > 0)`): **0.25 pts**
+- Condicional per a negatiu (`else if (num < 0)`): **0.25 pts**
+- Bloc alternatiu per defecte (`else` per al zero): **0.25 pts**
+- Missatge mostrat adequat i precís: **0.25 pts**
 
-#### Qualificació
-> Test RA06 (5 preguntes × 0,2) = ____ /1  
-> Exercici RA06 (5 preguntes × 0,2) = ____ /1  
->  
-> **TOTAL RA06 = ____ /2**  
-> **50% mínim RA06 = 1 punt**  
-> **Superat RA06? ✔️ / ✘**  
+> **Puntuació Total RA03 = Test (max 1) + Pràctica (max 1) = 2.0 punts**  
+> **Mínim exigit (50%): 1.0 punt**
+
+---
+
+### 🟦 RA06 — Estructures de dades (Vectors) (Màxim: 2 punts)
+
+#### Test RA06 *(1 punt — 5 preguntes × 0.2)*
+| Nº Pregunta | Resposta Correcta | Puntuació |
+| :---: | :---: | :---: |
+| 1 | **A** | 0.2 pts |
+| 2 | **A** | 0.2 pts |
+| 3 | **B** | 0.2 pts |
+| 4 | **A** | 0.2 pts |
+| 5 | **C** | 0.2 pts |
+
+#### Exercici Pràctic RA06 *(1 punt — 5 criteris × 0.2)*
+- Declaració de vector d'enters `new int[5]`: **0.2 pts**
+- Bucle `for` per a la lectura dels 5 elements: **0.2 pts**
+- Inicialització de variables `max` i `min`: **0.2 pts**
+- Comparació i actualització de màxim i mínim: **0.2 pts**
+- Impressió del resultat final: **0.2 pts**
+
+> **Puntuació Total RA06 = Test (max 1) + Pràctica (max 1) = 2.0 punts**  
+> **Mínim exigit (50%): 1.0 punt**
+
+---
+
+## 🏆 Resum Global de Qualificació
+
+$$\text{Qualificació Final} = \text{RA01 (2)} + \text{RA02 (4)} + \text{RA03 (2)} + \text{RA06 (2)} = 10 \text{ punts}$$
+
+*Condició de superació:* Nota global $\ge 5.0$ i cap RA per davall del 50% del seu valor.

@@ -1,6 +1,6 @@
-site_name: Simulacres d'examen PRG 25/26
-site_description: Simulacres d'examen de Programació (PRG) DAM/DAW
-site_author: María Bañuls Ribes / Sergio Pérez Rubio
+site_name: Simulador d'Exàmens PRG 25/26 - Java DAM
+site_description: Plataforma interactiva d'autoaprenentatge i simulacres d'examen de Java per a 1r de DAM
+site_author: Mara Vañó
 site_url: https://Mara1978-val.github.io/SimuladorExamenJava/
 
 theme:
@@ -12,15 +12,15 @@ theme:
   palette:
     # Mode Clar
     - scheme: default
-      primary: coral
-      accent: blue
+      primary: deep purple
+      accent: purple
       toggle:
         icon: material/brightness-7
         name: Canviar a mode fosc
     # Mode Fosc
     - scheme: slate
-      primary: coral
-      accent: blue
+      primary: deep purple
+      accent: purple
       toggle:
         icon: material/brightness-4
         name: Canviar a mode clar
@@ -35,7 +35,11 @@ theme:
     - search.highlight
     - search.suggest
 
+extra_css:
+  - stylesheets/custom.css
 
+extra_javascript:
+  - javascripts/simulator.js
 
 markdown_extensions:
   - admonition
@@ -56,7 +60,7 @@ markdown_extensions:
 nav:
   - Home: index.md
   - Primera Aval:
-      - Examen: 1eval/examen1e.md
-      - Solucions: 1eval/solucions1e.md
-      - Rubrica correcció: 1eval/rubrica1e.md
+      - Simulador d'Examen: 1eval/examen1e.md
+      - Solucions Explicades: 1eval/solucions1e.md
+      - Rúbrica de Correcció: 1eval/rubrica1e.md
   - Segona Aval: 2eval/index.md

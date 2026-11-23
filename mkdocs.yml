@@ -1,0 +1,61 @@
+site_name: Simulacres d'examen PRG 25/26
+site_description: Simulacres d'examen de Programació (PRG) DAM/DAW
+site_author: María Bañuls Ribes / Sergio Pérez Rubio
+
+theme:
+  name: material
+  language: ca
+  font:
+    text: Roboto
+    code: Fira Code
+  palette:
+    # Mode Clar
+    - scheme: default
+      primary: coral
+      accent: blue
+      toggle:
+        icon: material/brightness-7
+        name: Canviar a mode fosc
+    # Mode Fosc
+    - scheme: slate
+      primary: coral
+      accent: blue
+      toggle:
+        icon: material/brightness-4
+        name: Canviar a mode clar
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.indexes
+    - navigation.top
+    - toc.integrate
+    - content.code.copy
+    - content.tabs.link
+    - search.highlight
+    - search.suggest
+
+
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.tabbed:
+      alternate_style: true
+  - attr_list
+  - md_in_html
+  - tables
+
+nav:
+  - Home: index.md
+  - Primera Aval:
+      - Examen: 1eval/examen1e.md
+      - Solucions: 1eval/solucions1e.md
+      - Rubrica correcció: 1eval/rubrica1e.md
+  - Segona Aval: 2eval/index.md

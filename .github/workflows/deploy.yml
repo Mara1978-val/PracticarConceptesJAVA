@@ -1,0 +1,41 @@
+name: Desplegar a GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+      - master
+
+permissions:
+  contents: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Baixar el codi font
+        uses: actions/checkout@v4
+
+      - name: Configurar Git per al bot
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.x
+
+      - name: Cache de dependències
+        uses: actions/cache@v4
+        with:
+          key: mkdocs-material-${{ github.ref }}
+          path: .cache
+          restore-keys: |
+            mkdocs-material-
+
+      - name: Instal·lar dependències
+        run: pip install -r requirements.txt
+
+      - name: Desplegar a GitHub Pages
+        run: mkdocs gh-deploy --force

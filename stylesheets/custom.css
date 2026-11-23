@@ -25,14 +25,23 @@
    DISSENY CENTRAT I MILLORAT
    -------------------------------------------------------------------------- */
 .md-main__inner {
-  max-width: 1050px !important;
+  max-width: 1440px !important;
   margin: 0 auto !important;
 }
 
 .md-content {
-  max-width: 920px !important;
+  max-width: 1300px !important;
   margin: 0 auto !important;
 }
+
+/* Lletra més petita i lectura còmoda */
+.md-typeset { font-size: 0.82rem; line-height: 1.55; }
+.md-typeset p, .md-typeset li, .md-typeset ul, .md-typeset ol { font-size: 0.82rem; }
+.md-typeset h1 { font-size: 1.55rem; }
+.md-typeset h2 { font-size: 1.2rem; margin-top: 1.3em; }
+.md-typeset h3 { font-size: 1.02rem; }
+.md-typeset h4 { font-size: 0.95rem; }
+.md-typeset code { font-size: 0.92em; }
 
 .md-typeset h1 {
   color: var(--lila-accent);
@@ -332,10 +341,10 @@
 
 .java-code-area {
   width: 100%;
-  min-height: 220px;
+  min-height: 190px;
   font-family: 'Fira Code', monospace;
-  font-size: 0.88rem;
-  line-height: 1.5;
+  font-size: 0.78rem;
+  line-height: 1.45;
   background: #1e1e2e;
   color: #f8fafc;
   padding: 1rem;
@@ -448,12 +457,12 @@
 }
 
 .terminal-body {
-  padding: 0.9rem 1rem;
+  padding: 0.8rem 0.95rem;
   font-family: 'Fira Code', monospace;
-  font-size: 0.85rem;
-  color: #38bdf8;
+  font-size: 0.76rem;
+  color: #7dd3fc;
   min-height: 70px;
-  max-height: 250px;
+  max-height: 280px;
   overflow-y: auto;
   white-space: pre-wrap;
   line-height: 1.45;
@@ -481,6 +490,75 @@
 [data-md-color-scheme="slate"] .solution-box {
   background: #0f172a;
 }
+
+/* --------------------------------------------------------------------------
+   MILLORES D'INTERFÍCIE: DADES D'ENTRADA I BOTONS
+   -------------------------------------------------------------------------- */
+.java-input-panel {
+  margin: 0.2rem 0 0.8rem;
+  padding: 0.7rem 0.9rem;
+  background: var(--lila-bg-light);
+  border: 1px solid var(--lila-border);
+  border-radius: 10px;
+}
+.java-input-panel label {
+  display: block;
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: var(--lila-accent);
+  margin-bottom: 0.4rem;
+}
+.java-input-data {
+  width: 100%;
+  box-sizing: border-box;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.78rem;
+  line-height: 1.45;
+  padding: 0.5rem 0.7rem;
+  border: 1px solid var(--lila-border);
+  border-radius: 7px;
+  background: var(--md-default-bg-color);
+  color: var(--md-typeset-color);
+  resize: vertical;
+}
+.java-input-data:focus {
+  outline: none;
+  border-color: var(--lila-accent);
+  box-shadow: 0 0 0 2px rgba(124, 58, 237, 0.18);
+}
+.java-run-note {
+  font-size: 0.74rem;
+  color: var(--md-typeset-color);
+  opacity: 0.8;
+  margin: 0.2rem 0 0.7rem;
+}
+
+/* Botons amb volum i estats clars */
+.btn-run, .btn-reset, .btn-solution, .quiz-btn-check {
+  border-radius: 9px;
+  padding: 0.55rem 1.1rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  box-shadow: 0 3px 0 rgba(30, 10, 70, 0.18);
+  transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+}
+.btn-run { padding: 0.6rem 1.3rem; font-size: 0.86rem; }
+.btn-run:hover { background: #059669; transform: translateY(-1px); }
+.btn-reset:hover { background: #475569; transform: translateY(-1px); }
+.btn-solution:hover { background: var(--lila-accent); color: #fff; transform: translateY(-1px); }
+.quiz-btn-check:hover { background: var(--md-primary-fg-color--dark); transform: translateY(-1px); }
+.btn-run:active, .btn-reset:active, .btn-solution:active, .quiz-btn-check:active {
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 rgba(30, 10, 70, 0.18);
+}
+
+/* Targetes més airejades i resultats llegibles */
+.quiz-card, .java-exercise-card { border-radius: 14px; }
+.java-ex-desc { font-size: 0.82rem; }
+.quiz-question-title { font-size: 0.92rem; }
+.quiz-option { font-size: 0.85rem; padding: 0.55rem 0.8rem; }
+.quiz-feedback, .pedagogical-feedback { font-size: 0.82rem; }
+.total-score-badge { font-size: 1.3rem; }
 
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(-4px); }

@@ -342,6 +342,26 @@ function initJavaCodeRunners() {
 
     const defaultCode = codeArea.value;
 
+    // Si l'alumne modifica el codi, la puntuació anterior deixa de ser vàlida
+    const scoreKey = {
+      "ex-ra01": { ra: "ra01", clau: "code" },
+      "ex-ra02-basic": { ra: "ra02", clau: "codeBasic" },
+      "ex-ra02-adv": { ra: "ra02", clau: "codeAdv" },
+      "ex-ra03": { ra: "ra03", clau: "code" },
+      "ex-ra06": { ra: "ra06", clau: "code" }
+    }[exId];
+    if (codeArea && scoreKey) {
+      codeArea.addEventListener("input", function () {
+        appState.scores[scoreKey.ra][scoreKey.clau] = 0;
+        updateDashboardUI();
+        if (feedBox) {
+          feedBox.className = "pedagogical-feedback";
+          feedBox.style.display = "none";
+          feedBox.innerHTML = "";
+        }
+      });
+    }
+
     if (resetBtn) {
       resetBtn.addEventListener("click", function () {
         codeArea.value = defaultCode;
@@ -363,198 +383,298 @@ function initJavaCodeRunners() {
         const code = codeArea.value;
         terminal.style.display = "block";
         feedBox.style.display = "block";
-        termBody.innerHTML = "<em>Compilant Main.java...</em>\n";
+        termBody.textContent = "Executant el codi amb l'intèrpret integrat…\n";
 
         setTimeout(function () {
-          evalJavaExercise(exId, code, termBody, feedBox);
+          evalJavaExercise(exId, code, termBody, feedBox, card);
           updateDashboardUI();
-        }, 300);
+        }, 120);
       });
     }
   });
 }
 
-function evalJavaExercise(exId, code, termBody, feedBox) {
+// --------------------------------------------------------------------------
+// 3B. DADES D'ENTRADA I CRITERIS DE CORRECCIÓ DELS EXERCICIS
+// --------------------------------------------------------------------------
+const JAVA_EXERCISES = {
+  "ex-ra01": {
+    ra: "ra01",
+    scoreKey: "code",
+    max: 1.0,
+    proves: [{ inputs: [], etiqueta: "Execució del programa" }],
+    criteris: function (ctx) {
+      const net = ctx.net;
+      return [
+        {
+          ok: ctx.sortida.trim().length > 0,
+          punts: 0.25,
+          text: "El programa mostra un resultat per pantalla (sortida real)."
+        },
+        {
+          ok: /int\s+[A-Za-z_][A-Za-z0-9_]*\s*=/.test(net),
+          punts: 0.25,
+          text: "Declara variables enteres amb int."
+        },
+        {
+          ok: /\+\s*[A-Za-z0-9_]+/.test(net),
+          punts: 0.25,
+          text: " fa la suma amb l'operador +."
+        },
+        {
+          ok: /\/\/.+/.test(ctx.code),
+          punts: 0.25,
+          text: "Inclou un comentari d'una línia amb //."
+        }
+      ];
+    }
+  },
+
+  "ex-ra02-basic": {
+    ra: "ra02",
+    scoreKey: "codeBasic",
+    max: 1.0,
+    defaultInputs: ["Laura", "19"],
+    criteris: function (ctx) {
+      const nom = ctx.inputs[0] || "Laura";
+      const edat = parseInt(ctx.inputs[1], 10) || 19;
+      const esperat = "Hola " + nom + ", vas nàixer l'any " + (2026 - edat) + ".";
+      const net = ctx.net;
+      return [
+        {
+          ok: /Scanner\s+[A-Za-z_][A-Za-z0-9_]*\s*=\s*new\s+Scanner/.test(net),
+          punts: 0.2,
+          text: "Crea l'objecte Scanner."
+        },
+        {
+          ok: /\.nextLine\s*\(\s*\)/.test(net),
+          punts: 0.2,
+          text: "Llegeix el nom amb nextLine()."
+        },
+        {
+          ok: /\.nextInt\s*\(\s*\)/.test(net),
+          punts: 0.2,
+          text: "Llegeix l'edat amb nextInt()."
+        },
+        {
+          ok: /20\d\d\s*-\s*[A-Za-z_][A-Za-z0-9_]*/.test(net),
+          punts: 0.2,
+          text: "Calcula l'any de naixement restant l'edat a 2026."
+        },
+        {
+          ok: ctx.sortida.indexOf(esperat) !== -1,
+          punts: 0.2,
+          text: 'La sortida real conté exactament: "' + esperat + '"'
+        }
+      ];
+    }
+  },
+
+  "ex-ra02-adv": {
+    ra: "ra02",
+    scoreKey: "codeAdv",
+    max: 2.0,
+    defaultInputs: ["Marta", "Alejandro"],
+    criteris: function (ctx) {
+      const n1 = ctx.inputs[0] || "Marta";
+      const n2 = ctx.inputs[1] || "Alejandro";
+      const l1 = n1.length, l2 = n2.length;
+      const guanyador = l1 >= l2 ? n1 : n2;
+      const llines = [
+        n1 + " té " + l1 + " lletres.",
+        n2 + " té " + l2 + " lletres.",
+        "El nom més llarg és: " + guanyador
+      ];
+      const net = ctx.net;
+      return [
+        {
+          ok: ctx.metodes.indexOf("getLongitud") !== -1,
+          punts: 0.4,
+          text: "Defineix la funció getLongitud(String)."
+        },
+        {
+          ok: ctx.metodes.indexOf("compararLongitud") !== -1,
+          punts: 0.4,
+          text: "Defineix la funció compararLongitud(int, int)."
+        },
+        {
+          ok: /\.length\s*\(\s*\)/.test(net),
+          punts: 0.4,
+          text: "Fa servir .length() per comptar els caràcters."
+        },
+        {
+          ok: (net.match(/\breturn\b/g) || []).length >= 2,
+          punts: 0.4,
+          text: "Les funcions retornen valors amb return."
+        },
+        {
+          ok: llines.every(function (l) { return ctx.sortida.indexOf(l) !== -1; }),
+          punts: 0.4,
+          text: "La sortida real mostra les tres línies esperades."
+        }
+      ];
+    }
+  },
+
+  "ex-ra03": {
+    ra: "ra03",
+    scoreKey: "code",
+    max: 1.0,
+    proves: [
+      { inputs: ["15"], etiqueta: "Prova amb 15", esperat: "Positiu" },
+      { inputs: ["-4"], etiqueta: "Prova amb -4", esperat: "Negatiu" },
+      { inputs: ["0"], etiqueta: "Prova amb 0", esperat: "Zero" }
+    ],
+    criteris: function (ctx) {
+      const criteris = ctx.resultats.map(function (r, i) {
+        return {
+          ok: r.resultat && r.resultat.sortida.indexOf(r.prova.esperat) !== -1,
+          punts: 0.25,
+          text: r.prova.etiqueta + " → mostra " + r.prova.esperat + "."
+        };
+      });
+      criteris.push({
+        ok: /\bif\s*\(/.test(ctx.net) && /else\s+if\s*\(/.test(ctx.net) && /\belse\b/.test(ctx.net),
+        punts: 0.25,
+        text: "Fa servir l'estructura if / else if / else."
+      });
+      return criteris;
+    }
+  },
+
+  "ex-ra06": {
+    ra: "ra06",
+    scoreKey: "code",
+    max: 1.0,
+    defaultInputs: ["12", "4", "99", "1", "35"],
+    criteris: function (ctx) {
+      const nums = ctx.inputs.map(Number).filter(function (n) { return Number.isFinite(n); });
+      const max = nums.length ? Math.max.apply(null, nums) : 99;
+      const min = nums.length ? Math.min.apply(null, nums) : 1;
+      const net = ctx.net;
+      return [
+        {
+          ok: /int\s*\[\s*\]\s*[A-Za-z_][A-Za-z0-9_]*\s*=\s*new\s+int\s*\[\s*5\s*\]/.test(net) ||
+            /int\s+[A-Za-z_][A-Za-z0-9_]*\s*\[\s*\]\s*=\s*new\s+int\s*\[\s*5\s*\]/.test(net),
+          punts: 0.2,
+          text: "Crea el vector int[5]."
+        },
+        {
+          ok: /for\s*\(/.test(net),
+          punts: 0.2,
+          text: "Fa servir un bucle for."
+        },
+        {
+          ok: /\bmax\b/.test(net) && /\bmin\b/.test(net),
+          punts: 0.2,
+          text: "Empra les variables max i min."
+        },
+        {
+          ok: />\s*[A-Za-z_][A-Za-z0-9_]*/.test(net) && /<\s*[A-Za-z_][A-Za-z0-9_]*/.test(net),
+          punts: 0.2,
+          text: "Compara els valors del vector."
+        },
+        {
+          ok: ctx.sortida.indexOf("Màxim: " + max) !== -1 && ctx.sortida.indexOf("Mínim: " + min) !== -1,
+          punts: 0.2,
+          text: "La sortida real mostra Màxim: " + max + " i Mínim: " + min + "."
+        }
+      ];
+    }
+  }
+};
+
+function llegirEntrades(text) {
+  return String(text || "")
+    .split(/\r?\n/)
+    .map(function (x) { return x.trim(); })
+    .filter(function (x) { return x.length > 0; });
+}
+
+// --------------------------------------------------------------------------
+// 3C. AVALUACIÓ AMB L'INTÈRPRET INTEGRAT
+// --------------------------------------------------------------------------
+function avaluarExerciciJava(exId, code, termBody, feedBox, card) {
+  const cfg = JAVA_EXERCISES[exId];
+  if (!cfg) return;
+  const clau = cfg.scoreKey;
+  const net = code.replace(/\/\*[\s\S]*?\*\/|\/\/[^\n]*/g, "");
+
+  const campEntrada = card ? card.querySelector(".java-input-data") : null;
+  const entradesUsuari = campEntrada ? llegirEntrades(campEntrada.value) : [];
+  const entrades = entradesUsuari.length ? entradesUsuari : (cfg.defaultInputs || []);
+
+  const proves = (cfg.proves || [{ inputs: entrades, etiqueta: "Execució del programa" }]).map(function (p, i) {
+    return {
+      etiqueta: p.etiqueta || "Prova " + (i + 1),
+      inputs: p.inputs || entrades,
+      esperat: p.esperat
+    };
+  });
+
+  const resultats = proves.map(function (prova) {
+    try {
+      return { prova: prova, resultat: window.JavaMini.executar(code, prova.inputs), error: null };
+    } catch (err) {
+      return { prova: prova, resultat: null, error: err };
+    }
+  });
+
+  const logs = ["[intèrpret Java integrat] Execució real del codi", ""];
   let score = 0;
-  let maxScore = 1.0;
-  let logs = [];
   let feedback = [];
 
-  const clean = code.replace(/\/\*[\s\S]*?\*\/|\/\/.*/g, ""); // sense comentaris per a sintaxi
+  const errors = resultats.filter(function (r) { return r.error; });
+  if (errors.length) {
+    logs.push("✘ No s'ha pogut executar el programa:");
+    errors.forEach(function (r) {
+      logs.push("  " + r.prova.etiqueta + " → " +
+        (r.error.linia ? "línia " + r.error.linia + ": " : "") + r.error.message);
+    });
+    score = 0;
+    feedback.push("Corregix els errors d'execució i torna a prémer «Executar i Corregir codi».");
+  } else {
+    resultats.forEach(function (r) {
+      logs.push("▸ " + r.prova.etiqueta + (r.prova.inputs.length ? "  ·  dades: " + r.prova.inputs.join(", ") : ""));
+      const sortida = r.resultat.sortida;
+      logs.push(sortida.length ? sortida.replace(/\n$/, "") : "(la programa no ha mostrat res)");
+      logs.push("");
+    });
 
-  if (exId === "ex-ra01") {
-    maxScore = 1.0;
-    logs.push("[javac] Compilant Main.java amb OpenJDK 21...");
-    
-    // Criteris de la rúbrica:
-    // 1. int declarat (0.25)
-    const hasInt = /int\s+[a-zA-Z0-9_]+\s*=/i.test(code);
-    // 2. Suma a + b (0.25)
-    const hasPlus = /\+\s*[a-zA-Z0-9_]+/i.test(code);
-    // 3. System.out.println (0.25)
-    const hasPrint = /System\.out\.println\s*\(/i.test(code);
-    // 4. Comentari // (0.25)
-    const hasComment = /\/\/.+/i.test(code);
+    const primera = resultats[0].resultat;
+    const ctx = {
+      code: code,
+      net: net,
+      inputs: entrades,
+      sortida: resultats.map(function (r) { return r.resultat.sortida; }).join("\n"),
+      metodes: primera.metodes,
+      resultats: resultats
+    };
 
-    if (hasInt) { score += 0.25; logs.push("  ✔ Criteri 1: Variables enteres (int) declarades correctament (+0.25)"); }
-    else { feedback.push("❌ Cal que declares almenys dues variables enteres amb 'int'. Exemple: int a = 5; int b = 7;"); }
-
-    if (hasPlus) { score += 0.25; logs.push("  ✔ Criteri 2: Operació de suma efectuada amb '+' (+0.25)"); }
-    else { feedback.push("❌ No s'ha detectat l'operador '+' sumant les dues variables."); }
-
-    if (hasPrint) { score += 0.25; logs.push("  ✔ Criteri 3: Resultat mostrat per pantalla amb System.out.println (+0.25)"); }
-    else { feedback.push("❌ Recorda imprimir el resultat per pantalla amb 'System.out.println(...)'."); }
-
-    if (hasComment) { score += 0.25; logs.push("  ✔ Criteri 4: Comentari explicatiu afegit amb '//' (+0.25)"); }
-    else { feedback.push("❌ L'enunciat demana explícitament un comentari d'una línia amb '//' que explique què fa el programa."); }
-
-    logs.push("\n[java] Execució simulada de Main:");
-    logs.push("La suma és 12");
-
-    appState.scores.ra01.code = score;
-  }
-  else if (exId === "ex-ra02-basic") {
-    maxScore = 1.0;
-    logs.push("[javac] Compilant Main.java...");
-
-    // Criteris de la rúbrica RA02 bàsic (5 x 0.2):
-    // Scanner, nextLine, nextInt, 2026 - edat, eixida correcta
-    const hasScanner = /Scanner\s+[a-zA-Z0-9_]+\s*=\s*new\s+Scanner/i.test(code);
-    const hasNextLine = /\.nextLine\s*\(\)/i.test(code);
-    const hasNextInt = /\.nextInt\s*\(\)/i.test(code);
-    const hasYearCalc = /2026\s*-\s*[a-zA-Z0-9_]+/i.test(code) || /[a-zA-Z0-9_]+\s*-\s*edat/i.test(code);
-    const hasCorrectOut = /Hola/i.test(code) && /nàixer|naixer/i.test(code);
-
-    if (hasScanner) { score += 0.2; logs.push("  ✔ Scanner instanciat (+0.2)"); }
-    else { feedback.push("❌ Falta instanciar l'objecte Scanner: Scanner sc = new Scanner(System.in);"); }
-
-    if (hasNextLine) { score += 0.2; logs.push("  ✔ Lectura de nom amb nextLine() (+0.2)"); }
-    else { feedback.push("❌ Utilitza sc.nextLine() per llegir el nom de l'usuari."); }
-
-    if (hasNextInt) { score += 0.2; logs.push("  ✔ Lectura d'edat amb nextInt() (+0.2)"); }
-    else { feedback.push("❌ Utilitza sc.nextInt() per llegir l'edat com a enter."); }
-
-    if (hasYearCalc) { score += 0.2; logs.push("  ✔ Càlcul de l'any de naixement (2026 - edat) (+0.2)"); }
-    else { feedback.push("❌ Recorda calcular l'any restant l'edat a 2026: int any = 2026 - edat;"); }
-
-    if (hasCorrectOut) { score += 0.2; logs.push("  ✔ Missatge final formatejat correctament (+0.2)"); }
-    else { feedback.push("❌ El missatge ha de seguir el format: \"Hola <nom>, vas nàixer l'any <any>.\""); }
-
-    logs.push("\n[java] Execució amb dades de prova:");
-    logs.push("Nom: Laura\nEdat: 19\nHola Laura, vas nàixer l'any 2007.");
-
-    appState.scores.ra02.codeBasic = score;
-  }
-  else if (exId === "ex-ra02-adv") {
-    maxScore = 2.0;
-    logs.push("[javac] Compilant Main.java amb funcions auxiliars...");
-
-    // Criteris RA02 avançat (5 x 0.4 = 2.0 pts):
-    // 1. funció getLongitud()
-    const hasGetLong = /int\s+getLongitud\s*\(\s*String\s+[a-zA-Z0-9_]+\s*\)/i.test(code);
-    // 2. .length()
-    const hasDotLength = /\.length\s*\(\)/i.test(code);
-    // 3. funció compararLongitud()
-    const hasCompLong = /int\s+compararLongitud\s*\(\s*int\s+[a-zA-Z0-9_]+,\s*int\s+[a-zA-Z0-9_]+\s*\)/i.test(code);
-    // 4. ús de return
-    const hasReturns = (code.match(/return\s+/g) || []).length >= 2;
-    // 5. Mostra nom més llarg a main
-    const hasMainCall = /compararLongitud\s*\(/i.test(code) && /getLongitud\s*\(/i.test(code);
-
-    if (hasGetLong) { score += 0.4; logs.push("  ✔ Funció getLongitud(String) declarada (+0.4)"); }
-    else { feedback.push("❌ Declara la funció: public static int getLongitud(String text)"); }
-
-    if (hasDotLength) { score += 0.4; logs.push("  ✔ Ús de .length() per obtenir la mida (+0.4)"); }
-    else { feedback.push("❌ Utilitza text.length() per obtenir el número de caràcters."); }
-
-    if (hasCompLong) { score += 0.4; logs.push("  ✔ Funció compararLongitud(int, int) implementada (+0.4)"); }
-    else { feedback.push("❌ Declara la funció: public static int compararLongitud(int l1, int l2)"); }
-
-    if (hasReturns) { score += 0.4; logs.push("  ✔ Funcions utilitzen instruccions 'return' (+0.4)"); }
-    else { feedback.push("❌ Les funcions han de retornar el resultat amb 'return', sense fer System.out.println directe."); }
-
-    if (hasMainCall) { score += 0.4; logs.push("  ✔ El main crida a les funcions i mostra el nom guanyador (+0.4)"); }
-    else { feedback.push("❌ Al mètode main has de cridar a getLongitud() per a cadascun i a compararLongitud() per esbrinar el més llarg."); }
-
-    logs.push("\n[java] Banc de proves d'execució:");
-    logs.push("getLongitud(\"Marta\") -> 5");
-    logs.push("getLongitud(\"Alejandro\") -> 9");
-    logs.push("compararLongitud(5, 9) -> 9");
-    logs.push("El nom més llarg és: Alejandro");
-
-    appState.scores.ra02.codeAdv = score;
-  }
-  else if (exId === "ex-ra03") {
-    maxScore = 1.0;
-    logs.push("[javac] Compilant estructures de control (RA03)...");
-
-    const hasIfPos = /if\s*\(\s*[a-zA-Z0-9_]+\s*>\s*0\s*\)/i.test(code);
-    const hasElseIf = /else\s+if\s*\(\s*[a-zA-Z0-9_]+\s*<\s*0\s*\)/i.test(code);
-    const hasElse = /else\b/i.test(code);
-    const hasWords = /Positiu/i.test(code) && /Negatiu/i.test(code) && /Zero/i.test(code);
-
-    if (hasIfPos) { score += 0.25; logs.push("  ✔ Condició positiva 'num > 0' (+0.25)"); }
-    else { feedback.push("❌ Comprova si el número és major que 0 amb: if (num > 0)"); }
-
-    if (hasElseIf) { score += 0.25; logs.push("  ✔ Condició negativa 'else if (num < 0)' (+0.25)"); }
-    else { feedback.push("❌ Comprova la condició alternativa negativa amb: else if (num < 0)"); }
-
-    if (hasElse) { score += 0.25; logs.push("  ✔ Bloc per defecte 'else' per al zero (+0.25)"); }
-    else { feedback.push("❌ Afegeix el cas per defecte 'else' per al número zero."); }
-
-    if (hasWords) { score += 0.25; logs.push("  ✔ Missatges de Positiu, Negatiu i Zero correctes (+0.25)"); }
-    else { feedback.push("❌ Assegura't d'imprimir exactament les paraules: 'Positiu', 'Negatiu' i 'Zero'."); }
-
-    logs.push("\n[java] Testeigs de comprovació:");
-    logs.push("  Test 1: entrada = 15  -> Sortida: Positiu ✔");
-    logs.push("  Test 2: entrada = -4  -> Sortida: Negatiu ✔");
-    logs.push("  Test 3: entrada = 0   -> Sortida: Zero ✔");
-
-    appState.scores.ra03.code = score;
-  }
-  else if (exId === "ex-ra06") {
-    maxScore = 1.0;
-    logs.push("[javac] Compilant vector i bucles (RA06)...");
-
-    const hasArray = /int\s*\[\s*\]\s*[a-zA-Z0-9_]+\s*=\s*new\s+int\s*\[\s*5\s*\]/i.test(code) || /int\s+[a-zA-Z0-9_]+\s*\[\s*\]\s*=\s*new\s+int\s*\[\s*5\s*\]/i.test(code);
-    const hasFor = /for\s*\(\s*int\s+[a-zA-Z0-9_]+\s*=\s*0/i.test(code);
-    const hasMaxMin = /max\b/i.test(code) && /min\b/i.test(code);
-    const hasComps = />\s*max/i.test(code) || /<\s*min/i.test(code);
-    const hasPrints = /Màxim|Maxim/i.test(code) && /Mínim|Minim/i.test(code);
-
-    if (hasArray) { score += 0.2; logs.push("  ✔ Vector de 5 enters int[5] declarat (+0.2)"); }
-    else { feedback.push("❌ Declara un vector de mida 5 amb: int[] numeros = new int[5];"); }
-
-    if (hasFor) { score += 0.2; logs.push("  ✔ Bucle 'for' per a la lectura dels valors (+0.2)"); }
-    else { feedback.push("❌ Utilitza un bucle for (int i = 0; i < 5; i++) per demanar els 5 valors."); }
-
-    if (hasMaxMin) { score += 0.2; logs.push("  ✔ Variables 'max' i 'min' inicialitzades (+0.2)"); }
-    else { feedback.push("❌ Crea i inicialitza dues variables max i min amb el primer element: int max = numeros[0];"); }
-
-    if (hasComps) { score += 0.2; logs.push("  ✔ Condicions de comparació de màxim i mínim (+0.2)"); }
-    else { feedback.push("❌ Compara dins d'un bucle si numeros[i] > max i si numeros[i] < min."); }
-
-    if (hasPrints) { score += 0.2; logs.push("  ✔ Resultats de màxim i mínim mostrats (+0.2)"); }
-    else { feedback.push("❌ Imprimeix el valor del màxim i del mínim al final."); }
-
-    logs.push("\n[java] Testeig amb vector d'exemple: [12, 4, 99, 1, 35]");
-    logs.push("Màxim: 99");
-    logs.push("Mínim: 1");
-
-    appState.scores.ra06.code = score;
+    const criteris = cfg.criteris(ctx);
+    criteris.forEach(function (c) {
+      if (c.ok) { score += c.punts; logs.push("  ✔ " + c.text + "  (+" + c.punts.toFixed(2) + ")"); }
+      else { logs.push("  ✘ " + c.text); feedback.push(c.text); }
+    });
   }
 
-  // Resultat a la consola
-  logs.push(`\n🏁 Qualificació obtinguda: ${score.toFixed(2)} / ${maxScore.toFixed(2)} punts`);
+  logs.push("🏁 Qualificació: " + score.toFixed(2) + " / " + cfg.max.toFixed(2) + " punts");
   termBody.textContent = logs.join("\n");
 
-  // Retroalimentació pedagògica
-  if (feedback.length === 0) {
+  if (!feedback.length) {
     feedBox.className = "pedagogical-feedback feedback-correct";
-    feedBox.innerHTML = `<strong>🎉 Excel·lent treball!</strong> Has aconseguit la màxima puntuació d'aquest exercici (${score.toFixed(2)} / ${maxScore.toFixed(2)}). El teu codi compleix tots els criteris de qualitat i correcció de la rúbrica oficial.`;
+    feedBox.innerHTML = "<strong>🎉 Molt bé!</strong> El teu codi s'ha executat correctament i compleix tots els criteris (" +
+      score.toFixed(2) + " / " + cfg.max.toFixed(2) + ").";
   } else {
     feedBox.className = "pedagogical-feedback feedback-incorrect";
-    feedBox.innerHTML = `<strong>⚠️ Correcció i millores necessàries (${score.toFixed(2)} / ${maxScore.toFixed(2)} pts):</strong><br><ul>` +
-      feedback.map(f => `<li>${f}</li>`).join("") + `</ul>`;
+    feedBox.innerHTML = "<strong>🔍 Revisa aquests punts (" + score.toFixed(2) + " / " + cfg.max.toFixed(2) + "):</strong><br><ul>" +
+      feedback.map(function (f) { return "<li>" + f + "</li>"; }).join("") + "</ul>";
   }
+
+  appState.scores[cfg.ra][clau] = Math.round(score * 100) / 100;
+}
+
+// Compatibilitat amb el codi anterior
+function evalJavaExercise(exId, code, termBody, feedBox, card) {
+  avaluarExerciciJava(exId, code, termBody, feedBox, card);
 }

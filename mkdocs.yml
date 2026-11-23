@@ -1,6 +1,7 @@
 site_name: Simulacres d'examen PRG 25/26
 site_description: Simulacres d'examen de Programació (PRG) DAM/DAW
 site_author: María Bañuls Ribes / Sergio Pérez Rubio
+site_url: https://Mara1978-val.github.io/SimuladorExamenJava/
 
 theme:
   name: material

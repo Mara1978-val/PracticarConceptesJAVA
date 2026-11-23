@@ -132,40 +132,56 @@
 
     parsePrograma() {
       const metodes = {};
+      const classes = {};
       // Ignorem les sentències import / package
       while (this.peek().t === "id" && ["import", "package"].includes(this.peek().v)) {
         while (this.peek().v !== ";" && this.peek().t !== "eof") this.next();
         this.match("op", ";");
       }
-      while (this.match("id", "public")) { /* opcional */ }
-      this.expect("id", "class");
-      this.expect("id", "Main");
-      this.expect("op", "{");
-      while (!this.match("op", "}")) {
-        if (this.peek().t === "eof") throw error(this.peek().l, "La classe Main no està tancada");
-        const m = this.parseMetode();
-        metodes[m.nom] = m;
+      while (this.peek().t !== "eof") {
+        while (this.peek().t === "id" && MODIFICADORS.has(this.peek().v)) this.next();
+        this.expect("id", "class");
+        const nomClasse = this.expect("id").v;
+        this.expect("op", "{");
+        const classe = { camps: {}, metodes: {}, constructor: null };
+        while (!this.match("op", "}")) {
+          if (this.peek().t === "eof") throw error(this.peek().l, "Classe " + nomClasse + " sense tancar");
+          while (this.peek().t === "id" && MODIFICADORS.has(this.peek().v)) this.next();
+          let tipus, nomMembre;
+          if (this.peek().t === "id" && this.peek().v === nomClasse && this.peek(1).v === "(") {
+            nomMembre = this.next().v; // constructor: no té tipus de retorn
+            tipus = "void";
+          } else {
+            tipus = this.parseTipus();
+            nomMembre = this.expect("id").v;
+          }
+          if (this.match("op", "(")) {
+            const params = [];
+            if (!this.match("op", ")")) {
+              do {
+                const pt = this.parseTipus();
+                const pn = this.expect("id").v;
+                params.push({ tipus: pt, nom: pn });
+              } while (this.match("op", ","));
+              this.expect("op", ")");
+            }
+            const cos = this.parseBloc();
+            const metode = { nom: nomMembre, tipus, params, cos };
+            if (nomMembre === nomClasse) classe.constructor = metode;
+            else classe.metodes[nomMembre] = metode;
+          } else {
+            let init = null;
+            if (this.match("op", "=")) init = this.parseExpressio();
+            this.expect("op", ";");
+            classe.camps[nomMembre] = { tipus, init };
+          }
+        }
+        classes[nomClasse] = classe;
+        TIPUS.add(nomClasse);
+        Object.assign(metodes, classe.metodes);
       }
       if (!metodes.main) throw error(1, "No s'ha trobat el mètode main(String[] args)");
-      return metodes;
-    }
-
-    parseMetode() {
-      while (this.peek().t === "id" && MODIFICADORS.has(this.peek().v)) this.next();
-      const tipus = this.parseTipus();
-      const nom = this.expect("id").v;
-      this.expect("op", "(");
-      const params = [];
-      if (!this.match("op", ")")) {
-        do {
-          const pt = this.parseTipus();
-          const pn = this.expect("id").v;
-          params.push({ tipus: pt, nom: pn });
-        } while (this.match("op", ","));
-        this.expect("op", ")");
-      }
-      const cos = this.parseBloc();
-      return { nom, tipus, params, cos };
+      return { metodes, classes };
     }
 
     parseTipus() {
@@ -325,10 +341,18 @@
             return { k: "scanner" };
           }
           const tipus = this.expect("id").v;
-          this.expect("op", "[");
-          const mida = this.parseExpressio();
-          this.expect("op", "]");
-          return { k: "arraynou", tipus, mida };
+          if (this.match("op", "[")) {
+            const mida = this.parseExpressio();
+            this.expect("op", "]");
+            return { k: "arraynou", tipus, mida };
+          }
+          this.expect("op", "(");
+          const args = [];
+          if (!this.match("op", ")")) {
+            do { args.push(this.parseExpressio()); } while (this.match("op", ","));
+            this.expect("op", ")");
+          }
+          return { k: "newobj", tipus, args };
         }
         return { k: "var", nom: t.v };
       }
@@ -375,8 +399,15 @@
       if (node.nom === "System") return SISTEMA;
       if (node.nom === "Math") return MATHS;
       const s = buscar(scope, node.nom);
-      if (!s) throw error(env.linia, "La variable '" + node.nom + "' no està declarada");
-      return s.vars[node.nom];
+      if (s) return s.vars[node.nom];
+      // Accés implícit a un camp de l'objecte dins d'un mètode
+      let sc = scope;
+      while (sc) {
+        const obj = sc.vars.this;
+        if (obj && obj.__obj && Object.prototype.hasOwnProperty.call(obj.camps, node.nom)) return obj.camps[node.nom];
+        sc = sc.pare;
+      }
+      throw error(env.linia, "La variable '" + node.nom + "' no està declarada");
     }
     if (node.k === "index") {
       const arr = avaluar(node.arr, scope, env);
@@ -388,6 +419,7 @@
     if (node.k === "membre") {
       const obj = avaluar(node.obj, scope, env);
       if (obj === SISTEMA && node.nom === "out") return SORTIDA;
+      if (obj && obj.__obj && Object.prototype.hasOwnProperty.call(obj.camps, node.nom)) return obj.camps[node.nom];
       if (typeof obj === "string" && node.nom === "length") return obj.length;
       if (Array.isArray(obj) && node.nom === "length") return obj.length;
       if (obj && obj.__scanner && node.nom === "in") return obj;
@@ -407,6 +439,10 @@
       if (!Array.isArray(arr) || idx < 0 || idx >= arr.length)
         throw error(env.linia, "Índex fora del vector: " + idx);
       arr[idx] = valor;
+    } else if (objectiu.k === "membre") {
+      const obj = avaluar(objectiu.obj, scope, env);
+      if (!obj || !obj.__obj) throw error(env.linia, "No es pot assignar a aquest membre");
+      obj.camps[objectiu.nom] = valor;
     } else throw error(env.linia, "Assignació no vàlida");
   }
 
@@ -421,6 +457,20 @@
         if (f.nom === "println") { env.sortida.push(valor + "\n"); env.stats.printlns++; }
         else if (f.nom === "print") { env.sortida.push(valor); env.stats.prints++; }
         else throw error(env.linia, "System.out." + f.nom + " no està implementat");
+        return undefined;
+      }
+      if (obj && obj.__obj) {
+        const classe = env.classes[obj.classe];
+        const metode = classe && classe.metodes[f.nom];
+        if (!metode) throw error(env.linia, "El mètode '" + f.nom + "' no existeix a la classe " + obj.classe);
+        const scopeMetode = { vars: { this: obj }, pare: env.globals };
+        metode.params.forEach((p, i) => { scopeMetode.vars[p.nom] = args[i]; });
+        try {
+          executarBloc(metode.cos, scopeMetode, env);
+        } catch (senyal) {
+          if (senyal && senyal.__return) return senyal.valor;
+          throw senyal;
+        }
         return undefined;
       }
       if (obj && obj.__scanner) {
@@ -477,6 +527,26 @@
       case "var": case "index": case "membre": return llegirVar(n, scope, env);
       case "scanner":
         return { __scanner: true, dades: env.entrada.slice(), pos: 0 };
+      case "newobj": {
+        const classe = env.classes[n.tipus];
+        if (!classe) throw error(env.linia, "La classe '" + n.tipus + "' no existeix");
+        const obj = { __obj: true, classe: n.tipus, camps: {} };
+        Object.keys(classe.camps).forEach((nom) => {
+          const camp = classe.camps[nom];
+          obj.camps[nom] = camp.init ? avaluar(camp.init, scope, env) : 0;
+        });
+        const args = n.args.map((a) => avaluar(a, scope, env));
+        if (classe.constructor) {
+          const scopeCtor = { vars: { this: obj }, pare: env.globals };
+          classe.constructor.params.forEach((p, i) => { scopeCtor.vars[p.nom] = args[i]; });
+          try {
+            executarBloc(classe.constructor.cos, scopeCtor, env);
+          } catch (senyal) {
+            if (!(senyal && senyal.__return)) throw senyal;
+          }
+        }
+        return obj;
+      }
       case "arraynou": {
         const mida = Math.trunc(Number(avaluar(n.mida, scope, env)));
         if (mida < 0 || mida > 10000) throw error(env.linia, "Mida de vector no vàlida: " + mida);
@@ -598,9 +668,11 @@
   function executar(codi, dadesEntrada) {
     const tokens = tokenitzar(codi);
     const parser = new Parser(tokens);
-    const metodes = parser.parsePrograma();
+    const programa = parser.parsePrograma();
+    const metodes = programa.metodes;
     const env = {
       metodes,
+      classes: programa.classes,
       globals: { vars: {}, pare: null },
       sortida: [],
       entrada: Array.isArray(dadesEntrada) ? dadesEntrada.slice() : [],
@@ -615,6 +687,7 @@
       linies: env.sortida.map((x) => x.replace(/\n$/, "")),
       error: null,
       metodes: Object.keys(metodes),
+      classes: Object.keys(programa.classes),
       stats: env.stats,
     };
   }

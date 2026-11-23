@@ -39,6 +39,7 @@ extra_css:
   - stylesheets/custom.css
 
 extra_javascript:
+  - javascripts/java-interpreter.js
   - javascripts/simulator.js
 
 markdown_extensions:

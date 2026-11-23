@@ -22,6 +22,21 @@ Repositori a GitHub:
 
 ---
 
+## ⚙️ Execució de codi Java
+
+El botó **«Executar i Corregir codi»** fa servir un **intèrpret del subconjunt Java**
+integrat a la pròpia web (`docs/javascripts/java-interpreter.js`): **executa de veritat**
+el codi escrit per l'alumne amb les dades d'entrada indicades a cada exercici i mostra
+la sortida real a la consola. No hi ha sortides inventades ni cal connexió a internet.
+
+- Els exercicis amb `Scanner` tenen un camp **«Dades d'entrada»** editable.
+- RA03 es prova automàticament amb `15`, `-4` i `0`.
+- La qualificació combina el resultat real de l'execució amb els criteris de la rúbrica.
+- Si el codi té errors, la consola mostra el número de línia i el missatge.
+- En modificar el codi després d'executar-lo, la puntuació anterior es posa a zero.
+
+---
+
 ## 💻 Com actualitzar el lloc web
 
 Quan vulguis fer canvis als enunciats, solucions o afegir nous exàmens:

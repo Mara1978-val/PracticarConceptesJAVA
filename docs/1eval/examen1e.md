@@ -165,6 +165,7 @@ public class Main {
     }
 }
     </textarea>
+    <p class="java-run-note">ℹ️ Aquest exercici no necessita dades d'entrada. L'execució mostra la sortida real del teu codi.</p>
     <div class="java-ex-actions">
       <button type="button" class="btn-run">▶ Executar i Corregir codi</button>
       <button type="button" class="btn-reset">🔄 Reiniciar codi</button>
@@ -317,6 +318,11 @@ public class Main {
     }
 }
     </textarea>
+    <div class="java-input-panel">
+      <label for="in-ra02b">⌨️ Dades d'entrada (una dada per línia: nom i edat)</label>
+      <textarea id="in-ra02b" class="java-input-data" rows="2" spellcheck="false">Laura
+19</textarea>
+    </div>
     <div class="java-ex-actions">
       <button type="button" class="btn-run">▶ Executar i Corregir codi</button>
       <button type="button" class="btn-reset">🔄 Reiniciar codi</button>
@@ -399,6 +405,11 @@ public class Main {
     }
 }
     </textarea>
+    <div class="java-input-panel">
+      <label for="in-ra02a">⌨️ Dades d'entrada (dos noms, un per línia)</label>
+      <textarea id="in-ra02a" class="java-input-data" rows="2" spellcheck="false">Marta
+Alejandro</textarea>
+    </div>
     <div class="java-ex-actions">
       <button type="button" class="btn-run">▶ Executar i Corregir codi</button>
       <button type="button" class="btn-reset">🔄 Reiniciar codi</button>
@@ -582,6 +593,7 @@ public class Main {
     }
 }
     </textarea>
+    <p class="java-run-note">ℹ️ Aquest exercici es prova automàticament amb tres valors: <code>15</code>, <code>-4</code> i <code>0</code>.</p>
     <div class="java-ex-actions">
       <button type="button" class="btn-run">▶ Executar i Corregir codi</button>
       <button type="button" class="btn-reset">🔄 Reiniciar codi</button>
@@ -756,6 +768,14 @@ public class Main {
     }
 }
     </textarea>
+    <div class="java-input-panel">
+      <label for="in-ra06">⌨️ Dades d'entrada (5 números, un per línia)</label>
+      <textarea id="in-ra06" class="java-input-data" rows="3" spellcheck="false">12
+4
+99
+1
+35</textarea>
+    </div>
     <div class="java-ex-actions">
       <button type="button" class="btn-run">▶ Executar i Corregir codi</button>
       <button type="button" class="btn-reset">🔄 Reiniciar codi</button>

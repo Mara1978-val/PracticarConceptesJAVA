@@ -1,7 +1,7 @@
 /**
  * SIMULADOR D'EXÀMENS INTERACTIU - JAVA DAM (PRG)
  * Autora: Mara Vañó
- * Motor de correcció de tests interactius i avaluació de codi Java
+ * Motor de correcció de tests i avaluació de codi Java amb intèrpret integrat.
  */
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -10,48 +10,39 @@ document.addEventListener("DOMContentLoaded", function () {
   initJavaCodeRunners();
 });
 
-// Estat global de puntuació
+const RAS = ["ra1", "ra2", "ra3", "ra4", "ra5", "ra6"];
+
 const appState = {
   scores: {
-    ra01: { test: 0, code: 0, max: 2, min: 1 },
-    ra02: { test: 0, codeBasic: 0, codeAdv: 0, max: 4, min: 2 },
-    ra03: { test: 0, code: 0, max: 2, min: 1 },
-    ra06: { test: 0, code: 0, max: 2, min: 1 },
+    ra1: { test: 0, code: 0, max: 1.5, min: 0.75 },
+    ra2: { test: 0, code: 0, max: 1.5, min: 0.75 },
+    ra3: { test: 0, code: 0, max: 1.5, min: 0.75 },
+    ra4: { test: 0, code: 0, max: 2.0, min: 1.0 },
+    ra5: { test: 0, code: 0, max: 1.5, min: 0.75 },
+    ra6: { test: 0, code: 0, max: 2.0, min: 1.0 },
   },
   quizAnswers: {},
 };
 
-// --------------------------------------------------------------------------
-// 1. GESTIÓ DEL DASHBOARD DE PUNTUACIÓ
-// --------------------------------------------------------------------------
-function initScoreDashboard() {
-  updateDashboardUI();
-}
+function initScoreDashboard() { updateDashboardUI(); }
 
 function updateDashboardUI() {
-  const ra01Total = (appState.scores.ra01.test + appState.scores.ra01.code).toFixed(2);
-  const ra02Total = (appState.scores.ra02.test + appState.scores.ra02.codeBasic + appState.scores.ra02.codeAdv).toFixed(2);
-  const ra03Total = (appState.scores.ra03.test + appState.scores.ra03.code).toFixed(2);
-  const ra06Total = (appState.scores.ra06.test + appState.scores.ra06.code).toFixed(2);
-
-  const grandTotal = (parseFloat(ra01Total) + parseFloat(ra02Total) + parseFloat(ra03Total) + parseFloat(ra06Total)).toFixed(2);
-
+  let grandTotal = 0;
+  RAS.forEach(function (ra) {
+    const dades = appState.scores[ra];
+    const total = (dades.test + dades.code).toFixed(2);
+    grandTotal += parseFloat(total);
+    updatePillUI(ra, total, dades.max, dades.min);
+  });
   const totalEl = document.getElementById("dash-total-score");
-  if (totalEl) totalEl.textContent = `${grandTotal} / 10`;
-
-  updatePillUI("ra01", ra01Total, 2, 1);
-  updatePillUI("ra02", ra02Total, 4, 2);
-  updatePillUI("ra03", ra03Total, 2, 1);
-  updatePillUI("ra06", ra06Total, 2, 1);
+  if (totalEl) totalEl.textContent = grandTotal.toFixed(2) + " / 10";
 }
 
 function updatePillUI(raKey, currentScore, maxScore, minPass) {
   const scoreEl = document.getElementById(`dash-${raKey}-score`);
   const tagEl = document.getElementById(`dash-${raKey}-tag`);
   if (!scoreEl || !tagEl) return;
-
   scoreEl.textContent = `${currentScore} / ${maxScore}`;
-
   const num = parseFloat(currentScore);
   if (num === 0) {
     tagEl.className = "ra-status-tag status-pending";
@@ -65,12 +56,9 @@ function updatePillUI(raKey, currentScore, maxScore, minPass) {
   }
 }
 
-// --------------------------------------------------------------------------
-// 2. SISTEMA DE TESTS INTERACTIUS AMB EXPLICACIONS
-// --------------------------------------------------------------------------
 const QUIZ_DATA = {
   // RA01
-  "ra01-q1": {
+  "ra1-q1": {
     correct: "C",
     explanations: {
       A: "Incorrecte: 'int' és un tipus primitiu bàsic (enter de 32 bits).",
@@ -79,7 +67,7 @@ const QUIZ_DATA = {
       D: "Incorrecte: 'char' és un tipus primitiu bàsic per a caràcters simples."
     }
   },
-  "ra01-q2": {
+  "ra1-q2": {
     correct: "B",
     explanations: {
       A: "Incorrecte: El símbol '#' s'utilitza en Python o Bash, no en Java.",
@@ -88,7 +76,7 @@ const QUIZ_DATA = {
       D: "Incorrecte: '--' és un operador de decrement en Java, no un comentari."
     }
   },
-  "ra01-q3": {
+  "ra1-q3": {
     correct: "D",
     explanations: {
       A: "Incorrecte: '=' és l'operador d'assignació, no de comparació.",
@@ -97,7 +85,7 @@ const QUIZ_DATA = {
       D: "Correcte! En Java, per comparar el contingut de dues cadenes String s'utilitza el mètode .equals()."
     }
   },
-  "ra01-q4": {
+  "ra1-q4": {
     correct: "C",
     explanations: {
       A: "Incorrecte: Els identificadors en Java no poden començar per un dígit (3valor és il·legal).",
@@ -106,7 +94,7 @@ const QUIZ_DATA = {
       D: "Incorrecte: Els noms de variables no poden contenir espais en blanc."
     }
   },
-  "ra01-q5": {
+  "ra1-q5": {
     correct: "C",
     explanations: {
       A: "Incorrecte: '3' és un literal de tipus 'char' (caràcter, delimitat per cometes simples).",
@@ -117,7 +105,7 @@ const QUIZ_DATA = {
   },
 
   // RA02
-  "ra02-q1": {
+  "ra2-q1": {
     correct: "C",
     explanations: {
       A: "Incorrecte: System.read() no és la instrucció per mostrar text.",
@@ -126,16 +114,16 @@ const QUIZ_DATA = {
       D: "Incorrecte: Console.write() pertany a C# o altres llenguatges, no a l'estàndard de Java."
     }
   },
-  "ra02-q2": {
+  "ra2-q2": {
     correct: "C",
     explanations: {
-      A: "Incorrecte: System.out.println() és per mostrar per pantalla, no per llegir.",
-      B: "Incorrecte: keyboard.read() no és part de la biblioteca estàndard de Java.",
-      C: "Correcte! Amb un objecte Scanner configurat amb System.in, el mètode scanner.nextLine() llegeix una línia de text des del teclat.",
-      D: "Incorrecte: console.input() no és la sintaxi estàndard de Java."
+      A: "Incorrecte: 'function' no és paraula clau de Java (és pròpia d'altres llenguatges).",
+      B: "Incorrecte: 'struct' és pròpia de C o C#, no de Java.",
+      C: "Correcte! Les classes es declaren amb la paraula clau 'class', per exemple: class Persona { ... }.",
+      D: "Incorrecte: 'interface' declara una interfície, no una classe."
     }
   },
-  "ra02-q3": {
+  "ra2-q3": {
     correct: "C",
     explanations: {
       A: "Incorrecte: Per a booleans s'utilitza nextBoolean().",
@@ -144,7 +132,7 @@ const QUIZ_DATA = {
       D: "Incorrecte: Per a String s'utilitza next() o nextLine()."
     }
   },
-  "ra02-q4": {
+  "ra2-q4": {
     correct: "C",
     explanations: {
       A: "Incorrecte: System.out.println només imprimeix dades.",
@@ -153,7 +141,7 @@ const QUIZ_DATA = {
       D: "Incorrecte: input() pertany a Python."
     }
   },
-  "ra02-q5": {
+  "ra2-q5": {
     correct: "B",
     explanations: {
       A: "Incorrecte: En Java pur cal indicar la classe i flux 'System.out.println'.",
@@ -164,7 +152,7 @@ const QUIZ_DATA = {
   },
 
   // RA03
-  "ra03-q1": {
+  "ra3-q1": {
     correct: "B",
     explanations: {
       A: "Incorrecte: 'for' és un bucle de repetició, no una condició simple.",
@@ -173,7 +161,7 @@ const QUIZ_DATA = {
       D: "Incorrecte: 'String' és una classe per a cadenes de text."
     }
   },
-  "ra03-q2": {
+  "ra3-q2": {
     correct: "B",
     explanations: {
       A: "Incorrecte: En Java la condició sempre ha d'anar entre parèntesis ().",
@@ -182,7 +170,7 @@ const QUIZ_DATA = {
       D: "Incorrecte: 'repeat' no és una paraula reservada en Java."
     }
   },
-  "ra03-q3": {
+  "ra3-q3": {
     correct: "A",
     explanations: {
       A: "Correcte! Comença en 1, repeteix mentre i <= 10, i augmenta d'1 en 1 amb i++.",
@@ -191,7 +179,7 @@ const QUIZ_DATA = {
       D: "Incorrecte: 'while (10)' no compila en Java perquè la condició ha de ser de tipus boolean."
     }
   },
-  "ra03-q4": {
+  "ra3-q4": {
     correct: "B",
     explanations: {
       A: "Incorrecte: 'if' no repeteix, només tria si executar una vegada o no.",
@@ -200,7 +188,7 @@ const QUIZ_DATA = {
       D: "Incorrecte: 'String' és text."
     }
   },
-  "ra03-q5": {
+  "ra3-q5": {
     correct: "A",
     explanations: {
       A: "Correcte! 'if' executa el bloc si la condició és vertadera i 'else' l'alternativa si és falsa.",
@@ -211,7 +199,7 @@ const QUIZ_DATA = {
   },
 
   // RA06
-  "ra06-q1": {
+  "ra6-q1": {
     correct: "A",
     explanations: {
       A: "Correcte! 'int numeros[];' o 'int[] numeros;' són les formes vàlides de declarar un array d'enters en Java.",
@@ -220,7 +208,7 @@ const QUIZ_DATA = {
       D: "Incorrecte: Manca el nom de la variable."
     }
   },
-  "ra06-q2": {
+  "ra6-q2": {
     correct: "A",
     explanations: {
       A: "Correcte! En Java (i a la majoria de llenguatges de programació), els vectors estan indexats començant en 0.",
@@ -229,7 +217,7 @@ const QUIZ_DATA = {
       D: "Incorrecte: Sempre és fix en 0."
     }
   },
-  "ra06-q3": {
+  "ra6-q3": {
     correct: "B",
     explanations: {
       A: "Incorrecte: java.random no és el paquet de col·leccions.",
@@ -238,7 +226,7 @@ const QUIZ_DATA = {
       D: "Incorrecte: El paquet és java.util."
     }
   },
-  "ra06-q4": {
+  "ra6-q4": {
     correct: "A",
     explanations: {
       A: "Correcte! El mètode .add(element) afegeix elements al final de la llista.",
@@ -247,7 +235,7 @@ const QUIZ_DATA = {
       D: "Incorrecte: put() s'utilitza en Map (clau-valor)."
     }
   },
-  "ra06-q5": {
+  "ra6-q5": {
     correct: "C",
     explanations: {
       A: "Incorrecte: 'if' avalua una sola condició.",
@@ -255,13 +243,106 @@ const QUIZ_DATA = {
       C: "Correcte! El bucle 'for' (tradicional o for-each) permet recórrer ordenadament tots els elements del vector.",
       D: "Incorrecte: 'new' crea l'array a la memòria heap."
     }
-  }
+  },
+  // RA4 — Classes i programació orientada a objectes
+  "ra4-q1": {
+    correct: "A",
+    explanations: {
+      A: "Correcte! El constructor té el mateix nom que la classe i no indica tipus de retorn; s'executa en crear l'objecte amb new.",
+      B: "Incorrecte: main és el punt d'entrada del programa, no el constructor.",
+      C: "Incorrecte: static indica que el mètode pertany a la classe, no al constructor.",
+      D: "Incorrecte: un camp privat és un atribut, no un constructor."
+    }
+  },
+  "ra4-q2": {
+    correct: "A",
+    explanations: {
+      A: "Correcte! private limita l'accés al camp a la pròpia classe (encapsulació).",
+      B: "Incorrecte: public deixa el camp accessible des de qualsevol classe.",
+      C: "Incorrecte: static fa que el camp sigui de classe, no controla la visibilitat.",
+      D: "Incorrecte: void indica que un mètode no retorna valor."
+    }
+  },
+  "ra4-q3": {
+    correct: "A",
+    explanations: {
+      A: "Correcte! new crea una instància (objecte) de la classe i crida el seu constructor.",
+      B: "Incorrecte: la classe es declara amb class, no amb new.",
+      C: "Incorrecte: main no es crida amb new.",
+      D: "Incorrecte: per eliminar objectes Java ja té el recol·lector de memòria."
+    }
+  },
+  "ra4-q4": {
+    correct: "A",
+    explanations: {
+      A: "Correcte! Encapsular és amagar els camps (private) i exposar mètodes públics per accedir-hi.",
+      B: "Incorrecte: repetir codi és exactament el que cal evitar.",
+      C: "Incorrecte: heretar és un altre principi (heretatge).",
+      D: "Incorrecte: imprimir dades és entrada/sortida, no encapsulació."
+    }
+  },
+  "ra4-q5": {
+    correct: "A",
+    explanations: {
+      A: "Correcte! static indica que el mètode o camp pertany a la classe i es pot cridar sense crear un objecte.",
+      B: "Incorrecte: private controla la visibilitat, no la pertinença a la classe.",
+      C: "Incorrecte: final evita que el valor o la classe es modifici.",
+      D: "Incorrecte: new serveix per crear instàncies."
+    }
+  },
+  // RA5 — Entrada i sortida d'informació
+  "ra5-q1": {
+    correct: "A",
+    explanations: {
+      A: "Correcte! Scanner està al paquet java.util: import java.util.Scanner;",
+      B: "Incorrecte: java.io.Print no és una classe estàndard per a entrada.",
+      C: "Incorrecte: java.lang no conté la classe Scanner.",
+      D: "Incorrecte: java.text.Reader no existeix per a aquest ús."
+    }
+  },
+  "ra5-q2": {
+    correct: "A",
+    explanations: {
+      A: "Correcte! nextLine() llegeix una línia sencera i la retorna com a String.",
+      B: "Incorrecte: per a enters s'usa nextInt().",
+      C: "Incorrecte: per a booleans s'usa nextBoolean().",
+      D: "Incorrecte: per a decimals s'usa nextDouble()."
+    }
+  },
+  "ra5-q3": {
+    correct: "A",
+    explanations: {
+      A: "Correcte! nextInt() llegeix el següent token i el converteix a int.",
+      B: "Incorrecte: nextLine() retorna text (String).",
+      C: "Incorrecte: nextDouble() retorna un decimal.",
+      D: "Incorrecte: no existeix nextChar() a Scanner."
+    }
+  },
+  "ra5-q4": {
+    correct: "A",
+    explanations: {
+      A: "Correcte! print() escriu sense afegir salt de línia; println() sí que l'afegeix.",
+      B: "Incorrecte: println() afegeix un salt de línia.",
+      C: "Incorrecte: write() no és la forma habitual de System.out.",
+      D: "Incorrecte: System.out.line() no existeix."
+    }
+  },
+  "ra5-q5": {
+    correct: "A",
+    explanations: {
+      A: "Correcte! FileWriter (o BufferedWriter/Files) permet escriure en fitxers de text.",
+      B: "Incorrecte: Scanner serveix per llegir dades.",
+      C: "Incorrecte: ArrayList emmagatzema dades en memòria.",
+      D: "Incorrecte: Math conté operacions matemàtiques."
+    }
+  },
 };
+
+
 
 function initQuizSystem() {
   document.querySelectorAll(".quiz-card").forEach(function (card) {
     const qid = card.getAttribute("data-qid");
-    const ra = card.getAttribute("data-ra");
     const options = card.querySelectorAll(".quiz-option");
     const checkBtn = card.querySelector(".quiz-btn-check");
     const feedbackBox = card.querySelector(".quiz-feedback");
@@ -280,31 +361,22 @@ function initQuizSystem() {
           alert("Si us plau, selecciona una opció abans de comprovar.");
           return;
         }
-
         const chosenVal = selected.value;
         const qData = QUIZ_DATA[qid];
         if (!qData) return;
-
         const isCorrect = chosenVal === qData.correct;
         appState.quizAnswers[qid] = isCorrect;
 
-        // Estils a les opcions
         options.forEach(function (opt) {
           opt.classList.remove("correct-option", "incorrect-option");
           const radio = opt.querySelector("input[type='radio']");
-          if (radio.value === qData.correct) {
-            opt.classList.add("correct-option");
-          } else if (radio.value === chosenVal && !isCorrect) {
-            opt.classList.add("incorrect-option");
-          }
+          if (radio.value === qData.correct) opt.classList.add("correct-option");
+          else if (radio.value === chosenVal && !isCorrect) opt.classList.add("incorrect-option");
         });
 
-        // Mostra explicació detallada
         const explText = qData.explanations[chosenVal] || "";
         feedbackBox.className = "quiz-feedback " + (isCorrect ? "feedback-correct" : "feedback-incorrect");
         feedbackBox.innerHTML = `<strong>${isCorrect ? "✔ Resposta Correcta!" : "✘ Resposta Incorrecta!"}</strong><br>${explText}`;
-
-        // Actualitza puntuació del RA (0.2 punts per resposta correcta)
         recalcRaQuizScores();
         updateDashboardUI();
       });
@@ -313,20 +385,17 @@ function initQuizSystem() {
 }
 
 function recalcRaQuizScores() {
-  ["ra01", "ra02", "ra03", "ra06"].forEach(function (ra) {
+  RAS.forEach(function (ra) {
     let correctCount = 0;
     for (let i = 1; i <= 5; i++) {
-      const qid = `${ra}-q${i}`;
-      if (appState.quizAnswers[qid] === true) {
-        correctCount++;
-      }
+      if (appState.quizAnswers[`${ra}-q${i}`] === true) correctCount++;
     }
-    appState.scores[ra].test = correctCount * 0.2;
+    appState.scores[ra].test = correctCount * 0.1;
   });
 }
 
 // --------------------------------------------------------------------------
-// 3. MOTOR DE VALIDACIÓ I EXECUCIÓ DE CODI JAVA
+// MOTOR DE CODI JAVA
 // --------------------------------------------------------------------------
 function initJavaCodeRunners() {
   document.querySelectorAll(".java-exercise-card").forEach(function (card) {
@@ -339,20 +408,12 @@ function initJavaCodeRunners() {
     const termBody = card.querySelector(".terminal-body");
     const feedBox = card.querySelector(".pedagogical-feedback");
     const solBox = card.querySelector(".solution-box");
-
     const defaultCode = codeArea.value;
 
-    // Si l'alumne modifica el codi, la puntuació anterior deixa de ser vàlida
-    const scoreKey = {
-      "ex-ra01": { ra: "ra01", clau: "code" },
-      "ex-ra02-basic": { ra: "ra02", clau: "codeBasic" },
-      "ex-ra02-adv": { ra: "ra02", clau: "codeAdv" },
-      "ex-ra03": { ra: "ra03", clau: "code" },
-      "ex-ra06": { ra: "ra06", clau: "code" }
-    }[exId];
+    const scoreKey = { "ex-ra1": "ra1", "ex-ra2": "ra2", "ex-ra3": "ra3", "ex-ra4": "ra4", "ex-ra5": "ra5", "ex-ra6": "ra6" }[exId];
     if (codeArea && scoreKey) {
       codeArea.addEventListener("input", function () {
-        appState.scores[scoreKey.ra][scoreKey.clau] = 0;
+        appState.scores[scoreKey].code = 0;
         updateDashboardUI();
         if (feedBox) {
           feedBox.className = "pedagogical-feedback";
@@ -384,9 +445,8 @@ function initJavaCodeRunners() {
         terminal.style.display = "block";
         feedBox.style.display = "block";
         termBody.textContent = "Executant el codi amb l'intèrpret integrat…\n";
-
         setTimeout(function () {
-          evalJavaExercise(exId, code, termBody, feedBox, card);
+          avaluarExerciciJava(exId, code, termBody, feedBox, card);
           updateDashboardUI();
         }, 120);
       });
@@ -394,265 +454,146 @@ function initJavaCodeRunners() {
   });
 }
 
-// --------------------------------------------------------------------------
-// 3B. DADES D'ENTRADA I CRITERIS DE CORRECCIÓ DELS EXERCICIS
-// --------------------------------------------------------------------------
 const JAVA_EXERCISES = {
-  "ex-ra01": {
-    ra: "ra01",
-    scoreKey: "code",
-    max: 1.0,
+  "ex-ra1": {
+    ra: "ra1", max: 1.0,
     proves: [{ inputs: [], etiqueta: "Execució del programa" }],
     criteris: function (ctx) {
-      const net = ctx.net;
       return [
-        {
-          ok: ctx.sortida.trim().length > 0,
-          punts: 0.25,
-          text: "El programa mostra un resultat per pantalla (sortida real)."
-        },
-        {
-          ok: /int\s+[A-Za-z_][A-Za-z0-9_]*\s*=/.test(net),
-          punts: 0.25,
-          text: "Declara variables enteres amb int."
-        },
-        {
-          ok: /\+\s*[A-Za-z0-9_]+/.test(net),
-          punts: 0.25,
-          text: " fa la suma amb l'operador +."
-        },
-        {
-          ok: /\/\/.+/.test(ctx.code),
-          punts: 0.25,
-          text: "Inclou un comentari d'una línia amb //."
-        }
+        { ok: ctx.sortida.trim().length > 0, punts: 0.25, text: "El programa mostra un resultat per pantalla (sortida real)." },
+        { ok: /int\s+[A-Za-z_][A-Za-z0-9_]*\s*=/.test(ctx.net), punts: 0.25, text: "Declara variables enteres amb int." },
+        { ok: /\+\s*[A-Za-z0-9_]+/.test(ctx.net), punts: 0.25, text: " fa la suma amb l'operador +." },
+        { ok: /\/\/.+/.test(ctx.code), punts: 0.25, text: "Inclou un comentari d'una línia amb //." }
       ];
     }
   },
 
-  "ex-ra02-basic": {
-    ra: "ra02",
-    scoreKey: "codeBasic",
-    max: 1.0,
-    defaultInputs: ["Laura", "19"],
+  "ex-ra2": {
+    ra: "ra2", max: 1.0, defaultInputs: ["Marta", "Alejandro"],
     criteris: function (ctx) {
-      const nom = ctx.inputs[0] || "Laura";
-      const edat = parseInt(ctx.inputs[1], 10) || 19;
-      const esperat = "Hola " + nom + ", vas nàixer l'any " + (2026 - edat) + ".";
-      const net = ctx.net;
-      return [
-        {
-          ok: /Scanner\s+[A-Za-z_][A-Za-z0-9_]*\s*=\s*new\s+Scanner/.test(net),
-          punts: 0.2,
-          text: "Crea l'objecte Scanner."
-        },
-        {
-          ok: /\.nextLine\s*\(\s*\)/.test(net),
-          punts: 0.2,
-          text: "Llegeix el nom amb nextLine()."
-        },
-        {
-          ok: /\.nextInt\s*\(\s*\)/.test(net),
-          punts: 0.2,
-          text: "Llegeix l'edat amb nextInt()."
-        },
-        {
-          ok: /20\d\d\s*-\s*[A-Za-z_][A-Za-z0-9_]*/.test(net),
-          punts: 0.2,
-          text: "Calcula l'any de naixement restant l'edat a 2026."
-        },
-        {
-          ok: ctx.sortida.indexOf(esperat) !== -1,
-          punts: 0.2,
-          text: 'La sortida real conté exactament: "' + esperat + '"'
-        }
-      ];
-    }
-  },
-
-  "ex-ra02-adv": {
-    ra: "ra02",
-    scoreKey: "codeAdv",
-    max: 2.0,
-    defaultInputs: ["Marta", "Alejandro"],
-    criteris: function (ctx) {
-      const n1 = ctx.inputs[0] || "Marta";
-      const n2 = ctx.inputs[1] || "Alejandro";
+      const n1 = ctx.inputs[0] || "Marta", n2 = ctx.inputs[1] || "Alejandro";
       const l1 = n1.length, l2 = n2.length;
       const guanyador = l1 >= l2 ? n1 : n2;
-      const llines = [
-        n1 + " té " + l1 + " lletres.",
-        n2 + " té " + l2 + " lletres.",
-        "El nom més llarg és: " + guanyador
-      ];
-      const net = ctx.net;
+      const llines = [n1 + " té " + l1 + " lletres.", n2 + " té " + l2 + " lletres.", "El nom més llarg és: " + guanyador];
       return [
-        {
-          ok: ctx.metodes.indexOf("getLongitud") !== -1,
-          punts: 0.4,
-          text: "Defineix la funció getLongitud(String)."
-        },
-        {
-          ok: ctx.metodes.indexOf("compararLongitud") !== -1,
-          punts: 0.4,
-          text: "Defineix la funció compararLongitud(int, int)."
-        },
-        {
-          ok: /\.length\s*\(\s*\)/.test(net),
-          punts: 0.4,
-          text: "Fa servir .length() per comptar els caràcters."
-        },
-        {
-          ok: (net.match(/\breturn\b/g) || []).length >= 2,
-          punts: 0.4,
-          text: "Les funcions retornen valors amb return."
-        },
-        {
-          ok: llines.every(function (l) { return ctx.sortida.indexOf(l) !== -1; }),
-          punts: 0.4,
-          text: "La sortida real mostra les tres línies esperades."
-        }
+        { ok: ctx.metodes.indexOf("getLongitud") !== -1, punts: 0.2, text: "Defineix la funció getLongitud(String)." },
+        { ok: ctx.metodes.indexOf("compararLongitud") !== -1, punts: 0.2, text: "Defineix la funció compararLongitud(int, int)." },
+        { ok: /\.length\s*\(\s*\)/.test(ctx.net), punts: 0.2, text: "Fa servir .length() per comptar caràcters." },
+        { ok: (ctx.net.match(/\breturn\b/g) || []).length >= 2, punts: 0.2, text: "Les funcions retornen valors amb return." },
+        { ok: llines.every(function (l) { return ctx.sortida.indexOf(l) !== -1; }), punts: 0.2, text: "La sortida real mostra les tres línies esperades." }
       ];
     }
   },
 
-  "ex-ra03": {
-    ra: "ra03",
-    scoreKey: "code",
-    max: 1.0,
+  "ex-ra3": {
+    ra: "ra3", max: 1.0,
     proves: [
       { inputs: ["15"], etiqueta: "Prova amb 15", esperat: "Positiu" },
       { inputs: ["-4"], etiqueta: "Prova amb -4", esperat: "Negatiu" },
       { inputs: ["0"], etiqueta: "Prova amb 0", esperat: "Zero" }
     ],
     criteris: function (ctx) {
-      const criteris = ctx.resultats.map(function (r, i) {
-        return {
-          ok: r.resultat && r.resultat.sortida.indexOf(r.prova.esperat) !== -1,
-          punts: 0.25,
-          text: r.prova.etiqueta + " → mostra " + r.prova.esperat + "."
-        };
+      const criteris = ctx.resultats.map(function (r) {
+        return { ok: r.resultat && r.resultat.sortida.indexOf(r.prova.esperat) !== -1, punts: 0.25, text: r.prova.etiqueta + " → mostra " + r.prova.esperat + "." };
       });
-      criteris.push({
-        ok: /\bif\s*\(/.test(ctx.net) && /else\s+if\s*\(/.test(ctx.net) && /\belse\b/.test(ctx.net),
-        punts: 0.25,
-        text: "Fa servir l'estructura if / else if / else."
-      });
+      criteris.push({ ok: /\bif\s*\(/.test(ctx.net) && /else\s+if\s*\(/.test(ctx.net) && /\belse\b/.test(ctx.net), punts: 0.25, text: "Fa servir if / else if / else." });
       return criteris;
     }
   },
 
-  "ex-ra06": {
-    ra: "ra06",
-    scoreKey: "code",
-    max: 1.0,
-    defaultInputs: ["12", "4", "99", "1", "35"],
+  "ex-ra4": {
+    ra: "ra4", max: 1.5, defaultInputs: ["Marta", "20"],
+    criteris: function (ctx) {
+      const nom = ctx.inputs[0] || "Marta";
+      const edat = parseInt(ctx.inputs[1], 10) || 20;
+      const esperat = nom + " té " + edat + " anys.";
+      return [
+        { ok: ctx.classes.indexOf("Persona") !== -1, punts: 0.3, text: "Declara la classe Persona." },
+        { ok: /private\s+(String|int)\s+[A-Za-z_]/.test(ctx.net), punts: 0.3, text: "Declara camps privats (private)." },
+        { ok: /Persona\s*\(\s*String\s+[A-Za-z_][A-Za-z0-9_]*\s*,\s*int\s+[A-Za-z_][A-Za-z0-9_]*\s*\)/.test(ctx.net), punts: 0.3, text: "Implementa el constructor Persona(String, int)." },
+        { ok: ctx.metodes.indexOf("getNom") !== -1 && ctx.metodes.indexOf("getEdat") !== -1, punts: 0.3, text: "Defineix els mètodes getNom() i getEdat()." },
+        { ok: ctx.sortida.indexOf(esperat) !== -1, punts: 0.3, text: "La sortida real mostra: " + esperat + "." }
+      ];
+    }
+  },
+
+  "ex-ra5": {
+    ra: "ra5", max: 1.0, defaultInputs: ["Laura", "19"],
+    criteris: function (ctx) {
+      const nom = ctx.inputs[0] || "Laura";
+      const edat = parseInt(ctx.inputs[1], 10) || 19;
+      const esperat = "Hola " + nom + ", vas nàixer l'any " + (2026 - edat) + ".";
+      return [
+        { ok: /Scanner\s+[A-Za-z_][A-Za-z0-9_]*\s*=\s*new\s+Scanner/.test(ctx.net), punts: 0.2, text: "Crea l'objecte Scanner." },
+        { ok: /\.nextLine\s*\(\s*\)/.test(ctx.net), punts: 0.2, text: "Llegeix el nom amb nextLine()." },
+        { ok: /\.nextInt\s*\(\s*\)/.test(ctx.net), punts: 0.2, text: "Llegeix l'edat amb nextInt()." },
+        { ok: /20\d\d\s*-\s*[A-Za-z_][A-Za-z0-9_]*/.test(ctx.net), punts: 0.2, text: "Calcula l'any restant l'edat a 2026." },
+        { ok: ctx.sortida.indexOf(esperat) !== -1, punts: 0.2, text: 'La sortida real conté: "' + esperat + '"' }
+      ];
+    }
+  },
+
+  "ex-ra6": {
+    ra: "ra6", max: 1.5, defaultInputs: ["12", "4", "99", "1", "35"],
     criteris: function (ctx) {
       const nums = ctx.inputs.map(Number).filter(function (n) { return Number.isFinite(n); });
       const max = nums.length ? Math.max.apply(null, nums) : 99;
       const min = nums.length ? Math.min.apply(null, nums) : 1;
-      const net = ctx.net;
       return [
-        {
-          ok: /int\s*\[\s*\]\s*[A-Za-z_][A-Za-z0-9_]*\s*=\s*new\s+int\s*\[\s*5\s*\]/.test(net) ||
-            /int\s+[A-Za-z_][A-Za-z0-9_]*\s*\[\s*\]\s*=\s*new\s+int\s*\[\s*5\s*\]/.test(net),
-          punts: 0.2,
-          text: "Crea el vector int[5]."
-        },
-        {
-          ok: /for\s*\(/.test(net),
-          punts: 0.2,
-          text: "Fa servir un bucle for."
-        },
-        {
-          ok: /\bmax\b/.test(net) && /\bmin\b/.test(net),
-          punts: 0.2,
-          text: "Empra les variables max i min."
-        },
-        {
-          ok: />\s*[A-Za-z_][A-Za-z0-9_]*/.test(net) && /<\s*[A-Za-z_][A-Za-z0-9_]*/.test(net),
-          punts: 0.2,
-          text: "Compara els valors del vector."
-        },
-        {
-          ok: ctx.sortida.indexOf("Màxim: " + max) !== -1 && ctx.sortida.indexOf("Mínim: " + min) !== -1,
-          punts: 0.2,
-          text: "La sortida real mostra Màxim: " + max + " i Mínim: " + min + "."
-        }
+        { ok: /int\s*\[\s*\]\s*[A-Za-z_][A-Za-z0-9_]*\s*=\s*new\s+int\s*\[\s*5\s*\]/.test(ctx.net) || /int\s+[A-Za-z_][A-Za-z0-9_]*\s*\[\s*\]\s*=\s*new\s+int\s*\[\s*5\s*\]/.test(ctx.net), punts: 0.3, text: "Crea el vector int[5]." },
+        { ok: /for\s*\(/.test(ctx.net), punts: 0.3, text: "Fa servir un bucle for." },
+        { ok: /\bmax\b/.test(ctx.net) && /\bmin\b/.test(ctx.net), punts: 0.3, text: "Empra les variables max i min." },
+        { ok: />\s*[A-Za-z_][A-Za-z0-9_]*/.test(ctx.net) && /<\s*[A-Za-z_][A-Za-z0-9_]*/.test(ctx.net), punts: 0.3, text: "Compara els valors del vector." },
+        { ok: ctx.sortida.indexOf("Màxim: " + max) !== -1 && ctx.sortida.indexOf("Mínim: " + min) !== -1, punts: 0.3, text: "La sortida mostra Màxim: " + max + " i Mínim: " + min + "." }
       ];
     }
   }
 };
 
 function llegirEntrades(text) {
-  return String(text || "")
-    .split(/\r?\n/)
-    .map(function (x) { return x.trim(); })
-    .filter(function (x) { return x.length > 0; });
+  return String(text || "").split(/\r?\n/).map(function (x) { return x.trim(); }).filter(function (x) { return x.length > 0; });
 }
 
-// --------------------------------------------------------------------------
-// 3C. AVALUACIÓ AMB L'INTÈRPRET INTEGRAT
-// --------------------------------------------------------------------------
 function avaluarExerciciJava(exId, code, termBody, feedBox, card) {
   const cfg = JAVA_EXERCISES[exId];
   if (!cfg) return;
-  const clau = cfg.scoreKey;
   const net = code.replace(/\/\*[\s\S]*?\*\/|\/\/[^\n]*/g, "");
-
   const campEntrada = card ? card.querySelector(".java-input-data") : null;
   const entradesUsuari = campEntrada ? llegirEntrades(campEntrada.value) : [];
   const entrades = entradesUsuari.length ? entradesUsuari : (cfg.defaultInputs || []);
-
   const proves = (cfg.proves || [{ inputs: entrades, etiqueta: "Execució del programa" }]).map(function (p, i) {
-    return {
-      etiqueta: p.etiqueta || "Prova " + (i + 1),
-      inputs: p.inputs || entrades,
-      esperat: p.esperat
-    };
+    return { etiqueta: p.etiqueta || "Prova " + (i + 1), inputs: p.inputs || entrades, esperat: p.esperat };
   });
 
   const resultats = proves.map(function (prova) {
-    try {
-      return { prova: prova, resultat: window.JavaMini.executar(code, prova.inputs), error: null };
-    } catch (err) {
-      return { prova: prova, resultat: null, error: err };
-    }
+    try { return { prova: prova, resultat: window.JavaMini.executar(code, prova.inputs), error: null }; }
+    catch (err) { return { prova: prova, resultat: null, error: err }; }
   });
 
   const logs = ["[intèrpret Java integrat] Execució real del codi", ""];
   let score = 0;
   let feedback = [];
-
   const errors = resultats.filter(function (r) { return r.error; });
+
   if (errors.length) {
     logs.push("✘ No s'ha pogut executar el programa:");
     errors.forEach(function (r) {
-      logs.push("  " + r.prova.etiqueta + " → " +
-        (r.error.linia ? "línia " + r.error.linia + ": " : "") + r.error.message);
+      logs.push("  " + r.prova.etiqueta + " → " + (r.error.linia ? "línia " + r.error.linia + ": " : "") + r.error.message);
     });
-    score = 0;
     feedback.push("Corregix els errors d'execució i torna a prémer «Executar i Corregir codi».");
   } else {
     resultats.forEach(function (r) {
-      logs.push("▸ " + r.prova.etiqueta + (r.prova.inputs.length ? "  ·  dades: " + r.prova.inputs.join(", ") : ""));
-      const sortida = r.resultat.sortida;
-      logs.push(sortida.length ? sortida.replace(/\n$/, "") : "(la programa no ha mostrat res)");
+      logs.push("▸ " + r.prova.etiqueta + (r.prova.inputs.length ? " · dades: " + r.prova.inputs.join(", ") : ""));
+      logs.push(r.resultat.sortida.length ? r.resultat.sortida.replace(/\n$/, "") : "(el programa no ha mostrat res)");
       logs.push("");
     });
-
     const primera = resultats[0].resultat;
     const ctx = {
-      code: code,
-      net: net,
-      inputs: entrades,
+      code: code, net: net, inputs: entrades,
       sortida: resultats.map(function (r) { return r.resultat.sortida; }).join("\n"),
-      metodes: primera.metodes,
-      resultats: resultats
+      metodes: primera.metodes, classes: primera.classes || [], resultats: resultats
     };
-
-    const criteris = cfg.criteris(ctx);
-    criteris.forEach(function (c) {
+    cfg.criteris(ctx).forEach(function (c) {
       if (c.ok) { score += c.punts; logs.push("  ✔ " + c.text + "  (+" + c.punts.toFixed(2) + ")"); }
       else { logs.push("  ✘ " + c.text); feedback.push(c.text); }
     });
@@ -663,18 +604,16 @@ function avaluarExerciciJava(exId, code, termBody, feedBox, card) {
 
   if (!feedback.length) {
     feedBox.className = "pedagogical-feedback feedback-correct";
-    feedBox.innerHTML = "<strong>🎉 Molt bé!</strong> El teu codi s'ha executat correctament i compleix tots els criteris (" +
-      score.toFixed(2) + " / " + cfg.max.toFixed(2) + ").";
+    feedBox.innerHTML = "<strong>🎉 Molt bé!</strong> El codi s'ha executat correctament i compleix tots els criteris (" + score.toFixed(2) + " / " + cfg.max.toFixed(2) + ").";
   } else {
     feedBox.className = "pedagogical-feedback feedback-incorrect";
     feedBox.innerHTML = "<strong>🔍 Revisa aquests punts (" + score.toFixed(2) + " / " + cfg.max.toFixed(2) + "):</strong><br><ul>" +
       feedback.map(function (f) { return "<li>" + f + "</li>"; }).join("") + "</ul>";
   }
 
-  appState.scores[cfg.ra][clau] = Math.round(score * 100) / 100;
+  appState.scores[cfg.ra].code = Math.round(score * 100) / 100;
 }
 
-// Compatibilitat amb el codi anterior
 function evalJavaExercise(exId, code, termBody, feedBox, card) {
   avaluarExerciciJava(exId, code, termBody, feedBox, card);
 }

@@ -4,24 +4,20 @@
   <span>✍️ Autora: Mara Vañó</span>
 </div>
 
-A continuació es detallen les respostes correctes de cada pregunta tipus test i el codi Java complet i comentat per a cadascun dels exercicis pràctics del simulacre.
+Resultats d'aprenentatge del mòdul de **Programació (DAM)** i solucions de cada exercici del simulacre.
 
 ---
 
-## 🟦 RA01 — Estructura d’un programa
+## 🟦 RA1 — Estructura d'un programa
 
-### Respostes del Test RA01
-1. **C** — `literal` no és un tipus primitiu (els bàsics són `int`, `double`, `char`, `boolean`, etc.).
-2. **B** — `//` és el símbol per a comentaris d'una sola línia.
-3. **D** — `equals()` és el mètode adequat per comparar contingut de cadenes de text `String`.
-4. **C** — `valorInicial` compleix la nomenclatura i convenció camelCase (sense començar per números ni espais).
-5. **C** — `3` és el literal enter (`int`). `'3'` és caràcter i `"3"` és String.
+**Test:** 1-C, 2-B, 3-D, 4-C, 5-C
 
-### Codi Solució Exercici RA01
+### Solució de l'exercici
+
 ```java
 public class Main {
     public static void main(String[] args) {
-        // Comentari: Declaració de dues variables enteres i la seua suma
+        // Comentari: suma de dues variables enteres
         int a = 5;
         int b = 7;
         int suma = a + b;
@@ -32,48 +28,20 @@ public class Main {
 
 ---
 
-## 🟩 RA02 — Escriure i provar programes senzills
+## 🟩 RA2 — Escriure i provar programes senzills
 
-### Respostes del Test RA02
-1. **C** — `System.out.println()` imprimeix text seguit d'un salt de línia.
-2. **C** — `scanner.nextLine()` llegeix una línia sencera des del teclat.
-3. **C** — `nextInt()` retorna un valor de tipus enter (`int`).
-4. **C** — `=` és l'operador d'assignació en Java.
-5. **B** — `System.out.println("Hola");` és la sentència vàlida que compila sense errors.
+**Test:** 1-C, 2-C, 3-C, 4-C, 5-B
 
-### Codi Solució Exercici Bàsic RA02
+### Solució de l'exercici (funcions auxiliars)
+
 ```java
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-
-        System.out.print("Nom: ");
-        String nom = sc.nextLine();
-
-        System.out.print("Edat: ");
-        int edat = sc.nextInt();
-
-        int anyNaixement = 2026 - edat;
-
-        System.out.println("Hola " + nom + ", vas nàixer l'any " + anyNaixement + ".");
-    }
-}
-```
-
-### Codi Solució Exercici Avançat RA02 (Funcions)
-```java
-import java.util.Scanner;
-
-public class Main {
-
-    // Funció que calcula la longitud d'un String
     public static int getLongitud(String text) {
         return text.length();
     }
 
-    // Funció que retorna el major de dos enters
     public static int compararLongitud(int l1, int l2) {
         if (l1 > l2) {
             return l1;
@@ -98,7 +66,6 @@ public class Main {
         System.out.println(nom2 + " té " + l2 + " lletres.");
 
         int major = compararLongitud(l1, l2);
-
         if (major == l1) {
             System.out.println("El nom més llarg és: " + nom1);
         } else {
@@ -110,23 +77,18 @@ public class Main {
 
 ---
 
-## 🟨 RA03 — Estructures de control
+## 🟨 RA3 — Estructures de control
 
-### Respostes del Test RA03
-1. **B** — `if` executa el bloc només si la condició és certa.
-2. **B** — `while (x<5) { }` és la sintaxi correcta amb parèntesis i sense punt i coma final.
-3. **A** — `for (int i = 1; i <= 10; i++)` recorre de l'1 al 10 en ordre creixent.
-4. **B** — `for` i `while` són estructures de repetició o bucles.
-5. **A** — `if / else` permet l'execució condicional alternativa.
+**Test:** 1-B, 2-B, 3-A, 4-B, 5-A
 
-### Codi Solució Exercici RA03
+### Solució de l'exercici
+
 ```java
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-
         System.out.print("Número: ");
         int num = sc.nextInt();
 
@@ -143,16 +105,76 @@ public class Main {
 
 ---
 
-## 🟦 RA06 — Estructures de dades (Vectors / Arrays)
+## 🟪 RA4 — Classes i programació orientada a objectes
 
-### Respostes del Test RA06
-1. **A** — `int numeros[];` (o `int[] numeros;`) és la declaració estàndard de vectors en Java.
-2. **A** — `0` és sempre l'índex del primer element d'un vector.
-3. **B** — `ArrayList` es troba al paquet `java.util`.
-4. **A** — `add()` afegeix elements al final de la llista.
-5. **C** — `for` permet recórrer ordenadament tots els valors d'un vector.
+**Test:** 1-A, 2-A, 3-A, 4-A, 5-A
 
-### Codi Solució Exercici RA06
+### Solució de l'exercici
+
+```java
+import java.util.Scanner;
+
+class Persona {
+    private String nom;
+    private int edat;
+
+    public Persona(String nom, int edat) {
+        this.nom = nom;
+        this.edat = edat;
+    }
+
+    public String getNom() { return nom; }
+    public int getEdat() { return edat; }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String nom = sc.nextLine();
+        int edat = sc.nextInt();
+
+        Persona p = new Persona(nom, edat);
+        System.out.println(p.getNom() + " té " + p.getEdat() + " anys.");
+    }
+}
+```
+
+---
+
+## 🟧 RA5 — Entrada i sortida d'informació
+
+**Test:** 1-A, 2-A, 3-A, 4-A, 5-A
+
+### Solució de l'exercici
+
+```java
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Nom: ");
+        String nom = sc.nextLine();
+
+        System.out.print("Edat: ");
+        int edat = sc.nextInt();
+
+        int anyNaixement = 2026 - edat;
+
+        System.out.println("Hola " + nom + ", vas nàixer l'any " + anyNaixement + ".");
+    }
+}
+```
+
+---
+
+## 🟦 RA6 — Tipus avançats de dades
+
+**Test:** 1-A, 2-A, 3-B, 4-A, 5-C
+
+### Solució de l'exercici
+
 ```java
 import java.util.Scanner;
 

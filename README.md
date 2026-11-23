@@ -15,7 +15,7 @@ Repositori a GitHub:
 
 - **Home**: Informació del curs (CEEDCV, autors, llicència CC BY-NC-ND, síntesi i RAs avaluats).
 - **1a Avaluació**:
-  - `Examen`: Simulacre d'examen per a format paper (Test RA01, Exercici RA01, Test RA02, Exercici bàsic i avançat RA02, Test RA03, Exercici RA03, Test RA06, Exercici RA06).
+  - `Examen`: Simulacre amb els **6 resultats d'aprenentatge** del mòdul de Programació (RA1 a RA6), cadascun amb test de 5 preguntes i exercici pràctic d'execució real de Java. Total: 10 punts.
   - `Solucions`: Respostes correctes del test i implementació completa de cada exercici en codi Java.
   - `Rúbrica correcció`: Criteris detallats de qualificació i percentatge mínim del 50% per superar cada RA.
 - **2a Avaluació**: Secció preparada per a futurs continguts.

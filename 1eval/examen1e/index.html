@@ -6,10 +6,10 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Simulacres d'examen de Programació (PRG) DAM/DAW">
+        <meta name="description" content="Plataforma interactiva d'autoaprenentatge i simulacres d'examen de Java per a 1r de DAM">
       
       
-        <meta name="author" content="María Bañuls Ribes / Sergio Pérez Rubio">
+        <meta name="author" content="Mara Vañó">
       
       
         <link rel="canonical" href="https://Mara1978-val.github.io/SimuladorExamenJava/1eval/examen1e/">
@@ -29,7 +29,7 @@
     
     
       
-        <title>Examen - Simulacres d'examen PRG 25/26</title>
+        <title>Simulador d'Examen - Simulador d'Exàmens PRG 25/26 - Java DAM</title>
       
     
     
@@ -55,6 +55,8 @@
       
     
     
+      <link rel="stylesheet" href="../../stylesheets/custom.css">
+    
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -71,7 +73,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="coral" data-md-color-accent="blue">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="purple">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -80,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#examen" class="md-skip">
+        <a href="#simulador-interactiu-dexamen-1a-avaluacio" class="md-skip">
           Salta el contingut
         </a>
       
@@ -94,7 +96,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Capçalera">
-    <a href="../.." title="Simulacres d&#39;examen PRG 25/26" class="md-header__button md-logo" aria-label="Simulacres d'examen PRG 25/26" data-md-component="logo">
+    <a href="../.." title="Simulador d&#39;Exàmens PRG 25/26 - Java DAM" class="md-header__button md-logo" aria-label="Simulador d'Exàmens PRG 25/26 - Java DAM" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -108,13 +110,13 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            Simulacres d'examen PRG 25/26
+            Simulador d'Exàmens PRG 25/26 - Java DAM
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Examen
+              Simulador d'Examen
             
           </span>
         </div>
@@ -127,7 +129,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="coral" data-md-color-accent="blue"  aria-label="Canviar a mode fosc"  type="radio" name="__palette" id="__palette_0">
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="purple"  aria-label="Canviar a mode fosc"  type="radio" name="__palette" id="__palette_0">
     
       <label class="md-header__button md-icon" title="Canviar a mode fosc" for="__palette_1" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
@@ -137,7 +139,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="coral" data-md-color-accent="blue"  aria-label="Canviar a mode clar"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="deep-purple" data-md-color-accent="purple"  aria-label="Canviar a mode clar"  type="radio" name="__palette" id="__palette_1">
     
       <label class="md-header__button md-icon" title="Canviar a mode clar" for="__palette_0" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
@@ -295,13 +297,13 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navegació" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Simulacres d&#39;examen PRG 25/26" class="md-nav__button md-logo" aria-label="Simulacres d'examen PRG 25/26" data-md-component="logo">
+    <a href="../.." title="Simulador d&#39;Exàmens PRG 25/26 - Java DAM" class="md-nav__button md-logo" aria-label="Simulador d'Exàmens PRG 25/26 - Java DAM" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
 
     </a>
-    Simulacres d'examen PRG 25/26
+    Simulador d'Exàmens PRG 25/26 - Java DAM
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -421,7 +423,7 @@
   <span class="md-ellipsis">
     
   
-    Examen
+    Simulador d'Examen
   
 
     
@@ -439,7 +441,7 @@
   <span class="md-ellipsis">
     
   
-    Examen
+    Simulador d'Examen
   
 
     
@@ -465,22 +467,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#estructura-dun-programa" class="md-nav__link">
+  <a href="#ra01-estructura-dun-programa-total-2-punts" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🟦 Estructura d’un programa
+        🟦 RA01 — Estructura d’un programa (Total: 2 punts)
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="🟦 Estructura d’un programa">
+    <nav class="md-nav" aria-label="🟦 RA01 — Estructura d’un programa (Total: 2 punts)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#test-ra01" class="md-nav__link">
+  <a href="#test-ra01-1-punt-5-preguntes-02-pts" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Test RA01
+        📝 Test RA01 (1 punt — 5 preguntes × 0.2 pts)
       
     </span>
   </a>
@@ -488,10 +490,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#exercici-ra01" class="md-nav__link">
+  <a href="#exercici-practic-ra01-1-punt" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Exercici RA01
+        💻 Exercici Pràctic RA01 (1 punt)
       
     </span>
   </a>
@@ -504,22 +506,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#escriure-i-provar-programes-senzills" class="md-nav__link">
+  <a href="#ra02-escriure-i-provar-programes-senzills-total-4-punts" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🟩 Escriure i provar programes senzills
+        🟩 RA02 — Escriure i provar programes senzills (Total: 4 punts)
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="🟩 Escriure i provar programes senzills">
+    <nav class="md-nav" aria-label="🟩 RA02 — Escriure i provar programes senzills (Total: 4 punts)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#test-ra02" class="md-nav__link">
+  <a href="#test-ra02-1-punt-5-preguntes-02-pts" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Test RA02
+        📝 Test RA02 (1 punt — 5 preguntes × 0.2 pts)
       
     </span>
   </a>
@@ -527,10 +529,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#exercici-ra02" class="md-nav__link">
+  <a href="#exercici-practic-basic-ra02-1-punt" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Exercici RA02
+        💻 Exercici Pràctic Bàsic RA02 (1 punt)
       
     </span>
   </a>
@@ -538,10 +540,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#exercici-avancat-ra02" class="md-nav__link">
+  <a href="#exercici-avancat-ra02-2-punts" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Exercici avançat RA02
+        💻 Exercici Avançat RA02 (2 punts)
       
     </span>
   </a>
@@ -554,22 +556,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#estructures-de-control" class="md-nav__link">
+  <a href="#ra03-estructures-de-control-total-2-punts" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🟨 Estructures de control
+        🟨 RA03 — Estructures de control (Total: 2 punts)
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="🟨 Estructures de control">
+    <nav class="md-nav" aria-label="🟨 RA03 — Estructures de control (Total: 2 punts)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#test-ra03" class="md-nav__link">
+  <a href="#test-ra03-1-punt-5-preguntes-02-pts" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Test RA03
+        📝 Test RA03 (1 punt — 5 preguntes × 0.2 pts)
       
     </span>
   </a>
@@ -577,10 +579,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#exercici-ra03" class="md-nav__link">
+  <a href="#exercici-practic-ra03-1-punt" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Exercici RA03
+        💻 Exercici Pràctic RA03 (1 punt)
       
     </span>
   </a>
@@ -593,22 +595,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#estructures-de-dades" class="md-nav__link">
+  <a href="#ra06-estructures-de-dades-vectors-arrays-total-2-punts" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🟦 Estructures de dades
+        🟦 RA06 — Estructures de dades (Vectors / Arrays) (Total: 2 punts)
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="🟦 Estructures de dades">
+    <nav class="md-nav" aria-label="🟦 RA06 — Estructures de dades (Vectors / Arrays) (Total: 2 punts)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#test-ra06" class="md-nav__link">
+  <a href="#test-ra06-1-punt-5-preguntes-02-pts" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Test RA06
+        📝 Test RA06 (1 punt — 5 preguntes × 0.2 pts)
       
     </span>
   </a>
@@ -616,10 +618,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#exercici-ra06" class="md-nav__link">
+  <a href="#exercici-practic-ra06-1-punt" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Exercici RA06
+        💻 Exercici Pràctic RA06 (1 punt)
       
     </span>
   </a>
@@ -654,7 +656,7 @@
   <span class="md-ellipsis">
     
   
-    Solucions
+    Solucions Explicades
   
 
     
@@ -682,7 +684,7 @@
   <span class="md-ellipsis">
     
   
-    Rubrica correcció
+    Rúbrica de Correcció
   
 
     
@@ -747,224 +749,795 @@
 
 
 
-<h1 id="examen">Examen</h1>
-<div class="admonition abstract">
-<p class="admonition-title">Simulacre d'examen</p>
-<p>Aquest document presenta un possible examen corresponent a la primera avaluació. 
-Els exercicis s'han de realitzar en format paper amb l'objectiu de reproduir, de la manera més fidel possible, les condicions reals de l'examen.</p>
+<h1 id="simulador-interactiu-dexamen-1a-avaluacio">Simulador Interactiu d'Examen — 1a Avaluació</h1>
+<div class="author-badge">
+  <span>✍️ Autora: Mara Vañó</span>
 </div>
+
+<!-- ======================================================================= -->
+<!-- DASHBOARD DE PUNTUACIÓ EN TEMPS REAL -->
+<!-- ======================================================================= -->
+<div class="score-dashboard">
+  <div class="score-dashboard-header">
+    <div>
+      <h3 class="score-title">📊 El teu Progrés i Puntuació de l'Examen</h3>
+      <small style="opacity:0.85;">Puntuació actualitzada en temps real segons respons els tests i executes codi Java</small>
+    </div>
+    <div class="total-score-badge">
+      <span id="dash-total-score">0.00 / 10</span>
+    </div>
+  </div>
+
+  <div class="ra-pills-grid">
+    <div class="ra-pill">
+      <div class="ra-pill-header">
+        <span>🟦 RA01 — Estructura</span>
+        <span class="ra-pill-score" id="dash-ra01-score">0.00 / 2</span>
+      </div>
+      <span class="ra-status-tag status-pending" id="dash-ra01-tag">Pendent (Mín. 1.0)</span>
+    </div>
+
+    <div class="ra-pill">
+      <div class="ra-pill-header">
+        <span>🟩 RA02 — Programes i Funcions</span>
+        <span class="ra-pill-score" id="dash-ra02-score">0.00 / 4</span>
+      </div>
+      <span class="ra-status-tag status-pending" id="dash-ra02-tag">Pendent (Mín. 2.0)</span>
+    </div>
+
+    <div class="ra-pill">
+      <div class="ra-pill-header">
+        <span>🟨 RA03 — Control de Flux</span>
+        <span class="ra-pill-score" id="dash-ra03-score">0.00 / 2</span>
+      </div>
+      <span class="ra-status-tag status-pending" id="dash-ra03-tag">Pendent (Mín. 1.0)</span>
+    </div>
+
+    <div class="ra-pill">
+      <div class="ra-pill-header">
+        <span>🟦 RA06 — Vectors / Arrays</span>
+        <span class="ra-pill-score" id="dash-ra06-score">0.00 / 2</span>
+      </div>
+      <span class="ra-status-tag status-pending" id="dash-ra06-tag">Pendent (Mín. 1.0)</span>
+    </div>
+  </div>
+</div>
+
 <hr />
-<h2 id="estructura-dun-programa">🟦 Estructura d’un programa</h2>
-<h3 id="test-ra01">Test RA01</h3>
-<p><em>(1punt)</em>   </p>
-<ol>
-<li>
-<p>Quina d’aquestes opcions <strong>NO</strong> és un tipus de dada bàsic?<br />
-   A) int<br />
-   B) double<br />
-   C) literal<br />
-   D) char  </p>
-</li>
-<li>
-<p>Un <strong>comentari</strong> en Java que ocupa només una línia es fa amb:<br />
-   A) #<br />
-   B) //<br />
-   C) /**/<br />
-   D) --  </p>
-</li>
-<li>
-<p>Quin operador s’utilitza per comparar si dues <strong>variables String</strong> tenen el mateix valor?  </p>
-</li>
-</ol>
-<p>A) =<br />
-   B) ==<br />
-   C) !=<br />
-   D) equals  </p>
-<ol>
-<li>
-<p>Quin és el nom correcte per a una <strong>variable</strong>?<br />
-   A) 3valor<br />
-   B) 1valor-inici<br />
-   C) valorInicial<br />
-   D) valor inicial  </p>
-</li>
-<li>
-<p>Quin d’aquests és un <strong>numèric enter</strong>?<br />
-   A) '3'<br />
-   B) "3"<br />
-   C) 3<br />
-   D) 3.0  </p>
-</li>
-</ol>
-<h3 id="exercici-ra01">Exercici RA01</h3>
-<p><em>(1punt)</em><br />
-<strong>Enunciat:</strong><br />
-Escriu un programa Java que declare dues variables enteres, les some i mostre el resultat en pantalla amb un comentari explicant què fa el programa.</p>
-<hr />
-<h2 id="escriure-i-provar-programes-senzills">🟩 Escriure i provar programes senzills</h2>
-<h3 id="test-ra02">Test RA02</h3>
-<p><em>(1punt)</em>   </p>
-<ol>
-<li>
-<p>Quina instrucció mostra text per pantalla?<br />
-   A) System.read();<br />
-   B) System.get();<br />
-   C) System.out.println();<br />
-   D) Console.write();  </p>
-</li>
-<li>
-<p>Quina instrucció permet <strong>llegir dades</strong> des del teclat?<br />
-   A) System.out.println()<br />
-   B) keyboard.read()<br />
-   C) scanner.nextLine()<br />
-   D) console.input()  </p>
-</li>
-<li>
-<p>Quin tipus de dada rep el mètode <code>nextInt()</code>?<br />
-   A) boolean<br />
-   B) double<br />
-   C) int<br />
-   D) String  </p>
-</li>
-<li>
-<p>Quina instrucció serveix per guardar dades en una variable?<br />
-   A) System.out.println<br />
-   B) Scanner<br />
-   C) =<br />
-   D) input()  </p>
-</li>
-<li>
-<p>Quin dels següents programes <strong>compila correctament</strong>?<br />
-   A) <code>println("Hola");</code><br />
-   B) <code>System.out.println("Hola");</code><br />
-   C) <code>Console.out("Hola");</code><br />
-   D) <code>Show("Hola");</code>  </p>
-</li>
-</ol>
-<h3 id="exercici-ra02">Exercici RA02</h3>
-<p><em>(1punt)</em><br />
-<strong>Enunciat:</strong><br />
-Fes un programa que demane per teclat el <strong>nom</strong> de l’usuari i la <strong>seua edat</strong>.<br />
-Després, el programa ha de mostrar el missatge:</p>
-<p><strong>"Hola \<nom>, vas nàixer l’any \<any>."</strong></p>
-<p>Suposant que <strong>estem en 2026</strong></p>
-<h3 id="exercici-avancat-ra02">Exercici avançat RA02</h3>
-<p><em>(2punts)</em><br />
-<strong>Enunciat:</strong>  </p>
-<p>Volem comprovar si els noms d’usuari que introdueixen els clients són massa llargs.</p>
-<p>Fes un programa que tinga <strong>dues funcions</strong>:</p>
-<ul>
-<li><code>getLongitud(String text)</code> → retorne el número de caràcters d’un text  </li>
-<li><code>compararLongitud(int l1, int l2)</code> → retorne el major dels dos valors  </li>
-</ul>
-<p>El <code>main()</code> ha de:</p>
-<ol>
-<li>Demanar per teclat <strong>dos noms</strong> (dos Strings).  </li>
-<li>Utilitzar <code>getLongitud()</code> per obtindre la longitud de cadascun.  </li>
-<li>Mostrar quants caràcters té cada nom.  </li>
-<li>Utilitzar <code>compararLongitud()</code> per saber <strong>quin dels dos noms és més llarg</strong> i mostrar-lo per pantalla.</li>
-</ol>
-<p><strong>Exemple d’eixida esperada:</strong></p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Introdueix primer nom: Marta
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>Introdueix segon nom: Alejandro
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>"Marta" té 5 lletres.
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>"Alejandro" té 9 lletres.
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>El nom més llarg és: Alejandro
+<h2 id="ra01-estructura-dun-programa-total-2-punts">🟦 RA01 — Estructura d’un programa (Total: 2 punts)</h2>
+<h3 id="test-ra01-1-punt-5-preguntes-02-pts">📝 Test RA01 <em>(1 punt — 5 preguntes × 0.2 pts)</em></h3>
+<!-- Q1 -->
+<div class="quiz-card" data-ra="ra01" data-qid="ra01-q1">
+  <div class="quiz-question-title">
+    <span class="quiz-q-num">1</span>
+    <span>Quina d’aquestes opcions <strong>NO</strong> és un tipus de dada bàsic en Java?</span>
+  </div>
+  <div class="quiz-options">
+    <label class="quiz-option"><input type="radio" name="ra01-q1" value="A"> A) int</label>
+    <label class="quiz-option"><input type="radio" name="ra01-q1" value="B"> B) double</label>
+    <label class="quiz-option"><input type="radio" name="ra01-q1" value="C"> C) literal</label>
+    <label class="quiz-option"><input type="radio" name="ra01-q1" value="D"> D) char</label>
+  </div>
+  <button type="button" class="quiz-btn-check">Comprovar resposta</button>
+  <div class="quiz-feedback"></div>
+</div>
+
+<!-- Q2 -->
+<div class="quiz-card" data-ra="ra01" data-qid="ra01-q2">
+  <div class="quiz-question-title">
+    <span class="quiz-q-num">2</span>
+    <span>Un <strong>comentari</strong> en Java que ocupa només una línia es fa amb:</span>
+  </div>
+  <div class="quiz-options">
+    <label class="quiz-option"><input type="radio" name="ra01-q2" value="A"> A) #</label>
+    <label class="quiz-option"><input type="radio" name="ra01-q2" value="B"> B) //</label>
+    <label class="quiz-option"><input type="radio" name="ra01-q2" value="C"> C) /* */</label>
+    <label class="quiz-option"><input type="radio" name="ra01-q2" value="D"> D) --</label>
+  </div>
+  <button type="button" class="quiz-btn-check">Comprovar resposta</button>
+  <div class="quiz-feedback"></div>
+</div>
+
+<!-- Q3 -->
+<div class="quiz-card" data-ra="ra01" data-qid="ra01-q3">
+  <div class="quiz-question-title">
+    <span class="quiz-q-num">3</span>
+    <span>Quin operador o mètode s’utilitza per comparar si dues <strong>variables String</strong> tenen el mateix contingut?</span>
+  </div>
+  <div class="quiz-options">
+    <label class="quiz-option"><input type="radio" name="ra01-q3" value="A"> A) =</label>
+    <label class="quiz-option"><input type="radio" name="ra01-q3" value="B"> B) ==</label>
+    <label class="quiz-option"><input type="radio" name="ra01-q3" value="C"> C) !=</label>
+    <label class="quiz-option"><input type="radio" name="ra01-q3" value="D"> D) equals</label>
+  </div>
+  <button type="button" class="quiz-btn-check">Comprovar resposta</button>
+  <div class="quiz-feedback"></div>
+</div>
+
+<!-- Q4 -->
+<div class="quiz-card" data-ra="ra01" data-qid="ra01-q4">
+  <div class="quiz-question-title">
+    <span class="quiz-q-num">4</span>
+    <span>Quin és el nom correcte i vàlid per a una <strong>variable</strong> en Java?</span>
+  </div>
+  <div class="quiz-options">
+    <label class="quiz-option"><input type="radio" name="ra01-q4" value="A"> A) 3valor</label>
+    <label class="quiz-option"><input type="radio" name="ra01-q4" value="B"> B) 1valor-inici</label>
+    <label class="quiz-option"><input type="radio" name="ra01-q4" value="C"> C) valorInicial</label>
+    <label class="quiz-option"><input type="radio" name="ra01-q4" value="D"> D) valor inicial</label>
+  </div>
+  <button type="button" class="quiz-btn-check">Comprovar resposta</button>
+  <div class="quiz-feedback"></div>
+</div>
+
+<!-- Q5 -->
+<div class="quiz-card" data-ra="ra01" data-qid="ra01-q5">
+  <div class="quiz-question-title">
+    <span class="quiz-q-num">5</span>
+    <span>Quin d’aquests literals és un <strong>numèric enter</strong> (tipus <code>int</code>)?</span>
+  </div>
+  <div class="quiz-options">
+    <label class="quiz-option"><input type="radio" name="ra01-q5" value="A"> A) '3'</label>
+    <label class="quiz-option"><input type="radio" name="ra01-q5" value="B"> B) "3"</label>
+    <label class="quiz-option"><input type="radio" name="ra01-q5" value="C"> C) 3</label>
+    <label class="quiz-option"><input type="radio" name="ra01-q5" value="D"> D) 3.0</label>
+  </div>
+  <button type="button" class="quiz-btn-check">Comprovar resposta</button>
+  <div class="quiz-feedback"></div>
+</div>
+
+<h3 id="exercici-practic-ra01-1-punt">💻 Exercici Pràctic RA01 <em>(1 punt)</em></h3>
+<div class="java-exercise-card" data-ex-id="ex-ra01">
+  <div class="java-ex-header">
+    <h4 class="java-ex-title">☕ Repte: Declaració de variables i suma bàsica</h4>
+    <span class="java-ex-score-tag">Valor: 1.0 punt</span>
+  </div>
+  <div class="java-ex-desc">
+    <strong>Enunciat:</strong> Completa el programa Java següent per a que:
+    <ul>
+      <li>Declare dues variables enteres (<code>int</code>) amb valors a la teua elecció.</li>
+      <li>Les some guardant el resultat en una altra variable.</li>
+      <li>Mostre el resultat per pantalla amb <code>System.out.println()</code>.</li>
+      <li>Incloga un comentari d'una sola línia amb <code>//</code> explicant què fa el programa.</li>
+    </ul>
+  </div>
+  <div class="java-editor-wrapper">
+    <textarea class="java-code-area" spellcheck="false">
+public class Main {
+    public static void main(String[] args) {
+        // TODO: Escriu el teu codi aquí
+
+
+    }
+}
+    </textarea>
+    <div class="java-ex-actions">
+      <button type="button" class="btn-run">▶ Executar i Corregir codi</button>
+      <button type="button" class="btn-reset">🔄 Reiniciar codi</button>
+      <button type="button" class="btn-solution">💡 Veure solució guiada</button>
+    </div>
+
+    <div class="terminal-window">
+      <div class="terminal-header">
+        <span class="terminal-dot dot-red"></span>
+        <span class="terminal-dot dot-yellow"></span>
+        <span class="terminal-dot dot-green"></span>
+        <span class="terminal-title">Consola de Sortida Java</span>
+      </div>
+      <div class="terminal-body"></div>
+    </div>
+
+    <div class="pedagogical-feedback"></div>
+
+    <div class="solution-box">
+      <strong>💡 Solució de referència comentada:</strong>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Main</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">        </span><span class="c1">// Comentari: Suma de dues variables enteres</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">7</span><span class="p">;</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">suma</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"La suma és "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">suma</span><span class="p">);</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="p">}</span>
 </span></code></pre></div>
-<p><strong>Pista:</strong><br />
-- Pots obtindre la longitud d’un String amb: <code>nom.length();</code><br />
-- Les funcions han de retornar valors (no imprimir directament).</p>
+    </div>
+  </div>
+</div>
+
 <hr />
-<h2 id="estructures-de-control">🟨 Estructures de control</h2>
-<h3 id="test-ra03">Test RA03</h3>
-<p><em>(1punt)</em>   </p>
-<ol>
-<li>
-<p>Quina instrucció permet executar un bloc de codi només si una condició es compleix?<br />
-   A) for<br />
-   B) if<br />
-   C) int<br />
-   D) String  </p>
-</li>
-<li>
-<p>Quina és la forma correcta d’una estructura <code>while</code>?<br />
-   A) <code>while x&lt;5 { }</code><br />
-   B) <code>while (x&lt;5) { }</code><br />
-   C) <code>while (x&lt;5); { }</code><br />
-   D) <code>repeat (x&lt;5) { }</code>  </p>
-</li>
-<li>
-<p>Quin codi mostra els números del 1 al 10?<br />
-   A) <code>for (int i = 1; i &lt;= 10; i++)</code><br />
-   B) <code>for (int i = 0; i &lt; 10; i--)</code><br />
-   C) <code>if (i &lt; 10)</code><br />
-   D) <code>while (10)</code></p>
-</li>
-<li>
-<p>Quina d’aquestes estructures permet repetir instruccions mentre una condició siga certa?<br />
-   A) if<br />
-   B) for<br />
-   C) int<br />
-   D) String  </p>
-</li>
-<li>
-<p>Quina estructura permet triar entre una condició i una alternativa?<br />
-   A) if / else<br />
-   B) import<br />
-   C) class<br />
-   D) new</p>
-</li>
-</ol>
-<h3 id="exercici-ra03">Exercici RA03</h3>
-<p><em>(1punt)</em><br />
-<strong>Enunciat:</strong><br />
-Fes un programa que demane per teclat un número i mostre si és <strong>positiu, negatiu o zero</strong></p>
+<h2 id="ra02-escriure-i-provar-programes-senzills-total-4-punts">🟩 RA02 — Escriure i provar programes senzills (Total: 4 punts)</h2>
+<h3 id="test-ra02-1-punt-5-preguntes-02-pts">📝 Test RA02 <em>(1 punt — 5 preguntes × 0.2 pts)</em></h3>
+<!-- Q1 -->
+<div class="quiz-card" data-ra="ra02" data-qid="ra02-q1">
+  <div class="quiz-question-title">
+    <span class="quiz-q-num">1</span>
+    <span>Quina instrucció mostra text per pantalla amb salt de línia en Java?</span>
+  </div>
+  <div class="quiz-options">
+    <label class="quiz-option"><input type="radio" name="ra02-q1" value="A"> A) System.read();</label>
+    <label class="quiz-option"><input type="radio" name="ra02-q1" value="B"> B) System.get();</label>
+    <label class="quiz-option"><input type="radio" name="ra02-q1" value="C"> C) System.out.println();</label>
+    <label class="quiz-option"><input type="radio" name="ra02-q1" value="D"> D) Console.write();</label>
+  </div>
+  <button type="button" class="quiz-btn-check">Comprovar resposta</button>
+  <div class="quiz-feedback"></div>
+</div>
+
+<!-- Q2 -->
+<div class="quiz-card" data-ra="ra02" data-qid="ra02-q2">
+  <div class="quiz-question-title">
+    <span class="quiz-q-num">2</span>
+    <span>Quina instrucció permet <strong>llegir una línia de text</strong> des del teclat utilitzant Scanner?</span>
+  </div>
+  <div class="quiz-options">
+    <label class="quiz-option"><input type="radio" name="ra02-q2" value="A"> A) System.out.println()</label>
+    <label class="quiz-option"><input type="radio" name="ra02-q2" value="B"> B) keyboard.read()</label>
+    <label class="quiz-option"><input type="radio" name="ra02-q2" value="C"> C) scanner.nextLine()</label>
+    <label class="quiz-option"><input type="radio" name="ra02-q2" value="D"> D) console.input()</label>
+  </div>
+  <button type="button" class="quiz-btn-check">Comprovar resposta</button>
+  <div class="quiz-feedback"></div>
+</div>
+
+<!-- Q3 -->
+<div class="quiz-card" data-ra="ra02" data-qid="ra02-q3">
+  <div class="quiz-question-title">
+    <span class="quiz-q-num">3</span>
+    <span>Quin tipus de dada retorna el mètode <code>nextInt()</code> de la classe Scanner?</span>
+  </div>
+  <div class="quiz-options">
+    <label class="quiz-option"><input type="radio" name="ra02-q3" value="A"> A) boolean</label>
+    <label class="quiz-option"><input type="radio" name="ra02-q3" value="B"> B) double</label>
+    <label class="quiz-option"><input type="radio" name="ra02-q3" value="C"> C) int</label>
+    <label class="quiz-option"><input type="radio" name="ra02-q3" value="D"> D) String</label>
+  </div>
+  <button type="button" class="quiz-btn-check">Comprovar resposta</button>
+  <div class="quiz-feedback"></div>
+</div>
+
+<!-- Q4 -->
+<div class="quiz-card" data-ra="ra02" data-qid="ra02-q4">
+  <div class="quiz-question-title">
+    <span class="quiz-q-num">4</span>
+    <span>Quin operador o instrucció serveix per guardar/assignar dades en una variable?</span>
+  </div>
+  <div class="quiz-options">
+    <label class="quiz-option"><input type="radio" name="ra02-q4" value="A"> A) System.out.println</label>
+    <label class="quiz-option"><input type="radio" name="ra02-q4" value="B"> B) Scanner</label>
+    <label class="quiz-option"><input type="radio" name="ra02-q4" value="C"> C) =</label>
+    <label class="quiz-option"><input type="radio" name="ra02-q4" value="D"> D) input()</label>
+  </div>
+  <button type="button" class="quiz-btn-check">Comprovar resposta</button>
+  <div class="quiz-feedback"></div>
+</div>
+
+<!-- Q5 -->
+<div class="quiz-card" data-ra="ra02" data-qid="ra02-q5">
+  <div class="quiz-question-title">
+    <span class="quiz-q-num">5</span>
+    <span>Quin dels següents programes o sentències <strong>compila correctament</strong> en Java estàndard?</span>
+  </div>
+  <div class="quiz-options">
+    <label class="quiz-option"><input type="radio" name="ra02-q5" value="A"> A) println("Hola");</label>
+    <label class="quiz-option"><input type="radio" name="ra02-q5" value="B"> B) System.out.println("Hola");</label>
+    <label class="quiz-option"><input type="radio" name="ra02-q5" value="C"> C) Console.out("Hola");</label>
+    <label class="quiz-option"><input type="radio" name="ra02-q5" value="D"> D) Show("Hola");</label>
+  </div>
+  <button type="button" class="quiz-btn-check">Comprovar resposta</button>
+  <div class="quiz-feedback"></div>
+</div>
+
+<h3 id="exercici-practic-basic-ra02-1-punt">💻 Exercici Pràctic Bàsic RA02 <em>(1 punt)</em></h3>
+<div class="java-exercise-card" data-ex-id="ex-ra02-basic">
+  <div class="java-ex-header">
+    <h4 class="java-ex-title">☕ Repte Bàsic: Entrada amb Scanner i Càlcul d'Edat</h4>
+    <span class="java-ex-score-tag">Valor: 1.0 punt</span>
+  </div>
+  <div class="java-ex-desc">
+    <strong>Enunciat:</strong> Fes un programa que demane per teclat el <strong>nom</strong> de l’usuari i la <strong>seua edat</strong>.<br>
+    Després, el programa ha de calcular l'any de naixement (suposant que estem en <strong>2026</strong>) i mostrar el missatge exacte:<br>
+    <code>"Hola &lt;nom&gt;, vas nàixer l’any &lt;any&gt;."</code>
+  </div>
+  <div class="java-editor-wrapper">
+    <textarea class="java-code-area" spellcheck="false">
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        // TODO 1: Demana i llegeix el nom (String)
+
+        // TODO 2: Demana i llegeix l'edat (int)
+
+        // TODO 3: Calcula l'any de naixement (2026 - edat)
+
+        // TODO 4: Mostra el missatge: "Hola <nom>, vas nàixer l'any <any>."
+
+    }
+}
+    </textarea>
+    <div class="java-ex-actions">
+      <button type="button" class="btn-run">▶ Executar i Corregir codi</button>
+      <button type="button" class="btn-reset">🔄 Reiniciar codi</button>
+      <button type="button" class="btn-solution">💡 Veure solució guiada</button>
+    </div>
+
+    <div class="terminal-window">
+      <div class="terminal-header">
+        <span class="terminal-dot dot-red"></span>
+        <span class="terminal-dot dot-yellow"></span>
+        <span class="terminal-dot dot-green"></span>
+        <span class="terminal-title">Consola de Sortida Java</span>
+      </div>
+      <div class="terminal-body"></div>
+    </div>
+
+    <div class="pedagogical-feedback"></div>
+
+    <div class="solution-box">
+      <strong>💡 Solució de referència comentada:</strong>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Scanner</span><span class="p">;</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Main</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">        </span><span class="n">Scanner</span><span class="w"> </span><span class="n">sc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Scanner</span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="na">in</span><span class="p">);</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">"Nom: "</span><span class="p">);</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">nom</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sc</span><span class="p">.</span><span class="na">nextLine</span><span class="p">();</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">"Edat: "</span><span class="p">);</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">edat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sc</span><span class="p">.</span><span class="na">nextInt</span><span class="p">();</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">anyNaixement</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2026</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">edat</span><span class="p">;</span>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Hola "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">nom</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">", vas nàixer l'any "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">anyNaixement</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">"."</span><span class="p">);</span>
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="p">}</span>
+</span></code></pre></div>
+    </div>
+  </div>
+</div>
+
+<h3 id="exercici-avancat-ra02-2-punts">💻 Exercici Avançat RA02 <em>(2 punts)</em></h3>
+<div class="java-exercise-card" data-ex-id="ex-ra02-adv">
+  <div class="java-ex-header">
+    <h4 class="java-ex-title">☕ Repte Avançat: Disseny i Implementació de Funcions auxiliars</h4>
+    <span class="java-ex-score-tag">Valor: 2.0 punts</span>
+  </div>
+  <div class="java-ex-desc">
+    <strong>Enunciat:</strong> Volem comprovar la longitud dels noms dels clients. Has d'implementar dues funcions separades:<br>
+    <ul>
+      <li><code>public static int getLongitud(String text)</code>: Retorna el número de caràcters utilitzant <code>.length()</code>.</li>
+      <li><code>public static int compararLongitud(int l1, int l2)</code>: Retorna el valor major entre l1 i l2 amb <code>return</code>.</li>
+    </ul>
+    Dins del <code>main()</code>, demana dos noms, usa <code>getLongitud()</code> per a cadascun, mostra quantes lletres té cadascun i utilitza <code>compararLongitud()</code> per determinar i imprimir quin nom és el més llarg.
+  </div>
+  <div class="java-editor-wrapper">
+    <textarea class="java-code-area" spellcheck="false">
+import java.util.Scanner;
+
+public class Main {
+
+    // TODO 1: Implementa la funció getLongitud(String text)
+    public static int getLongitud(String text) {
+        // Retorna la longitud del text
+    }
+
+    // TODO 2: Implementa la funció compararLongitud(int l1, int l2)
+    public static int compararLongitud(int l1, int l2) {
+        // Retorna el major dels dos valors
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        // TODO 3: Llegeix dos noms, mesura'ls i mostra el guanyador
+
+    }
+}
+    </textarea>
+    <div class="java-ex-actions">
+      <button type="button" class="btn-run">▶ Executar i Corregir codi</button>
+      <button type="button" class="btn-reset">🔄 Reiniciar codi</button>
+      <button type="button" class="btn-solution">💡 Veure solució guiada</button>
+    </div>
+
+    <div class="terminal-window">
+      <div class="terminal-header">
+        <span class="terminal-dot dot-red"></span>
+        <span class="terminal-dot dot-yellow"></span>
+        <span class="terminal-dot dot-green"></span>
+        <span class="terminal-title">Consola de Sortida Java</span>
+      </div>
+      <div class="terminal-body"></div>
+    </div>
+
+    <div class="pedagogical-feedback"></div>
+
+    <div class="solution-box">
+      <strong>💡 Solució de referència comentada:</strong>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Scanner</span><span class="p">;</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Main</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">getLongitud</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">text</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">text</span><span class="p">.</span><span class="na">length</span><span class="p">();</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">compararLongitud</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">l1</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">l2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">l1</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">l2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">l1</span><span class="p">;</span>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">l2</span><span class="p">;</span>
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="w">        </span><span class="n">Scanner</span><span class="w"> </span><span class="n">sc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Scanner</span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="na">in</span><span class="p">);</span>
+</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>
+</span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">"Primer nom: "</span><span class="p">);</span>
+</span><span id="__span-2-21"><a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">nom1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sc</span><span class="p">.</span><span class="na">nextLine</span><span class="p">();</span>
+</span><span id="__span-2-22"><a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a>
+</span><span id="__span-2-23"><a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">"Segon nom: "</span><span class="p">);</span>
+</span><span id="__span-2-24"><a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">nom2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sc</span><span class="p">.</span><span class="na">nextLine</span><span class="p">();</span>
+</span><span id="__span-2-25"><a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a>
+</span><span id="__span-2-26"><a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">l1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getLongitud</span><span class="p">(</span><span class="n">nom1</span><span class="p">);</span>
+</span><span id="__span-2-27"><a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">l2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getLongitud</span><span class="p">(</span><span class="n">nom2</span><span class="p">);</span>
+</span><span id="__span-2-28"><a id="__codelineno-2-28" name="__codelineno-2-28" href="#__codelineno-2-28"></a>
+</span><span id="__span-2-29"><a id="__codelineno-2-29" name="__codelineno-2-29" href="#__codelineno-2-29"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">nom1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">" té "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">l1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">" lletres."</span><span class="p">);</span>
+</span><span id="__span-2-30"><a id="__codelineno-2-30" name="__codelineno-2-30" href="#__codelineno-2-30"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">nom2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">" té "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">l2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">" lletres."</span><span class="p">);</span>
+</span><span id="__span-2-31"><a id="__codelineno-2-31" name="__codelineno-2-31" href="#__codelineno-2-31"></a>
+</span><span id="__span-2-32"><a id="__codelineno-2-32" name="__codelineno-2-32" href="#__codelineno-2-32"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">major</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">compararLongitud</span><span class="p">(</span><span class="n">l1</span><span class="p">,</span><span class="w"> </span><span class="n">l2</span><span class="p">);</span>
+</span><span id="__span-2-33"><a id="__codelineno-2-33" name="__codelineno-2-33" href="#__codelineno-2-33"></a>
+</span><span id="__span-2-34"><a id="__codelineno-2-34" name="__codelineno-2-34" href="#__codelineno-2-34"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">major</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">l1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-35"><a id="__codelineno-2-35" name="__codelineno-2-35" href="#__codelineno-2-35"></a><span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"El nom més llarg és: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">nom1</span><span class="p">);</span>
+</span><span id="__span-2-36"><a id="__codelineno-2-36" name="__codelineno-2-36" href="#__codelineno-2-36"></a><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-37"><a id="__codelineno-2-37" name="__codelineno-2-37" href="#__codelineno-2-37"></a><span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"El nom més llarg és: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">nom2</span><span class="p">);</span>
+</span><span id="__span-2-38"><a id="__codelineno-2-38" name="__codelineno-2-38" href="#__codelineno-2-38"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-2-39"><a id="__codelineno-2-39" name="__codelineno-2-39" href="#__codelineno-2-39"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-2-40"><a id="__codelineno-2-40" name="__codelineno-2-40" href="#__codelineno-2-40"></a><span class="p">}</span>
+</span></code></pre></div>
+    </div>
+  </div>
+</div>
+
 <hr />
-<h2 id="estructures-de-dades">🟦 Estructures de dades</h2>
-<h3 id="test-ra06">Test RA06</h3>
-<p><em>(1punt)</em>   </p>
-<ol>
-<li>
-<p>Quin d’aquests declara correctament un vector d’enters?<br />
-   A) <code>int numeros[];</code><br />
-   B) <code>vector int numeros;</code><br />
-   C) <code>int numeros = [];</code><br />
-   D) <code>int[];</code>  </p>
-</li>
-<li>
-<p>Quin és l’índex del <strong>primer element</strong> d’un vector?<br />
-   A) 0<br />
-   B) 1<br />
-   C) -1<br />
-   D) Depén  </p>
-</li>
-<li>
-<p>Un <strong>ArrayList</strong> pertany a:<br />
-   A) <code>java.random</code><br />
-   B) <code>java.util</code><br />
-   C) <code>java.array</code><br />
-   D) <code>java.collections</code>  </p>
-</li>
-<li>
-<p>Quin mètode <strong>afegeix</strong> un element a un ArrayList?<br />
-   A) add()<br />
-   B) insert()<br />
-   C) push()<br />
-   D) put()  </p>
-</li>
-<li>
-<p>Quin element permet <strong>recórrer</strong> tots els valors d’un vector?<br />
-   A) if<br />
-   B) main<br />
-   C) for<br />
-   D) new  </p>
-</li>
-</ol>
-<h3 id="exercici-ra06">Exercici RA06</h3>
-<p><em>(1punt)</em><br />
-<strong>Enunciat:</strong><br />
-Fes un programa que cree un vector de 5 números enters, demane cada número per teclat i després mostre el <strong>valor màxim i el mínim</strong>.</p>
+<h2 id="ra03-estructures-de-control-total-2-punts">🟨 RA03 — Estructures de control (Total: 2 punts)</h2>
+<h3 id="test-ra03-1-punt-5-preguntes-02-pts">📝 Test RA03 <em>(1 punt — 5 preguntes × 0.2 pts)</em></h3>
+<!-- Q1 -->
+<div class="quiz-card" data-ra="ra03" data-qid="ra03-q1">
+  <div class="quiz-question-title">
+    <span class="quiz-q-num">1</span>
+    <span>Quina instrucció permet executar un bloc de codi només si una condició es compleix?</span>
+  </div>
+  <div class="quiz-options">
+    <label class="quiz-option"><input type="radio" name="ra03-q1" value="A"> A) for</label>
+    <label class="quiz-option"><input type="radio" name="ra03-q1" value="B"> B) if</label>
+    <label class="quiz-option"><input type="radio" name="ra03-q1" value="C"> C) int</label>
+    <label class="quiz-option"><input type="radio" name="ra03-q1" value="D"> D) String</label>
+  </div>
+  <button type="button" class="quiz-btn-check">Comprovar resposta</button>
+  <div class="quiz-feedback"></div>
+</div>
+
+<!-- Q2 -->
+<div class="quiz-card" data-ra="ra03" data-qid="ra03-q2">
+  <div class="quiz-question-title">
+    <span class="quiz-q-num">2</span>
+    <span>Quina és la sintaxi correcta d’una estructura <code>while</code> en Java?</span>
+  </div>
+  <div class="quiz-options">
+    <label class="quiz-option"><input type="radio" name="ra03-q2" value="A"> A) while x&lt;5 { }</label>
+    <label class="quiz-option"><input type="radio" name="ra03-q2" value="B"> B) while (x&lt;5) { }</label>
+    <label class="quiz-option"><input type="radio" name="ra03-q2" value="C"> C) while (x&lt;5); { }</label>
+    <label class="quiz-option"><input type="radio" name="ra03-q2" value="D"> D) repeat (x&lt;5) { }</label>
+  </div>
+  <button type="button" class="quiz-btn-check">Comprovar resposta</button>
+  <div class="quiz-feedback"></div>
+</div>
+
+<!-- Q3 -->
+<div class="quiz-card" data-ra="ra03" data-qid="ra03-q3">
+  <div class="quiz-question-title">
+    <span class="quiz-q-num">3</span>
+    <span>Quin bucle mostra correctament els números de l'1 al 10 en ordre ascendent?</span>
+  </div>
+  <div class="quiz-options">
+    <label class="quiz-option"><input type="radio" name="ra03-q3" value="A"> A) for (int i = 1; i &lt;= 10; i++)</label>
+    <label class="quiz-option"><input type="radio" name="ra03-q3" value="B"> B) for (int i = 0; i &lt; 10; i--)</label>
+    <label class="quiz-option"><input type="radio" name="ra03-q3" value="C"> C) if (i &lt; 10)</label>
+    <label class="quiz-option"><input type="radio" name="ra03-q3" value="D"> D) while (10)</label>
+  </div>
+  <button type="button" class="quiz-btn-check">Comprovar resposta</button>
+  <div class="quiz-feedback"></div>
+</div>
+
+<!-- Q4 -->
+<div class="quiz-card" data-ra="ra03" data-qid="ra03-q4">
+  <div class="quiz-question-title">
+    <span class="quiz-q-num">4</span>
+    <span>Quina d’aquestes estructures permet repetir instruccions mentre una condició siga vertadera?</span>
+  </div>
+  <div class="quiz-options">
+    <label class="quiz-option"><input type="radio" name="ra03-q4" value="A"> A) if</label>
+    <label class="quiz-option"><input type="radio" name="ra03-q4" value="B"> B) for</label>
+    <label class="quiz-option"><input type="radio" name="ra03-q4" value="C"> C) int</label>
+    <label class="quiz-option"><input type="radio" name="ra03-q4" value="D"> D) String</label>
+  </div>
+  <button type="button" class="quiz-btn-check">Comprovar resposta</button>
+  <div class="quiz-feedback"></div>
+</div>
+
+<!-- Q5 -->
+<div class="quiz-card" data-ra="ra03" data-qid="ra03-q5">
+  <div class="quiz-question-title">
+    <span class="quiz-q-num">5</span>
+    <span>Quina estructura permet triar entre una condició i una alternativa si és falsa?</span>
+  </div>
+  <div class="quiz-options">
+    <label class="quiz-option"><input type="radio" name="ra03-q5" value="A"> A) if / else</label>
+    <label class="quiz-option"><input type="radio" name="ra03-q5" value="B"> B) import</label>
+    <label class="quiz-option"><input type="radio" name="ra03-q5" value="C"> C) class</label>
+    <label class="quiz-option"><input type="radio" name="ra03-q5" value="D"> D) new</label>
+  </div>
+  <button type="button" class="quiz-btn-check">Comprovar resposta</button>
+  <div class="quiz-feedback"></div>
+</div>
+
+<h3 id="exercici-practic-ra03-1-punt">💻 Exercici Pràctic RA03 <em>(1 punt)</em></h3>
+<div class="java-exercise-card" data-ex-id="ex-ra03">
+  <div class="java-ex-header">
+    <h4 class="java-ex-title">☕ Repte: Classificació numèrica amb if / else if / else</h4>
+    <span class="java-ex-score-tag">Valor: 1.0 punt</span>
+  </div>
+  <div class="java-ex-desc">
+    <strong>Enunciat:</strong> Fes un programa que demane un número per teclat i mostre per pantalla si és:
+    <ul>
+      <li><code>"Positiu"</code> (si és major que 0)</li>
+      <li><code>"Negatiu"</code> (si és menor que 0)</li>
+      <li><code>"Zero"</code> (si és igual a 0)</li>
+    </ul>
+  </div>
+  <div class="java-editor-wrapper">
+    <textarea class="java-code-area" spellcheck="false">
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Número: ");
+        int num = sc.nextInt();
+
+        // TODO: Escriu l'estructura if / else if / else
+
+
+    }
+}
+    </textarea>
+    <div class="java-ex-actions">
+      <button type="button" class="btn-run">▶ Executar i Corregir codi</button>
+      <button type="button" class="btn-reset">🔄 Reiniciar codi</button>
+      <button type="button" class="btn-solution">💡 Veure solució guiada</button>
+    </div>
+
+    <div class="terminal-window">
+      <div class="terminal-header">
+        <span class="terminal-dot dot-red"></span>
+        <span class="terminal-dot dot-yellow"></span>
+        <span class="terminal-dot dot-green"></span>
+        <span class="terminal-title">Consola de Sortida Java</span>
+      </div>
+      <div class="terminal-body"></div>
+    </div>
+
+    <div class="pedagogical-feedback"></div>
+
+    <div class="solution-box">
+      <strong>💡 Solució de referència comentada:</strong>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Scanner</span><span class="p">;</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Main</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">        </span><span class="n">Scanner</span><span class="w"> </span><span class="n">sc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Scanner</span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="na">in</span><span class="p">);</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">"Número: "</span><span class="p">);</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sc</span><span class="p">.</span><span class="na">nextInt</span><span class="p">();</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">num</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Positiu"</span><span class="p">);</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">num</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Negatiu"</span><span class="p">);</span>
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Zero"</span><span class="p">);</span>
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="p">}</span>
+</span></code></pre></div>
+    </div>
+  </div>
+</div>
+
+<hr />
+<h2 id="ra06-estructures-de-dades-vectors-arrays-total-2-punts">🟦 RA06 — Estructures de dades (Vectors / Arrays) (Total: 2 punts)</h2>
+<h3 id="test-ra06-1-punt-5-preguntes-02-pts">📝 Test RA06 <em>(1 punt — 5 preguntes × 0.2 pts)</em></h3>
+<!-- Q1 -->
+<div class="quiz-card" data-ra="ra06" data-qid="ra06-q1">
+  <div class="quiz-question-title">
+    <span class="quiz-q-num">1</span>
+    <span>Quin d’aquests declara correctament una variable per a un array o vector d’enters?</span>
+  </div>
+  <div class="quiz-options">
+    <label class="quiz-option"><input type="radio" name="ra06-q1" value="A"> A) int numeros[];</label>
+    <label class="quiz-option"><input type="radio" name="ra06-q1" value="B"> B) vector int numeros;</label>
+    <label class="quiz-option"><input type="radio" name="ra06-q1" value="C"> C) int numeros = [];</label>
+    <label class="quiz-option"><input type="radio" name="ra06-q1" value="D"> D) int[];</label>
+  </div>
+  <button type="button" class="quiz-btn-check">Comprovar resposta</button>
+  <div class="quiz-feedback"></div>
+</div>
+
+<!-- Q2 -->
+<div class="quiz-card" data-ra="ra06" data-qid="ra06-q2">
+  <div class="quiz-question-title">
+    <span class="quiz-q-num">2</span>
+    <span>Quin és l’índex del <strong>primer element</strong> de qualsevol vector en Java?</span>
+  </div>
+  <div class="quiz-options">
+    <label class="quiz-option"><input type="radio" name="ra06-q2" value="A"> A) 0</label>
+    <label class="quiz-option"><input type="radio" name="ra06-q2" value="B"> B) 1</label>
+    <label class="quiz-option"><input type="radio" name="ra06-q2" value="C"> C) -1</label>
+    <label class="quiz-option"><input type="radio" name="ra06-q2" value="D"> D) Depén de la mida</label>
+  </div>
+  <button type="button" class="quiz-btn-check">Comprovar resposta</button>
+  <div class="quiz-feedback"></div>
+</div>
+
+<!-- Q3 -->
+<div class="quiz-card" data-ra="ra06" data-qid="ra06-q3">
+  <div class="quiz-question-title">
+    <span class="quiz-q-num">3</span>
+    <span>A quin paquet estàndard de Java pertany la classe de col·leccions dinàmiques <strong>ArrayList</strong>?</span>
+  </div>
+  <div class="quiz-options">
+    <label class="quiz-option"><input type="radio" name="ra06-q3" value="A"> A) java.random</label>
+    <label class="quiz-option"><input type="radio" name="ra06-q3" value="B"> B) java.util</label>
+    <label class="quiz-option"><input type="radio" name="ra06-q3" value="C"> C) java.array</label>
+    <label class="quiz-option"><input type="radio" name="ra06-q3" value="D"> D) java.collections</label>
+  </div>
+  <button type="button" class="quiz-btn-check">Comprovar resposta</button>
+  <div class="quiz-feedback"></div>
+</div>
+
+<!-- Q4 -->
+<div class="quiz-card" data-ra="ra06" data-qid="ra06-q4">
+  <div class="quiz-question-title">
+    <span class="quiz-q-num">4</span>
+    <span>Quin mètode <strong>afegeix</strong> un nou element a un objecte ArrayList en Java?</span>
+  </div>
+  <div class="quiz-options">
+    <label class="quiz-option"><input type="radio" name="ra06-q4" value="A"> A) add()</label>
+    <label class="quiz-option"><input type="radio" name="ra06-q4" value="B"> B) insert()</label>
+    <label class="quiz-option"><input type="radio" name="ra06-q4" value="C"> C) push()</label>
+    <label class="quiz-option"><input type="radio" name="ra06-q4" value="D"> D) put()</label>
+  </div>
+  <button type="button" class="quiz-btn-check">Comprovar resposta</button>
+  <div class="quiz-feedback"></div>
+</div>
+
+<!-- Q5 -->
+<div class="quiz-card" data-ra="ra06" data-qid="ra06-q5">
+  <div class="quiz-question-title">
+    <span class="quiz-q-num">5</span>
+    <span>Quina instrucció de control permet <strong>recórrer ordenadament</strong> tots els valors d’un vector?</span>
+  </div>
+  <div class="quiz-options">
+    <label class="quiz-option"><input type="radio" name="ra06-q5" value="A"> A) if</label>
+    <label class="quiz-option"><input type="radio" name="ra06-q5" value="B"> B) main</label>
+    <label class="quiz-option"><input type="radio" name="ra06-q5" value="C"> C) for</label>
+    <label class="quiz-option"><input type="radio" name="ra06-q5" value="D"> D) new</label>
+  </div>
+  <button type="button" class="quiz-btn-check">Comprovar resposta</button>
+  <div class="quiz-feedback"></div>
+</div>
+
+<h3 id="exercici-practic-ra06-1-punt">💻 Exercici Pràctic RA06 <em>(1 punt)</em></h3>
+<div class="java-exercise-card" data-ex-id="ex-ra06">
+  <div class="java-ex-header">
+    <h4 class="java-ex-title">☕ Repte: Recorregut d'un vector i cerca de Màxim i Mínim</h4>
+    <span class="java-ex-score-tag">Valor: 1.0 punt</span>
+  </div>
+  <div class="java-ex-desc">
+    <strong>Enunciat:</strong> Fes un programa que:
+    <ul>
+      <li>Cree un vector d'enters de mida 5 (<code>new int[5]</code>).</li>
+      <li>Demane cada número per teclat amb un bucle <code>for</code>.</li>
+      <li>Calcule i mostre el <strong>valor màxim</strong> i el <strong>mínim</strong> trobats al vector.</li>
+    </ul>
+  </div>
+  <div class="java-editor-wrapper">
+    <textarea class="java-code-area" spellcheck="false">
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        // TODO 1: Crea un array int[5]
+        int[] numeros = new int[5];
+
+        // TODO 2: Demana els 5 valors amb un bucle for
+        for (int i = 0; i < 5; i++) {
+            System.out.print("Número " + (i + 1) + ": ");
+            numeros[i] = sc.nextInt();
+        }
+
+        // TODO 3: Inicialitza max i min amb el primer element
+        int max = numeros[0];
+        int min = numeros[0];
+
+        // TODO 4: Recorre el vector comparant i actualitzant max i min
+
+
+        // TODO 5: Mostra el Màxim i el Mínim
+        System.out.println("Màxim: " + max);
+        System.out.println("Mínim: " + min);
+    }
+}
+    </textarea>
+    <div class="java-ex-actions">
+      <button type="button" class="btn-run">▶ Executar i Corregir codi</button>
+      <button type="button" class="btn-reset">🔄 Reiniciar codi</button>
+      <button type="button" class="btn-solution">💡 Veure solució guiada</button>
+    </div>
+
+    <div class="terminal-window">
+      <div class="terminal-header">
+        <span class="terminal-dot dot-red"></span>
+        <span class="terminal-dot dot-yellow"></span>
+        <span class="terminal-dot dot-green"></span>
+        <span class="terminal-title">Consola de Sortida Java</span>
+      </div>
+      <div class="terminal-body"></div>
+    </div>
+
+    <div class="pedagogical-feedback"></div>
+
+    <div class="solution-box">
+      <strong>💡 Solució de referència comentada:</strong>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Scanner</span><span class="p">;</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Main</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">        </span><span class="n">Scanner</span><span class="w"> </span><span class="n">sc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Scanner</span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="na">in</span><span class="p">);</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">        </span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">numeros</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="o">[</span><span class="mi">5</span><span class="o">]</span><span class="p">;</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">"Número "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">": "</span><span class="p">);</span>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">            </span><span class="n">numeros</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sc</span><span class="p">.</span><span class="na">nextInt</span><span class="p">();</span>
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">numeros</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="p">;</span>
+</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">min</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">numeros</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="p">;</span>
+</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>
+</span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-18"><a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">numeros</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">max</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-19"><a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a><span class="w">                </span><span class="n">max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">numeros</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">;</span>
+</span><span id="__span-4-20"><a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a><span class="w">            </span><span class="p">}</span>
+</span><span id="__span-4-21"><a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">numeros</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">min</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-22"><a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a><span class="w">                </span><span class="n">min</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">numeros</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">;</span>
+</span><span id="__span-4-23"><a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a><span class="w">            </span><span class="p">}</span>
+</span><span id="__span-4-24"><a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-4-25"><a id="__codelineno-4-25" name="__codelineno-4-25" href="#__codelineno-4-25"></a>
+</span><span id="__span-4-26"><a id="__codelineno-4-26" name="__codelineno-4-26" href="#__codelineno-4-26"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Màxim: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">max</span><span class="p">);</span>
+</span><span id="__span-4-27"><a id="__codelineno-4-27" name="__codelineno-4-27" href="#__codelineno-4-27"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Mínim: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">min</span><span class="p">);</span>
+</span><span id="__span-4-28"><a id="__codelineno-4-28" name="__codelineno-4-28" href="#__codelineno-4-28"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-4-29"><a id="__codelineno-4-29" name="__codelineno-4-29" href="#__codelineno-4-29"></a><span class="p">}</span>
+</span></code></pre></div>
+    </div>
+  </div>
+</div>
 
 
 
@@ -1026,6 +1599,8 @@ Fes un programa que cree un vector de 5 números enters, demane cada número per
     
     
       <script src="../../assets/javascripts/bundle.a5f9d56c.min.js"></script>
+      
+        <script src="../../javascripts/simulator.js"></script>
       
     
   </body>

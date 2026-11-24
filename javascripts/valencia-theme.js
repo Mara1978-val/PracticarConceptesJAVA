@@ -1,6 +1,29 @@
 /* Adaptació al valencià de qualsevol text visible generat pel tema MkDocs
    (missatges del cercador, etc.). No toca codi ni camps de text. */
 (function () {
+  // Adaptar també les cadenes de configuració del tema (cercador, etc.)
+  const config = document.getElementById("__config");
+  if (config) {
+    try {
+      const obj = JSON.parse(config.textContent);
+      const valencia = (valor) => {
+        if (typeof valor === "string") {
+          return valor
+            .replace(/aquestes/gi, "eixes")
+            .replace(/aquests/gi, "eixos")
+            .replace(/aquesta/gi, "eixa")
+            .replace(/aquest/gi, "eixe");
+        }
+        if (Array.isArray(valor)) return valor.map(valencia);
+        if (valor && typeof valor === "object") {
+          Object.keys(valor).forEach((clau) => { valor[clau] = valencia(valor[clau]); });
+        }
+        return valor;
+      };
+      config.textContent = JSON.stringify(valencia(obj));
+    } catch (e) { /* config no disponible */ }
+  }
+
   function arreglar(node) {
     if (node.nodeType === 3) {
       const pare = node.parentElement;

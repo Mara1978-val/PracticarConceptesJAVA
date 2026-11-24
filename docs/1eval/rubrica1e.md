@@ -26,8 +26,9 @@ execució real de codi Java. Per superar un RA cal assolir almenys el **50%** (1
 
 ## Exercicis integrats
 
-Els dos exercicis de **Practica integrada** combineu tots quatre RAs amb codi parcialment escrit
-(trossos ja programats i trossos que l'alumne ha de completar). Són **pràctica addicional**:
+Els tres exercicis de **Practica integrada** (nivells **bàsic**, **mitjà** i **avançat**) combinen
+tots quatre RAs amb codi parcialment escrit (trossos ja programats i trossos que l'alumne ha de
+completar). Cada nivell planteja una aplicació més desenvolupada. Són **pràctica addicional**:
 mostren la solució guiada i la puntuació per criteris, però **no modifiquen la nota de 10 punts**.
 
 L'intèrpret integrat mostra la sortida real del codi, assenyala el número de línia de qualsevol error

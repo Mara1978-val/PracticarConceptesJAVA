@@ -718,28 +718,23 @@ public class Main {
 ---
 
 
-## 🧩 Practica integrada — tots els RAs *(bonificació, no compta a la nota)*
 
-Dos exercicis que combinen **estructura (RA1)**, **control (RA3)**, **entrada/sortida (RA5)** i **vectors (RA6)**.
-Tenen trossos de codi ja escrits i altres que has de completar. Pots veure la solució i l'intèrpret
-t'explica línia a línia qualsevol error.
+## 🧩 Practica integrada per nivells — tots els RAs *(bonificació, no compta a la nota)*
 
-### 🧪 Exercici integrat 1 — Anàlisi de temperatures
+Tres aplicacions que combinen **estructura (RA1)**, **control (RA3)**, **entrada/sortida (RA5)** i **vectors (RA6)**.
+Cada una té trossos de codi ja implementats i altres que has de completar. Pots veure la solució guiada
+i l'intèrpret t'explica qualsevol error línia a línia. Els tres nivells són pràctica addicional i no
+modifiquen la nota de 10 punts de l'examen.
 
-<div class="java-exercise-card" data-ex-id="ex-integ1">
+### 🟢 Nivell bàsic — Fitxa d'alumne amb mitjana i resultat
+
+<div class="java-exercise-card" data-ex-id="ex-int-basic">
   <div class="java-ex-header">
-    <h4 class="java-ex-title">🌡️ Repte integrat: temperatures màxima, mínima i dies calorosos</h4>
-    <span class="java-ex-score-tag">Pràctica · 1.0 punt</span>
+    <h4 class="java-ex-title">Fitxa d'alumne amb mitjana i resultat</h4>
+    <span class="java-ex-score-tag">Pràctica · 1.0 punt · RA1 + RA3 + RA5 + RA6</span>
   </div>
   <div class="java-ex-desc">
-    <strong>Enunciat:</strong> llegeix 5 temperatures, guarda-les en un vector i mostra la màxima,
-    la mínima i quantes són superiors a 30. Completa els <code>TODO</code>:
-    <ul>
-      <li><strong>RA1:</strong> afegeix un comentari <code>//</code> i declara la variable <code>calorosos</code>.</li>
-      <li><strong>RA6:</strong> recorre el vector per trobar <code>max</code> i <code>min</code>.</li>
-      <li><strong>RA3:</strong> compta els valors &gt; 30 amb un <code>if</code>.</li>
-      <li><strong>RA5:</strong> mostra les tres dades amb <code>System.out.println</code>.</li>
-    </ul>
+    <strong>Enunciat:</strong> Llegeix el nom, l'edat i 3 notes d'un alumne. Les notes ja es guarden en un vector amb un bucle <code>for</code> escrit. Has de completar: la suma de notes, el càlcul de la mitjana i un <code>if / else</code> que mostri <em>Aprovat</em> o <em>Suspès</em>. Finalment imprimeix la fitxa completa amb el nom, l'edat, la mitjana i el resultat.
   </div>
   <div class="java-editor-wrapper">
     <textarea class="java-code-area" spellcheck="false">
@@ -747,32 +742,42 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        // TODO RA1: escriu ací un comentari que explique què fa el programa
+        // TODO RA1: escriu un comentari que descriga aquest programa
         Scanner sc = new Scanner(System.in);
-        int[] temps = new int[5];
 
-        for (int i = 0; i < 5; i++) {
-            System.out.print("Temperatura " + (i + 1) + ": ");
-            temps[i] = sc.nextInt();
+        System.out.print("Nom: ");
+        String nom = sc.nextLine();
+        System.out.print("Edat: ");
+        int edat = sc.nextInt();
+
+        int[] notes = new int[3];
+        int suma = 0;
+
+        for (int i = 0; i < 3; i++) {
+            System.out.print("Nota " + (i + 1) + ": ");
+            notes[i] = sc.nextInt();
+            // TODO RA6: afegeix notes[i] a la variable suma
         }
 
-        int max = temps[0];
-        int min = temps[0];
-        // TODO RA1: declara i inicialitza calorosos a 0
+        // TODO RA1: calcula la mitjana sencera (suma / 3)
+        int mitjana = 0;
 
-        // TODO RA6 + RA3: recorre el vector, actualitza max i min i compta els > 30
+        // TODO RA3: posa "Aprovat" si mitjana >= 5, si no "Suspés"
+        String resultat = "";
 
-        // TODO RA5: mostra "Màxima: X", "Mínima: Y" i "Dies calorosos: Z"
+        System.out.println("--- Fitxa de l'alumne ---");
+        System.out.println(nom + " (" + edat + " anys)");
+        // TODO RA5: mostra "Mitjana: X" i "Resultat: Y"
     }
 }
     </textarea>
     <div class="java-input-panel">
-      <label for="in-integ1">⌨️ Dades d'entrada (5 temperatures, una per línia)</label>
-      <textarea id="in-integ1" class="java-input-data" rows="3" spellcheck="false">20
-35
-31
-18
-40</textarea>
+      <label for="in-ex-int-basic">⌨️ Dades d'entrada (una dada per línia)</label>
+      <textarea id="in-ex-int-basic" class="java-input-data" rows="4" spellcheck="false">Marta
+20
+6
+7
+5</textarea>
     </div>
     <div class="java-ex-actions">
       <button type="button" class="btn-run">▶ Executar i Corregir codi</button>
@@ -788,34 +793,42 @@ public class Main {
     </div>
     <div class="pedagogical-feedback"></div>
     <div class="solution-box">
-      <strong>💡 Solució guiada:</strong>
+      <strong>💡 Solució guiada completa:</strong>
 ```java
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        // Llegeix temperatures i calcula la màxima, la mínima i els dies calorosos
+        // Llegeix la fitxa d'un alumne i calcula la seua mitjana
         Scanner sc = new Scanner(System.in);
-        int[] temps = new int[5];
 
-        for (int i = 0; i < 5; i++) {
-            System.out.print("Temperatura " + (i + 1) + ": ");
-            temps[i] = sc.nextInt();
+        System.out.print("Nom: ");
+        String nom = sc.nextLine();
+        System.out.print("Edat: ");
+        int edat = sc.nextInt();
+
+        int[] notes = new int[3];
+        int suma = 0;
+
+        for (int i = 0; i < 3; i++) {
+            System.out.print("Nota " + (i + 1) + ": ");
+            notes[i] = sc.nextInt();
+            suma = suma + notes[i];
         }
 
-        int max = temps[0];
-        int min = temps[0];
-        int calorosos = 0;
+        int mitjana = suma / 3;
 
-        for (int i = 1; i < 5; i++) {
-            if (temps[i] > max) { max = temps[i]; }
-            if (temps[i] < min) { min = temps[i]; }
-            if (temps[i] > 30) { calorosos++; }
+        String resultat;
+        if (mitjana >= 5) {
+            resultat = "Aprovat";
+        } else {
+            resultat = "Suspés";
         }
 
-        System.out.println("Màxima: " + max);
-        System.out.println("Mínima: " + min);
-        System.out.println("Dies calorosos: " + calorosos);
+        System.out.println("--- Fitxa de l'alumne ---");
+        System.out.println(nom + " (" + edat + " anys)");
+        System.out.println("Mitjana: " + mitjana);
+        System.out.println("Resultat: " + resultat);
     }
 }
 ```
@@ -823,18 +836,15 @@ public class Main {
   </div>
 </div>
 
-### 🧪 Exercici integrat 2 — Notes i mitjana
+### 🟡 Nivell mitjà — Tiquet de compra amb descompte
 
-<div class="java-exercise-card" data-ex-id="ex-integ2">
+<div class="java-exercise-card" data-ex-id="ex-int-mitja">
   <div class="java-ex-header">
-    <h4 class="java-ex-title">🎓 Repte integrat: mitjana i recompte d'aprovats</h4>
-    <span class="java-ex-score-tag">Pràctica · 1.0 punt</span>
+    <h4 class="java-ex-title">Tiquet de compra amb descompte</h4>
+    <span class="java-ex-score-tag">Pràctica · 1.0 punt · RA1 + RA3 + RA5 + RA6</span>
   </div>
   <div class="java-ex-desc">
-    <strong>Enunciat:</strong> llegeix 4 notes, guarda-les en un vector, calcula la mitjana sencera
-    i compte quantes són majors o iguals que 5. Completa els <code>TODO</code> de <strong>RA1</strong>
-    (comentari i variables), <strong>RA5</strong> (entrada i sortida), <strong>RA6</strong> (vector) i
-    <strong>RA3</strong> (bucle i <code>if</code>).
+    <strong>Enunciat:</strong> Fes una aplicació de tiquet: llegeix el número de productes i els seus preus, guarda'ls en un vector, calcula el total, el preu màxim i quants productes superen 100. Si el total passa de 500, aplica un descompte del 10%. Mostra un tiquet formatat amb tots els conceptes. El vector i la lectura ja estan escrits; completeu el càlcul i les condicions.
   </div>
   <div class="java-editor-wrapper">
     <textarea class="java-code-area" spellcheck="false">
@@ -842,28 +852,42 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        // TODO RA1: afegeix un comentari d'una línia
+        // TODO RA1: comentari i declaracions de total, maxim i cars
         Scanner sc = new Scanner(System.in);
-        int[] notes = new int[4];
-        int suma = 0;
-        // TODO RA1: declara aprovats a 0
 
-        // TODO RA5 + RA6: llegeix les 4 notes amb un bucle for i suma-les
+        System.out.print("Nombre de productes: ");
+        int n = sc.nextInt();
+        int[] preus = new int[n];
+        int total = 0;
+        int maxim = 0;
+        int cars = 0;
 
-        // TODO RA3 + RA6: recorre el vector i compte les notes >= 5
+        for (int i = 0; i < n; i++) {
+            System.out.print("Preu " + (i + 1) + ": ");
+            preus[i] = sc.nextInt();
+            // TODO RA6: suma el preu al total i actualitza el màxim
+        }
 
-        int mitjana = suma / 4;
+        // TODO RA3 + RA6: compta quants preus són > 100
 
-        // TODO RA5: mostra "Mitjana: X" i "Aprovats: Y"
+        int descompte = 0;
+        // TODO RA3: si total > 500, descompte = total * 10 / 100
+
+        int aPagar = total - descompte;
+
+        System.out.println("===== TIQUET =====");
+        // TODO RA5: mostra Total, Preu maxim, Productes > 100,
+        //           Descompte i A pagar
     }
 }
     </textarea>
     <div class="java-input-panel">
-      <label for="in-integ2">⌨️ Dades d'entrada (4 notes, una per línia)</label>
-      <textarea id="in-integ2" class="java-input-data" rows="2" spellcheck="false">4
-7
-5
-8</textarea>
+      <label for="in-ex-int-mitja">⌨️ Dades d'entrada (una dada per línia)</label>
+      <textarea id="in-ex-int-mitja" class="java-input-data" rows="4" spellcheck="false">4
+120
+80
+200
+150</textarea>
     </div>
     <div class="java-ex-actions">
       <button type="button" class="btn-run">▶ Executar i Corregir codi</button>
@@ -879,34 +903,171 @@ public class Main {
     </div>
     <div class="pedagogical-feedback"></div>
     <div class="solution-box">
-      <strong>💡 Solució guiada:</strong>
+      <strong>💡 Solució guiada completa:</strong>
 ```java
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        // Llegeix notes, calcula la mitjana i compta els aprovats
+        // Llegeix preus, calcula estadístiques i aplica descompte
         Scanner sc = new Scanner(System.in);
-        int[] notes = new int[4];
-        int suma = 0;
-        int aprovats = 0;
 
-        for (int i = 0; i < 4; i++) {
-            System.out.print("Nota " + (i + 1) + ": ");
-            notes[i] = sc.nextInt();
-            suma = suma + notes[i];
-        }
+        System.out.print("Nombre de productes: ");
+        int n = sc.nextInt();
+        int[] preus = new int[n];
+        int total = 0;
+        int maxim = 0;
+        int cars = 0;
 
-        for (int i = 0; i < 4; i++) {
-            if (notes[i] >= 5) {
-                aprovats++;
+        for (int i = 0; i < n; i++) {
+            System.out.print("Preu " + (i + 1) + ": ");
+            preus[i] = sc.nextInt();
+            total = total + preus[i];
+            if (preus[i] > maxim) {
+                maxim = preus[i];
             }
         }
 
-        int mitjana = suma / 4;
+        for (int i = 0; i < n; i++) {
+            if (preus[i] > 100) {
+                cars++;
+            }
+        }
 
-        System.out.println("Mitjana: " + mitjana);
-        System.out.println("Aprovats: " + aprovats);
+        int descompte = 0;
+        if (total > 500) {
+            descompte = total * 10 / 100;
+        }
+
+        int aPagar = total - descompte;
+
+        System.out.println("===== TIQUET =====");
+        System.out.println("Total: " + total);
+        System.out.println("Preu maxim: " + maxim);
+        System.out.println("Productes > 100: " + cars);
+        System.out.println("Descompte: " + descompte);
+        System.out.println("A pagar: " + aPagar);
+    }
+}
+```
+    </div>
+  </div>
+</div>
+
+### 🔴 Nivell avançat — Informe de qualitat de sensors
+
+<div class="java-exercise-card" data-ex-id="ex-int-avancada">
+  <div class="java-ex-header">
+    <h4 class="java-ex-title">Informe de qualitat de sensors</h4>
+    <span class="java-ex-score-tag">Pràctica · 1.0 punt · RA1 + RA3 + RA5 + RA6</span>
+  </div>
+  <div class="java-ex-desc">
+    <strong>Enunciat:</strong> Aplicació més completa per validar 6 lectures de sensors. La funció <code>esValida(int)</code> i l'estructura bàsica ja estan escrites. Has de completar: la funció de validació (valor entre 0 i 40), el recompte de lectures vàlides/invàlides, la suma i el màxim/mínim només de les vàlides, i un informe final amb la mitjana i el número de sensors òptims (≥ 25). Mostra també l'estat de cada sensor amb <code>if / else</code>.
+  </div>
+  <div class="java-editor-wrapper">
+    <textarea class="java-code-area" spellcheck="false">
+import java.util.Scanner;
+
+public class Main {
+    // TODO RA3 (avan.cat): completa aquesta funció
+    public static boolean esValida(int valor) {
+        return false;
+    }
+
+    public static void main(String[] args) {
+        // TODO RA1: comentari general del programa
+        Scanner sc = new Scanner(System.in);
+        int[] sensors = new int[6];
+        int valides = 0;
+        int suma = 0;
+        int maxim = 0;
+        int minima = 9999;
+        int optims = 0;
+
+        for (int i = 0; i < 6; i++) {
+            System.out.print("Sensor " + (i + 1) + ": ");
+            sensors[i] = sc.nextInt();
+
+            // TODO RA3: si esValida(sensors[i]), suma, compta,
+            //           actualitza maxim i minima, i compta els >= 25.
+            //           Si no, mostra "Sensor X:Invalid"
+        }
+
+        System.out.println("===== INFORME =====");
+        System.out.println("Lectures valides: " + valides);
+        // TODO RA5: mostra Mitjana, Maxima, Minima i Optims
+        //           (mitjana = suma / valides; protegeix si valides == 0)
+    }
+}
+    </textarea>
+    <div class="java-input-panel">
+      <label for="in-ex-int-avancada">⌨️ Dades d'entrada (una dada per línia)</label>
+      <textarea id="in-ex-int-avancada" class="java-input-data" rows="4" spellcheck="false">18
+25
+-5
+30
+17
+70</textarea>
+    </div>
+    <div class="java-ex-actions">
+      <button type="button" class="btn-run">▶ Executar i Corregir codi</button>
+      <button type="button" class="btn-reset">🔄 Reiniciar codi</button>
+      <button type="button" class="btn-solution">💡 Veure solució guiada</button>
+    </div>
+    <div class="terminal-window">
+      <div class="terminal-header">
+        <span class="terminal-dot dot-red"></span><span class="terminal-dot dot-yellow"></span><span class="terminal-dot dot-green"></span>
+        <span class="terminal-title">Consola de Sortida Java</span>
+      </div>
+      <div class="terminal-body"></div>
+    </div>
+    <div class="pedagogical-feedback"></div>
+    <div class="solution-box">
+      <strong>💡 Solució guiada completa:</strong>
+```java
+import java.util.Scanner;
+
+public class Main {
+    public static boolean esValida(int valor) {
+        return valor >= 0 && valor <= 40;
+    }
+
+    public static void main(String[] args) {
+        // Validació i estadístiques de lectures de sensors
+        Scanner sc = new Scanner(System.in);
+        int[] sensors = new int[6];
+        int valides = 0;
+        int suma = 0;
+        int maxim = 0;
+        int minima = 9999;
+        int optims = 0;
+
+        for (int i = 0; i < 6; i++) {
+            System.out.print("Sensor " + (i + 1) + ": ");
+            sensors[i] = sc.nextInt();
+
+            if (esValida(sensors[i])) {
+                System.out.println("Sensor " + (i + 1) + ": Correcte");
+                valides++;
+                suma = suma + sensors[i];
+                if (sensors[i] > maxim) { maxim = sensors[i]; }
+                if (sensors[i] < minima) { minima = sensors[i]; }
+                if (sensors[i] >= 25) { optims++; }
+            } else {
+                System.out.println("Sensor " + (i + 1) + ": Invalid");
+            }
+        }
+
+        System.out.println("===== INFORME =====");
+        System.out.println("Lectures valides: " + valides);
+        if (valides > 0) {
+            System.out.println("Mitjana: " + (suma / valides));
+            System.out.println("Maxima: " + maxim);
+            System.out.println("Minima: " + minima);
+            System.out.println("Optims: " + optims);
+        } else {
+            System.out.println("Sense lectures valides");
+        }
     }
 }
 ```
@@ -915,5 +1076,4 @@ public class Main {
 </div>
 
 ---
-
 Torna a l'inici

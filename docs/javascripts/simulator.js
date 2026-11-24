@@ -18,8 +18,9 @@ const appState = {
     ra3: { test: 0, code: 0, max: 2.5, min: 1.25 },
     ra5: { test: 0, code: 0, max: 2.5, min: 1.25 },
     ra6: { test: 0, code: 0, max: 2.5, min: 1.25 },
-    integ1: { test: 0, code: 0, max: 1.0, min: 0.5 },
-    integ2: { test: 0, code: 0, max: 1.0, min: 0.5 },
+    intBasic: { test: 0, code: 0, max: 1.0, min: 0.5 },
+    intMitja: { test: 0, code: 0, max: 1.0, min: 0.5 },
+    intAvancada: { test: 0, code: 0, max: 1.0, min: 0.5 },
   },
   quizAnswers: {},
 };
@@ -317,7 +318,10 @@ function initJavaCodeRunners() {
     const solBox = card.querySelector(".solution-box");
     const defaultCode = codeArea.value;
 
-    const scoreKey = { "ex-ra1": "ra1", "ex-ra3": "ra3", "ex-ra5": "ra5", "ex-ra6": "ra6", "ex-integ1": "integ1", "ex-integ2": "integ2" }[exId];
+    const scoreKey = {
+      "ex-ra1": "ra1", "ex-ra3": "ra3", "ex-ra5": "ra5", "ex-ra6": "ra6",
+      "ex-int-basic": "intBasic", "ex-int-mitja": "intMitja", "ex-int-avancada": "intAvancada"
+    }[exId];
     if (codeArea && scoreKey) {
       codeArea.addEventListener("input", function () {
         appState.scores[scoreKey].code = 0;
@@ -425,32 +429,52 @@ const JAVA_EXERCISES = {
     }
   },
 
-  // Exercicis integrats: pràctica addicional, no compten dins dels 10 punts
-  "ex-integ1": {
-    ra: "integ1", max: 1.0, defaultInputs: ["20", "35", "31", "18", "40"],
+  // Exercicis integrats per nivells: pràctica addicional, no compten dins dels 10 punts
+  "ex-int-basic": {
+    ra: "intBasic", max: 1.0, defaultInputs: ["Marta", "20", "6", "7", "5"],
     criteris: function (ctx) {
       return [
         { ok: /\/\/.+/.test(ctx.code), punts: 0.15, text: "RA1: has afegit un comentari amb //." },
-        { ok: /calorosos\s*=\s*0/.test(ctx.net), punts: 0.15, text: "RA1: has declarat i inicialitzat calorosos." },
-        { ok: /for\s*\(/.test(ctx.net), punts: 0.15, text: "RA6: fas servir un bucle for per recórrer el vector." },
-        { ok: />\s*max/.test(ctx.net) && /<\s*min/.test(ctx.net), punts: 0.15, text: "RA3: compares per actualitzar la màxima i la mínima." },
-        { ok: ctx.sortida.indexOf("Màxima: 40") !== -1, punts: 0.2, text: "RA5: la sortida mostra Màxima: 40." },
-        { ok: ctx.sortida.indexOf("Mínima: 18") !== -1, punts: 0.1, text: "RA5: la sortida mostra Mínima: 18." },
-        { ok: ctx.sortida.indexOf("Dies calorosos: 3") !== -1, punts: 0.1, text: "RA3: la sortida mostra Dies calorosos: 3." }
+        { ok: /suma\s*=\s*suma\s*\+\s*notes\s*\[/.test(ctx.net), punts: 0.15, text: "RA6: sumes cada nota del vector." },
+        { ok: /mitjana\s*=\s*suma\s*\/\s*3/.test(ctx.net), punts: 0.15, text: "RA1: calcules la mitjana sencera." },
+        { ok: /if\s*\(\s*mitjana\s*>=\s*5\s*\)/.test(ctx.net), punts: 0.15, text: "RA3: uses if / else per decidir el resultat." },
+        { ok: ctx.sortida.indexOf("Marta (20 anys)") !== -1, punts: 0.1, text: "RA5: la fitxa mostra el nom i l'edat." },
+        { ok: ctx.sortida.indexOf("Mitjana: 6") !== -1, punts: 0.15, text: "RA5: la fitxa mostra Mitjana: 6." },
+        { ok: ctx.sortida.indexOf("Resultat: Aprovat") !== -1, punts: 0.15, text: "RA3: la fitxa mostra Resultat: Aprovat." }
       ];
     }
   },
 
-  "ex-integ2": {
-    ra: "integ2", max: 1.0, defaultInputs: ["4", "7", "5", "8"],
+  "ex-int-mitja": {
+    ra: "intMitja", max: 1.0, defaultInputs: ["4", "120", "80", "200", "150"],
     criteris: function (ctx) {
       return [
-        { ok: /\/\/.+/.test(ctx.code), punts: 0.15, text: "RA1: has afegit un comentari amb //." },
-        { ok: /aprovats\s*=\s*0/.test(ctx.net), punts: 0.15, text: "RA1: has declarat i inicialitzat aprovats." },
-        { ok: /for\s*\(/.test(ctx.net), punts: 0.15, text: "RA6: fas servir un bucle for amb el vector." },
-        { ok: /notes\s*\[[^\]]+\]\s*>=\s*5/.test(ctx.net), punts: 0.15, text: "RA3: comptes les notes >= 5 amb un if." },
-        { ok: ctx.sortida.indexOf("Mitjana: 6") !== -1, punts: 0.2, text: "RA5: la sortida mostra Mitjana: 6." },
-        { ok: ctx.sortida.indexOf("Aprovats: 3") !== -1, punts: 0.2, text: "RA5: la sortida mostra Aprovats: 3." }
+        { ok: /\/\/.+/.test(ctx.code), punts: 0.1, text: "RA1: has afegit un comentari amb //." },
+        { ok: /total\s*=\s*total\s*\+\s*preus\s*\[/.test(ctx.net), punts: 0.15, text: "RA6: acumules els preus del vector." },
+        { ok: /preus\s*\[[^\]]+\]\s*>\s*maxim/.test(ctx.net), punts: 0.15, text: "RA3: actualitzes el preu màxim." },
+        { ok: /preus\s*\[[^\]]+\]\s*>\s*100/.test(ctx.net), punts: 0.15, text: "RA3: comptes els productes de més de 100." },
+        { ok: /total\s*>\s*500/.test(ctx.net), punts: 0.05, text: "RA3: apliques el descompte quan total > 500." },
+        { ok: ctx.sortida.indexOf("Total: 550") !== -1, punts: 0.15, text: "RA5: el tiquet mostra Total: 550." },
+        { ok: ctx.sortida.indexOf("Preu maxim: 200") !== -1, punts: 0.1, text: "RA5: el tiquet mostra Preu maxim: 200." },
+        { ok: ctx.sortida.indexOf("Productes > 100: 3") !== -1, punts: 0.05, text: "RA5: el tiquet mostra Productes > 100: 3." },
+        { ok: ctx.sortida.indexOf("Descompte: 55") !== -1 && ctx.sortida.indexOf("A pagar: 495") !== -1, punts: 0.1, text: "RA5: el tiquet mostra el descompte i l'import final." }
+      ];
+    }
+  },
+
+  "ex-int-avancada": {
+    ra: "intAvancada", max: 1.0, defaultInputs: ["18", "25", "-5", "30", "17", "70"],
+    criteris: function (ctx) {
+      return [
+        { ok: /valor\s*>=\s*0\s*&&\s*valor\s*<=\s*40/.test(ctx.net), punts: 0.1, text: "RA3: la funció esValida accepta valors entre 0 i 40." },
+        { ok: /esValida\s*\(\s*sensors\s*\[/.test(ctx.net), punts: 0.15, text: "RA1: crides la funció esValida des del bucle." },
+        { ok: ctx.sortida.indexOf("Sensor 3: Invalid") !== -1 && ctx.sortida.indexOf("Sensor 2: Correcte") !== -1, punts: 0.1, text: "RA3: mostres l'estat de cada sensor amb if / else." },
+        { ok: ctx.sortida.indexOf("Lectures valides: 4") !== -1, punts: 0.1, text: "RA6: comptes 4 lectures vàlides." },
+        { ok: ctx.sortida.indexOf("Mitjana: 22") !== -1, punts: 0.15, text: "RA5: l'informe mostra Mitjana: 22." },
+        { ok: ctx.sortida.indexOf("Maxima: 30") !== -1, punts: 0.1, text: "RA6: l'informe mostra Maxima: 30." },
+        { ok: ctx.sortida.indexOf("Minima: 17") !== -1, punts: 0.1, text: "RA6: l'informe mostra Minima: 17." },
+        { ok: ctx.sortida.indexOf("Optims: 2") !== -1, punts: 0.15, text: "RA3: comptes 2 sensors òptims (>= 25)." },
+        { ok: /\/\/.+/.test(ctx.code), punts: 0.05, text: "RA1: has afegit un comentari amb //." }
       ];
     }
   }

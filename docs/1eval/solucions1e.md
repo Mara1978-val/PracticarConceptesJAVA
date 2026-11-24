@@ -4,8 +4,7 @@
   <span>✍️ Autora: Mara Vañó</span>
 </div>
 
-Solucions dels 4 resultats d'aprenentatge del mòdul de Programació que s'avaluen en aquest simulacre:
-**RA1** (estructura), **RA3** (control), **RA5** (entrada/sortida) i **RA6** (tipus avançats).
+Solucions dels 4 resultats d'aprenentatge avaluats (RA1, RA3, RA5 i RA6) i dels exercicis integrats per nivells.
 
 ---
 
@@ -66,7 +65,6 @@ public class Main {
 
         System.out.print("Nom: ");
         String nom = sc.nextLine();
-
         System.out.print("Edat: ");
         int edat = sc.nextInt();
 
@@ -113,70 +111,144 @@ public class Main {
 
 ---
 
-## 🧩 Exercicis integrats (pràctica addicional)
+## 🧩 Exercicis integrats per nivells
 
-### 1. Anàlisi de temperatures
-
-```java
-import java.util.Scanner;
-
-public class Main {
-    public static void main(String[] args) {
-        // Llegeix temperatures i calcula la màxima, la mínima i els dies calorosos
-        Scanner sc = new Scanner(System.in);
-        int[] temps = new int[5];
-
-        for (int i = 0; i < 5; i++) {
-            System.out.print("Temperatura " + (i + 1) + ": ");
-            temps[i] = sc.nextInt();
-        }
-
-        int max = temps[0];
-        int min = temps[0];
-        int calorosos = 0;
-
-        for (int i = 1; i < 5; i++) {
-            if (temps[i] > max) { max = temps[i]; }
-            if (temps[i] < min) { min = temps[i]; }
-            if (temps[i] > 30) { calorosos++; }
-        }
-
-        System.out.println("Màxima: " + max);
-        System.out.println("Mínima: " + min);
-        System.out.println("Dies calorosos: " + calorosos);
-    }
-}
-```
-
-### 2. Notes i mitjana
+### 🟢 Bàsic — Fitxa d'alumne
 
 ```java
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        // Llegeix notes, calcula la mitjana i compta els aprovats
+        // Llegeix la fitxa d'un alumne i calcula la seua mitjana
         Scanner sc = new Scanner(System.in);
-        int[] notes = new int[4];
+
+        System.out.print("Nom: ");
+        String nom = sc.nextLine();
+        System.out.print("Edat: ");
+        int edat = sc.nextInt();
+
+        int[] notes = new int[3];
         int suma = 0;
-        int aprovats = 0;
 
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < 3; i++) {
             System.out.print("Nota " + (i + 1) + ": ");
             notes[i] = sc.nextInt();
             suma = suma + notes[i];
         }
 
-        for (int i = 0; i < 4; i++) {
-            if (notes[i] >= 5) {
-                aprovats++;
+        int mitjana = suma / 3;
+
+        String resultat;
+        if (mitjana >= 5) {
+            resultat = "Aprovat";
+        } else {
+            resultat = "Suspés";
+        }
+
+        System.out.println("--- Fitxa de l'alumne ---");
+        System.out.println(nom + " (" + edat + " anys)");
+        System.out.println("Mitjana: " + mitjana);
+        System.out.println("Resultat: " + resultat);
+    }
+}
+```
+
+### 🟡 Mitjà — Tiquet de compra amb descompte
+
+```java
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        // Llegeix preus, calcula estadístiques i aplica descompte
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Nombre de productes: ");
+        int n = sc.nextInt();
+        int[] preus = new int[n];
+        int total = 0;
+        int maxim = 0;
+        int cars = 0;
+
+        for (int i = 0; i < n; i++) {
+            System.out.print("Preu " + (i + 1) + ": ");
+            preus[i] = sc.nextInt();
+            total = total + preus[i];
+            if (preus[i] > maxim) {
+                maxim = preus[i];
             }
         }
 
-        int mitjana = suma / 4;
+        for (int i = 0; i < n; i++) {
+            if (preus[i] > 100) {
+                cars++;
+            }
+        }
 
-        System.out.println("Mitjana: " + mitjana);
-        System.out.println("Aprovats: " + aprovats);
+        int descompte = 0;
+        if (total > 500) {
+            descompte = total * 10 / 100;
+        }
+
+        int aPagar = total - descompte;
+
+        System.out.println("===== TIQUET =====");
+        System.out.println("Total: " + total);
+        System.out.println("Preu maxim: " + maxim);
+        System.out.println("Productes > 100: " + cars);
+        System.out.println("Descompte: " + descompte);
+        System.out.println("A pagar: " + aPagar);
+    }
+}
+```
+
+### 🔴 Avançat — Informe de qualitat de sensors
+
+```java
+import java.util.Scanner;
+
+public class Main {
+    public static boolean esValida(int valor) {
+        return valor >= 0 && valor <= 40;
+    }
+
+    public static void main(String[] args) {
+        // Validació i estadístiques de lectures de sensors
+        Scanner sc = new Scanner(System.in);
+        int[] sensors = new int[6];
+        int valides = 0;
+        int suma = 0;
+        int maxim = 0;
+        int minima = 9999;
+        int optims = 0;
+
+        for (int i = 0; i < 6; i++) {
+            System.out.print("Sensor " + (i + 1) + ": ");
+            sensors[i] = sc.nextInt();
+
+            if (esValida(sensors[i])) {
+                System.out.println("Sensor " + (i + 1) + ": Correcte");
+                valides++;
+                suma = suma + sensors[i];
+                if (sensors[i] > maxim) { maxim = sensors[i]; }
+                if (sensors[i] < minima) { minima = sensors[i]; }
+                if (sensors[i] >= 25) { optims++; }
+            } else {
+                System.out.println("Sensor " + (i + 1) + ": Invalid");
+            }
+        }
+
+        System.out.println("===== INFORME =====");
+        System.out.println("Lectures valides: " + valides);
+        if (valides > 0) {
+            System.out.println("Mitjana: " + (suma / valides));
+            System.out.println("Maxima: " + maxim);
+            System.out.println("Minima: " + minima);
+            System.out.println("Optims: " + optims);
+        } else {
+            System.out.println("Sense lectures valides");
+        }
     }
 }
 ```

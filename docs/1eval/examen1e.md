@@ -12,42 +12,32 @@ Cada RA té un test de 5 preguntes (0,5 punts) i un exercici pràctic amb execuc
     <h2 class="score-title">📊 El teu Progrés i Puntuació de l'Examen</h2>
     <span class="total-score-badge" id="dash-total-score">0.00 / 10</span>
   </div>
-  <p>Puntuació actualitzada en temps real segons respongues els tests i executes codi Java.</p>
+  <p>4 resultats d'aprenentatge · 10 punts. Els exercicis integrats són pràctica addicional i no modifiquen aquesta nota.</p>
   <div class="ra-pills-grid">
     <div class="ra-pill">
       <div class="ra-pill-header"><span>RA1 · Estructura</span></div>
-      <span class="ra-pill-score" id="dash-ra1-score">0.00 / 1.5</span>
-      <span class="ra-status-tag status-pending" id="dash-ra1-tag">Pendent (Mín. 0.75)</span>
-    </div>
-    <div class="ra-pill">
-      <div class="ra-pill-header"><span>RA2 · Programes senzills</span></div>
-      <span class="ra-pill-score" id="dash-ra2-score">0.00 / 1.5</span>
-      <span class="ra-status-tag status-pending" id="dash-ra2-tag">Pendent (Mín. 0.75)</span>
+      <span class="ra-pill-score" id="dash-ra1-score">0.00 / 2.5</span>
+      <span class="ra-status-tag status-pending" id="dash-ra1-tag">Pendent (Mín. 1.25)</span>
     </div>
     <div class="ra-pill">
       <div class="ra-pill-header"><span>RA3 · Control de flux</span></div>
-      <span class="ra-pill-score" id="dash-ra3-score">0.00 / 1.5</span>
-      <span class="ra-status-tag status-pending" id="dash-ra3-tag">Pendent (Mín. 0.75)</span>
-    </div>
-    <div class="ra-pill">
-      <div class="ra-pill-header"><span>RA4 · Classes i OOP</span></div>
-      <span class="ra-pill-score" id="dash-ra4-score">0.00 / 2.0</span>
-      <span class="ra-status-tag status-pending" id="dash-ra4-tag">Pendent (Mín. 1.0)</span>
+      <span class="ra-pill-score" id="dash-ra3-score">0.00 / 2.5</span>
+      <span class="ra-status-tag status-pending" id="dash-ra3-tag">Pendent (Mín. 1.25)</span>
     </div>
     <div class="ra-pill">
       <div class="ra-pill-header"><span>RA5 · Entrada/sortida</span></div>
-      <span class="ra-pill-score" id="dash-ra5-score">0.00 / 1.5</span>
-      <span class="ra-status-tag status-pending" id="dash-ra5-tag">Pendent (Mín. 0.75)</span>
+      <span class="ra-pill-score" id="dash-ra5-score">0.00 / 2.5</span>
+      <span class="ra-status-tag status-pending" id="dash-ra5-tag">Pendent (Mín. 1.25)</span>
     </div>
     <div class="ra-pill">
       <div class="ra-pill-header"><span>RA6 · Tipus avançats</span></div>
-      <span class="ra-pill-score" id="dash-ra6-score">0.00 / 2.0</span>
-      <span class="ra-status-tag status-pending" id="dash-ra6-tag">Pendent (Mín. 1.0)</span>
+      <span class="ra-pill-score" id="dash-ra6-score">0.00 / 2.5</span>
+      <span class="ra-status-tag status-pending" id="dash-ra6-tag">Pendent (Mín. 1.25)</span>
     </div>
   </div>
 </div>
 
-## 🟦 RA1 — Reconoce la estructura de un programa informático, identificando y relacionando los elementos propios del lenguaje de programación utilizado. (Total: 1.5 punts)
+## 🟦 RA1 — Reconoce la estructura de un programa informático, identificando y relacionando los elementos propios del lenguaje de programación utilizado. (Total: 2.5 punts)
 
 ### 📝 Test RA1 *(0.5 punts — 5 preguntes × 0.1 pts)*
 
@@ -134,12 +124,12 @@ Cada RA té un test de 5 preguntes (0,5 punts) i un exercici pràctic amb execuc
   <div class="quiz-feedback"></div>
 </div>
 
-### 💻 Exercici Pràctic RA1 (1 punt)
+### 💻 Exercici Pràctic RA1 (2 punts)
 
 <div class="java-exercise-card" data-ex-id="ex-ra1">
   <div class="java-ex-header">
     <h4 class="java-ex-title">☕ Repte: Declaració de variables i suma bàsica</h4>
-    <span class="java-ex-score-tag">Valor: 1.0 punt</span>
+    <span class="java-ex-score-tag">Valor: 2.0 punts</span>
   </div>
   <div class="java-ex-desc">
     <strong>Enunciat:</strong> Completa el programa Java següent per a que:
@@ -198,206 +188,7 @@ public class Main {
 
 ---
 
-## 🟩 RA2 — Escribe y prueba programas sencillos, reconociendo y aplicando los fundamentos de la programación orientada a objetos. (Total: 1.5 punts)
-
-### 📝 Test RA2 *(0.5 punts — 5 preguntes × 0.1 pts)*
-
-<div class="quiz-card" data-ra="ra2" data-qid="ra2-q1">
-  <div class="quiz-question-title">
-    <span class="quiz-q-num">1</span>
-    <span>Quina instrucció mostra text per pantalla amb salt de línia en Java?</span>
-  </div>
-  <div class="quiz-options">
-    <label class="quiz-option"><input type="radio" name="ra2-q1" value="A"> A) System.read();</label>
-    <label class="quiz-option"><input type="radio" name="ra2-q1" value="B"> B) System.get();</label>
-    <label class="quiz-option"><input type="radio" name="ra2-q1" value="C"> C) System.out.println();</label>
-    <label class="quiz-option"><input type="radio" name="ra2-q1" value="D"> D) Console.write();</label>
-  </div>
-  <button type="button" class="quiz-btn-check">Comprovar resposta</button>
-  <div class="quiz-feedback"></div>
-</div>
-
-<!-- Qn -->
-
-<div class="quiz-card" data-ra="ra2" data-qid="ra2-q2">
-  <div class="quiz-question-title">
-    <span class="quiz-q-num">2</span>
-    <span>Quina paraula clau serveix per <strong>declarar una classe</strong> a Java?</span>
-  </div>
-  <div class="quiz-options">
-    <label class="quiz-option"><input type="radio" name="ra2-q2" value="A"> A) function</label>
-    <label class="quiz-option"><input type="radio" name="ra2-q2" value="B"> B) struct</label>
-    <label class="quiz-option"><input type="radio" name="ra2-q2" value="C"> C) class</label>
-    <label class="quiz-option"><input type="radio" name="ra2-q2" value="D"> D) interface</label>
-  </div>
-  <button type="button" class="quiz-btn-check">Comprovar resposta</button>
-  <div class="quiz-feedback"></div>
-</div>
-
-<!-- Qn -->
-
-<div class="quiz-card" data-ra="ra2" data-qid="ra2-q3">
-  <div class="quiz-question-title">
-    <span class="quiz-q-num">3</span>
-    <span>Quin tipus de dada retorna el mètode <code>nextInt()</code> de la classe Scanner?</span>
-  </div>
-  <div class="quiz-options">
-    <label class="quiz-option"><input type="radio" name="ra2-q3" value="A"> A) boolean</label>
-    <label class="quiz-option"><input type="radio" name="ra2-q3" value="B"> B) double</label>
-    <label class="quiz-option"><input type="radio" name="ra2-q3" value="C"> C) int</label>
-    <label class="quiz-option"><input type="radio" name="ra2-q3" value="D"> D) String</label>
-  </div>
-  <button type="button" class="quiz-btn-check">Comprovar resposta</button>
-  <div class="quiz-feedback"></div>
-</div>
-
-<!-- Qn -->
-
-<div class="quiz-card" data-ra="ra2" data-qid="ra2-q4">
-  <div class="quiz-question-title">
-    <span class="quiz-q-num">4</span>
-    <span>Quin operador o instrucció serveix per guardar/assignar dades en una variable?</span>
-  </div>
-  <div class="quiz-options">
-    <label class="quiz-option"><input type="radio" name="ra2-q4" value="A"> A) System.out.println</label>
-    <label class="quiz-option"><input type="radio" name="ra2-q4" value="B"> B) Scanner</label>
-    <label class="quiz-option"><input type="radio" name="ra2-q4" value="C"> C) =</label>
-    <label class="quiz-option"><input type="radio" name="ra2-q4" value="D"> D) input()</label>
-  </div>
-  <button type="button" class="quiz-btn-check">Comprovar resposta</button>
-  <div class="quiz-feedback"></div>
-</div>
-
-<!-- Qn -->
-
-<div class="quiz-card" data-ra="ra2" data-qid="ra2-q5">
-  <div class="quiz-question-title">
-    <span class="quiz-q-num">5</span>
-    <span>Quin dels següents programes o sentències <strong>compila correctament</strong> en Java estàndard?</span>
-  </div>
-  <div class="quiz-options">
-    <label class="quiz-option"><input type="radio" name="ra2-q5" value="A"> A) println("Hola");</label>
-    <label class="quiz-option"><input type="radio" name="ra2-q5" value="B"> B) System.out.println("Hola");</label>
-    <label class="quiz-option"><input type="radio" name="ra2-q5" value="C"> C) Console.out("Hola");</label>
-    <label class="quiz-option"><input type="radio" name="ra2-q5" value="D"> D) Show("Hola");</label>
-  </div>
-  <button type="button" class="quiz-btn-check">Comprovar resposta</button>
-  <div class="quiz-feedback"></div>
-</div>
-
-### 💻 Exercici Pràctic RA2 (1 punt)
-
-<div class="java-exercise-card" data-ex-id="ex-ra2">
-  <div class="java-ex-header">
-    <h4 class="java-ex-title">☕ Repte Avançat: Disseny i Implementació de Funcions auxiliars</h4>
-    <span class="java-ex-score-tag">Valor: 1.0 punt</span>
-  </div>
-  <div class="java-ex-desc">
-    <strong>Enunciat:</strong> Volem comprovar la longitud dels noms dels clients. Has d'implementar dues funcions separades:<br>
-    <ul>
-      <li><code>public static int getLongitud(String text)</code>: Retorna el número de caràcters utilitzant <code>.length()</code>.</li>
-      <li><code>public static int compararLongitud(int l1, int l2)</code>: Retorna el valor major entre l1 i l2 amb <code>return</code>.</li>
-    </ul>
-    Dins del <code>main()</code>, demana dos noms, usa <code>getLongitud()</code> per a cadascun, mostra quantes lletres té cadascun i utilitza <code>compararLongitud()</code> per determinar i imprimir quin nom és el més llarg.
-  </div>
-  <div class="java-editor-wrapper">
-    <textarea class="java-code-area" spellcheck="false">
-import java.util.Scanner;
-
-public class Main {
-
-    // TODO 1: Implementa la funció getLongitud(String text)
-    public static int getLongitud(String text) {
-        // Retorna la longitud del text
-    }
-
-    // TODO 2: Implementa la funció compararLongitud(int l1, int l2)
-    public static int compararLongitud(int l1, int l2) {
-        // Retorna el major dels dos valors
-    }
-
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-
-        // TODO 3: Llegeix dos noms, mesura'ls i mostra el guanyador
-        
-    }
-}
-    </textarea>
-    <div class="java-input-panel">
-      <label for="in-ra02a">⌨️ Dades d'entrada (dos noms, un per línia)</label>
-      <textarea id="in-ra02a" class="java-input-data" rows="2" spellcheck="false">Marta
-Alejandro</textarea>
-    </div>
-    <div class="java-ex-actions">
-      <button type="button" class="btn-run">▶ Executar i Corregir codi</button>
-      <button type="button" class="btn-reset">🔄 Reiniciar codi</button>
-      <button type="button" class="btn-solution">💡 Veure solució guiada</button>
-    </div>
-
-    <div class="terminal-window">
-      <div class="terminal-header">
-        <span class="terminal-dot dot-red"></span>
-        <span class="terminal-dot dot-yellow"></span>
-        <span class="terminal-dot dot-green"></span>
-        <span class="terminal-title">Consola de Sortida Java</span>
-      </div>
-      <div class="terminal-body"></div>
-    </div>
-
-    <div class="pedagogical-feedback"></div>
-
-    <div class="solution-box">
-      <strong>💡 Solució de referència comentada:</strong>
-```java
-import java.util.Scanner;
-
-public class Main {
-
-    public static int getLongitud(String text) {
-        return text.length();
-    }
-
-    public static int compararLongitud(int l1, int l2) {
-        if (l1 > l2) {
-            return l1;
-        } else {
-            return l2;
-        }
-    }
-
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-
-        System.out.print("Primer nom: ");
-        String nom1 = sc.nextLine();
-
-        System.out.print("Segon nom: ");
-        String nom2 = sc.nextLine();
-
-        int l1 = getLongitud(nom1);
-        int l2 = getLongitud(nom2);
-
-        System.out.println(nom1 + " té " + l1 + " lletres.");
-        System.out.println(nom2 + " té " + l2 + " lletres.");
-
-        int major = compararLongitud(l1, l2);
-
-        if (major == l1) {
-            System.out.println("El nom més llarg és: " + nom1);
-        } else {
-            System.out.println("El nom més llarg és: " + nom2);
-        }
-    }
-}
-```
-    </div>
-  </div>
-</div>
-
----
-
-## 🟨 RA3 — Escribe y depura código, analizando y utilizando las estructuras de control del lenguaje. (Total: 1.5 punts)
+## 🟨 RA3 — Escribe y depura código, analizando y utilizando las estructuras de control del lenguaje. (Total: 2.5 punts)
 
 ### 📝 Test RA3 *(0.5 punts — 5 preguntes × 0.1 pts)*
 
@@ -484,12 +275,12 @@ public class Main {
   <div class="quiz-feedback"></div>
 </div>
 
-### 💻 Exercici Pràctic RA3 (1 punt)
+### 💻 Exercici Pràctic RA3 (2 punts)
 
 <div class="java-exercise-card" data-ex-id="ex-ra3">
   <div class="java-ex-header">
     <h4 class="java-ex-title">☕ Repte: Classificació numèrica amb if / else if / else</h4>
-    <span class="java-ex-score-tag">Valor: 1.0 punt</span>
+    <span class="java-ex-score-tag">Valor: 2.0 punts</span>
   </div>
   <div class="java-ex-desc">
     <strong>Enunciat:</strong> Fes un programa que demane un número per teclat i mostre per pantalla si és:
@@ -561,188 +352,7 @@ public class Main {
 
 ---
 
-## 🟪 RA4 — Desarrolla programas organizados en clases analizando y aplicando los principios de la programación orientada a objetos. (Total: 2.0 punts)
-
-### 📝 Test RA4 *(0.5 punts — 5 preguntes × 0.1 pts)*
-
-<div class="quiz-card" data-ra="ra4" data-qid="ra4-q1">
-  <div class="quiz-question-title">
-    <span class="quiz-q-num">1</span>
-    <span>Quin és el constructor d'una classe Java?</span>
-  </div>
-  <div class="quiz-options">
-    <label class="quiz-option"><input type="radio" name="ra4-q1" value="A"> A) Un mètode amb el mateix nom que la classe i sense tipus de retorn</label>
-    <label class="quiz-option"><input type="radio" name="ra4-q1" value="B"> B) El mètode main()</label>
-    <label class="quiz-option"><input type="radio" name="ra4-q1" value="C"> C) Un mètode static</label>
-    <label class="quiz-option"><input type="radio" name="ra4-q1" value="D"> D) Un camp privat</label>
-  </div>
-  <button type="button" class="quiz-btn-check">Comprovar resposta</button>
-  <div class="quiz-feedback"></div>
-</div>
-
-<!-- Qn -->
-
-<div class="quiz-card" data-ra="ra4" data-qid="ra4-q2">
-  <div class="quiz-question-title">
-    <span class="quiz-q-num">2</span>
-    <span>Quina paraula clau fa que un camp només sigui accessible des de la seva classe?</span>
-  </div>
-  <div class="quiz-options">
-    <label class="quiz-option"><input type="radio" name="ra4-q2" value="A"> A) private</label>
-    <label class="quiz-option"><input type="radio" name="ra4-q2" value="B"> B) public</label>
-    <label class="quiz-option"><input type="radio" name="ra4-q2" value="C"> C) static</label>
-    <label class="quiz-option"><input type="radio" name="ra4-q2" value="D"> D) void</label>
-  </div>
-  <button type="button" class="quiz-btn-check">Comprovar resposta</button>
-  <div class="quiz-feedback"></div>
-</div>
-
-<!-- Qn -->
-
-<div class="quiz-card" data-ra="ra4" data-qid="ra4-q3">
-  <div class="quiz-question-title">
-    <span class="quiz-q-num">3</span>
-    <span>Què fa l'expressió <code>new Persona()</code>?</span>
-  </div>
-  <div class="quiz-options">
-    <label class="quiz-option"><input type="radio" name="ra4-q3" value="A"> A) Crea una instància (objecte) de la classe Persona</label>
-    <label class="quiz-option"><input type="radio" name="ra4-q3" value="B"> B) Declara una classe nova</label>
-    <label class="quiz-option"><input type="radio" name="ra4-q3" value="C"> C) Crida al mètode main</label>
-    <label class="quiz-option"><input type="radio" name="ra4-q3" value="D"> D) Elimina un objecte</label>
-  </div>
-  <button type="button" class="quiz-btn-check">Comprovar resposta</button>
-  <div class="quiz-feedback"></div>
-</div>
-
-<!-- Qn -->
-
-<div class="quiz-card" data-ra="ra4" data-qid="ra4-q4">
-  <div class="quiz-question-title">
-    <span class="quiz-q-num">4</span>
-    <span>Què és l'encapsulació?</span>
-  </div>
-  <div class="quiz-options">
-    <label class="quiz-option"><input type="radio" name="ra4-q4" value="A"> A) Amagar els camps i accedir-hi mitjançant mètodes</label>
-    <label class="quiz-option"><input type="radio" name="ra4-q4" value="B"> B) Repetir codi</label>
-    <label class="quiz-option"><input type="radio" name="ra4-q4" value="C"> C) Heredar d'una classe</label>
-    <label class="quiz-option"><input type="radio" name="ra4-q4" value="D"> D) Imprimir dades per pantalla</label>
-  </div>
-  <button type="button" class="quiz-btn-check">Comprovar resposta</button>
-  <div class="quiz-feedback"></div>
-</div>
-
-<!-- Qn -->
-
-<div class="quiz-card" data-ra="ra4" data-qid="ra4-q5">
-  <div class="quiz-question-title">
-    <span class="quiz-q-num">5</span>
-    <span>Quin modificador indica que un mètode pertany a la classe i no a un objecte?</span>
-  </div>
-  <div class="quiz-options">
-    <label class="quiz-option"><input type="radio" name="ra4-q5" value="A"> A) static</label>
-    <label class="quiz-option"><input type="radio" name="ra4-q5" value="B"> B) private</label>
-    <label class="quiz-option"><input type="radio" name="ra4-q5" value="C"> C) final</label>
-    <label class="quiz-option"><input type="radio" name="ra4-q5" value="D"> D) new</label>
-  </div>
-  <button type="button" class="quiz-btn-check">Comprovar resposta</button>
-  <div class="quiz-feedback"></div>
-</div>
-
-### 💻 Exercici Pràctic RA4 (1.5 punts)
-
-<div class="java-exercise-card" data-ex-id="ex-ra4">
-  <div class="java-ex-header">
-    <h4 class="java-ex-title">☕ Repte: Classe Persona, constructor i getters</h4>
-    <span class="java-ex-score-tag">Valor: 1.5 punts</span>
-  </div>
-  <div class="java-ex-desc">
-    <strong>Enunciat:</strong> Completa la classe <code>Persona</code> perquè:
-    <ul>
-      <li>Tenga dos camps privats: <code>String nom</code> i <code>int edat</code>.</li>
-      <li>Incloga un constructor <code>Persona(String nom, int edat)</code> que inicialitze els camps amb <code>this</code>.</li>
-      <li>Tenga els mètodes <code>getNom()</code> i <code>getEdat()</code> que retornen els valors.</li>
-      <li>Des del <code>main</code> es cree l'objecte amb les dades d'entrada i es mostre <code>nom té edat anys.</code></li>
-    </ul>
-  </div>
-  <div class="java-editor-wrapper">
-    <textarea class="java-code-area" spellcheck="false">
-import java.util.Scanner;
-
-class Persona {
-    // TODO 1: Declara els camps privats nom i edat
-
-    // TODO 2: Escriu el constructor Persona(String nom, int edat)
-
-    // TODO 3: Escriu els mètodes getNom() i getEdat()
-}
-
-public class Main {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        String nom = sc.nextLine();
-        int edat = sc.nextInt();
-
-        Persona p = new Persona(nom, edat);
-        System.out.println(p.getNom() + " té " + p.getEdat() + " anys.");
-    }
-}
-    </textarea>
-    <div class="java-input-panel">
-      <label for="in-ra4">⌨️ Dades d'entrada (nom i edat, un per línia)</label>
-      <textarea id="in-ra4" class="java-input-data" rows="2" spellcheck="false">Marta
-20</textarea>
-    </div>
-    <div class="java-ex-actions">
-      <button type="button" class="btn-run">▶ Executar i Corregir codi</button>
-      <button type="button" class="btn-reset">🔄 Reiniciar codi</button>
-      <button type="button" class="btn-solution">💡 Veure solució guiada</button>
-    </div>
-    <div class="terminal-window">
-      <div class="terminal-header">
-        <span class="terminal-dot dot-red"></span>
-        <span class="terminal-dot dot-yellow"></span>
-        <span class="terminal-dot dot-green"></span>
-        <span class="terminal-title">Consola de Sortida Java</span>
-      </div>
-      <div class="terminal-body"></div>
-    </div>
-    <div class="pedagogical-feedback"></div>
-    <div class="solution-box">
-      <strong>💡 Solució de referència comentada:</strong>
-```java
-import java.util.Scanner;
-
-class Persona {
-    private String nom;
-    private int edat;
-
-    public Persona(String nom, int edat) {
-        this.nom = nom;
-        this.edat = edat;
-    }
-
-    public String getNom() { return nom; }
-    public int getEdat() { return edat; }
-}
-
-public class Main {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        String nom = sc.nextLine();
-        int edat = sc.nextInt();
-
-        Persona p = new Persona(nom, edat);
-        System.out.println(p.getNom() + " té " + p.getEdat() + " anys.");
-    }
-}
-```
-    </div>
-  </div>
-</div>
-
----
-
-## 🟧 RA5 — Realiza operaciones de entrada y salida de información, utilizando procedimientos específicos del lenguaje y librerías de clases. (Total: 1.5 punts)
+## 🟧 RA5 — Realiza operaciones de entrada y salida de información, utilizando procedimientos específicos del lenguaje y librerías de clases. (Total: 2.5 punts)
 
 ### 📝 Test RA5 *(0.5 punts — 5 preguntes × 0.1 pts)*
 
@@ -829,12 +439,12 @@ public class Main {
   <div class="quiz-feedback"></div>
 </div>
 
-### 💻 Exercici Pràctic RA5 (1 punt)
+### 💻 Exercici Pràctic RA5 (2 punts)
 
 <div class="java-exercise-card" data-ex-id="ex-ra5">
   <div class="java-ex-header">
     <h4 class="java-ex-title">☕ Repte Bàsic: Entrada amb Scanner i Càlcul d'Edat</h4>
-    <span class="java-ex-score-tag">Valor: 1.0 punt</span>
+    <span class="java-ex-score-tag">Valor: 2.0 punts</span>
   </div>
   <div class="java-ex-desc">
     <strong>Enunciat:</strong> Fes un programa que demane per teclat el <strong>nom</strong> de l’usuari i la <strong>seua edat</strong>.<br>
@@ -910,7 +520,7 @@ public class Main {
 
 ---
 
-## 🟦 RA6 — Escribe programas que manipulen información seleccionando y utilizando tipos avanzados de datos. (Total: 2.0 punts)
+## 🟦 RA6 — Escribe programas que manipulen información seleccionando y utilizando tipos avanzados de datos. (Total: 2.5 punts)
 
 ### 📝 Test RA6 *(0.5 punts — 5 preguntes × 0.1 pts)*
 
@@ -997,12 +607,12 @@ public class Main {
   <div class="quiz-feedback"></div>
 </div>
 
-### 💻 Exercici Pràctic RA6 (1.5 punts)
+### 💻 Exercici Pràctic RA6 (2 punts)
 
 <div class="java-exercise-card" data-ex-id="ex-ra6">
   <div class="java-ex-header">
     <h4 class="java-ex-title">☕ Repte: Recorregut d'un vector i cerca de Màxim i Mínim</h4>
-    <span class="java-ex-score-tag">Valor: 1.5 punts</span>
+    <span class="java-ex-score-tag">Valor: 2.0 punts</span>
   </div>
   <div class="java-ex-desc">
     <strong>Enunciat:</strong> Fes un programa que:
@@ -1098,6 +708,205 @@ public class Main {
 
         System.out.println("Màxim: " + max);
         System.out.println("Mínim: " + min);
+    }
+}
+```
+    </div>
+  </div>
+</div>
+
+---
+
+
+## 🧩 Practica integrada — tots els RAs *(bonificació, no compta a la nota)*
+
+Dos exercicis que combinen **estructura (RA1)**, **control (RA3)**, **entrada/sortida (RA5)** i **vectors (RA6)**.
+Tenen trossos de codi ja escrits i altres que has de completar. Pots veure la solució i l'intèrpret
+t'explica línia a línia qualsevol error.
+
+### 🧪 Exercici integrat 1 — Anàlisi de temperatures
+
+<div class="java-exercise-card" data-ex-id="ex-integ1">
+  <div class="java-ex-header">
+    <h4 class="java-ex-title">🌡️ Repte integrat: temperatures màxima, mínima i dies calorosos</h4>
+    <span class="java-ex-score-tag">Pràctica · 1.0 punt</span>
+  </div>
+  <div class="java-ex-desc">
+    <strong>Enunciat:</strong> llegeix 5 temperatures, guarda-les en un vector i mostra la màxima,
+    la mínima i quantes són superiors a 30. Completa els <code>TODO</code>:
+    <ul>
+      <li><strong>RA1:</strong> afegeix un comentari <code>//</code> i declara la variable <code>calorosos</code>.</li>
+      <li><strong>RA6:</strong> recorre el vector per trobar <code>max</code> i <code>min</code>.</li>
+      <li><strong>RA3:</strong> compta els valors &gt; 30 amb un <code>if</code>.</li>
+      <li><strong>RA5:</strong> mostra les tres dades amb <code>System.out.println</code>.</li>
+    </ul>
+  </div>
+  <div class="java-editor-wrapper">
+    <textarea class="java-code-area" spellcheck="false">
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        // TODO RA1: escriu ací un comentari que explique què fa el programa
+        Scanner sc = new Scanner(System.in);
+        int[] temps = new int[5];
+
+        for (int i = 0; i < 5; i++) {
+            System.out.print("Temperatura " + (i + 1) + ": ");
+            temps[i] = sc.nextInt();
+        }
+
+        int max = temps[0];
+        int min = temps[0];
+        // TODO RA1: declara i inicialitza calorosos a 0
+
+        // TODO RA6 + RA3: recorre el vector, actualitza max i min i compta els > 30
+
+        // TODO RA5: mostra "Màxima: X", "Mínima: Y" i "Dies calorosos: Z"
+    }
+}
+    </textarea>
+    <div class="java-input-panel">
+      <label for="in-integ1">⌨️ Dades d'entrada (5 temperatures, una per línia)</label>
+      <textarea id="in-integ1" class="java-input-data" rows="3" spellcheck="false">20
+35
+31
+18
+40</textarea>
+    </div>
+    <div class="java-ex-actions">
+      <button type="button" class="btn-run">▶ Executar i Corregir codi</button>
+      <button type="button" class="btn-reset">🔄 Reiniciar codi</button>
+      <button type="button" class="btn-solution">💡 Veure solució guiada</button>
+    </div>
+    <div class="terminal-window">
+      <div class="terminal-header">
+        <span class="terminal-dot dot-red"></span><span class="terminal-dot dot-yellow"></span><span class="terminal-dot dot-green"></span>
+        <span class="terminal-title">Consola de Sortida Java</span>
+      </div>
+      <div class="terminal-body"></div>
+    </div>
+    <div class="pedagogical-feedback"></div>
+    <div class="solution-box">
+      <strong>💡 Solució guiada:</strong>
+```java
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        // Llegeix temperatures i calcula la màxima, la mínima i els dies calorosos
+        Scanner sc = new Scanner(System.in);
+        int[] temps = new int[5];
+
+        for (int i = 0; i < 5; i++) {
+            System.out.print("Temperatura " + (i + 1) + ": ");
+            temps[i] = sc.nextInt();
+        }
+
+        int max = temps[0];
+        int min = temps[0];
+        int calorosos = 0;
+
+        for (int i = 1; i < 5; i++) {
+            if (temps[i] > max) { max = temps[i]; }
+            if (temps[i] < min) { min = temps[i]; }
+            if (temps[i] > 30) { calorosos++; }
+        }
+
+        System.out.println("Màxima: " + max);
+        System.out.println("Mínima: " + min);
+        System.out.println("Dies calorosos: " + calorosos);
+    }
+}
+```
+    </div>
+  </div>
+</div>
+
+### 🧪 Exercici integrat 2 — Notes i mitjana
+
+<div class="java-exercise-card" data-ex-id="ex-integ2">
+  <div class="java-ex-header">
+    <h4 class="java-ex-title">🎓 Repte integrat: mitjana i recompte d'aprovats</h4>
+    <span class="java-ex-score-tag">Pràctica · 1.0 punt</span>
+  </div>
+  <div class="java-ex-desc">
+    <strong>Enunciat:</strong> llegeix 4 notes, guarda-les en un vector, calcula la mitjana sencera
+    i compte quantes són majors o iguals que 5. Completa els <code>TODO</code> de <strong>RA1</strong>
+    (comentari i variables), <strong>RA5</strong> (entrada i sortida), <strong>RA6</strong> (vector) i
+    <strong>RA3</strong> (bucle i <code>if</code>).
+  </div>
+  <div class="java-editor-wrapper">
+    <textarea class="java-code-area" spellcheck="false">
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        // TODO RA1: afegeix un comentari d'una línia
+        Scanner sc = new Scanner(System.in);
+        int[] notes = new int[4];
+        int suma = 0;
+        // TODO RA1: declara aprovats a 0
+
+        // TODO RA5 + RA6: llegeix les 4 notes amb un bucle for i suma-les
+
+        // TODO RA3 + RA6: recorre el vector i compte les notes >= 5
+
+        int mitjana = suma / 4;
+
+        // TODO RA5: mostra "Mitjana: X" i "Aprovats: Y"
+    }
+}
+    </textarea>
+    <div class="java-input-panel">
+      <label for="in-integ2">⌨️ Dades d'entrada (4 notes, una per línia)</label>
+      <textarea id="in-integ2" class="java-input-data" rows="2" spellcheck="false">4
+7
+5
+8</textarea>
+    </div>
+    <div class="java-ex-actions">
+      <button type="button" class="btn-run">▶ Executar i Corregir codi</button>
+      <button type="button" class="btn-reset">🔄 Reiniciar codi</button>
+      <button type="button" class="btn-solution">💡 Veure solució guiada</button>
+    </div>
+    <div class="terminal-window">
+      <div class="terminal-header">
+        <span class="terminal-dot dot-red"></span><span class="terminal-dot dot-yellow"></span><span class="terminal-dot dot-green"></span>
+        <span class="terminal-title">Consola de Sortida Java</span>
+      </div>
+      <div class="terminal-body"></div>
+    </div>
+    <div class="pedagogical-feedback"></div>
+    <div class="solution-box">
+      <strong>💡 Solució guiada:</strong>
+```java
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        // Llegeix notes, calcula la mitjana i compta els aprovats
+        Scanner sc = new Scanner(System.in);
+        int[] notes = new int[4];
+        int suma = 0;
+        int aprovats = 0;
+
+        for (int i = 0; i < 4; i++) {
+            System.out.print("Nota " + (i + 1) + ": ");
+            notes[i] = sc.nextInt();
+            suma = suma + notes[i];
+        }
+
+        for (int i = 0; i < 4; i++) {
+            if (notes[i] >= 5) {
+                aprovats++;
+            }
+        }
+
+        int mitjana = suma / 4;
+
+        System.out.println("Mitjana: " + mitjana);
+        System.out.println("Aprovats: " + aprovats);
     }
 }
 ```

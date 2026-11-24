@@ -4,29 +4,32 @@
   <span>✍️ Autora: Mara Vañó</span>
 </div>
 
-L'examen té **10 punts** repartits en els 6 resultats d'aprenentatge del mòdul de Programació.
-Cada RA consta d'un **test de 5 preguntes (0,5 punts: 0,1 per pregunta)** i d'un **exercici pràctic**
-amb execució real de codi Java. Per superar un RA cal assolir almenys el **50%** de la seva puntuació.
+L'examen avalua **4 resultats d'aprenentatge** del mòdul de Programació i val **10 punts**.
+Cada RA té un **test de 5 preguntes (0,5 punts)** i un **exercici pràctic (2 punts)** amb
+execució real de codi Java. Per superar un RA cal assolir almenys el **50%** (1,25 punts).
 
 | RA | Resultat d'aprenentatge | Test | Exercici | Total | Mínim |
 |----|-------------------------|-----:|---------:|------:|------:|
-| RA1 | Reconoce la estructura de un programa informático… | 0,5 | 1,0 | 1,5 | 0,75 |
-| RA2 | Escribe y prueba programas sencillos… | 0,5 | 1,0 | 1,5 | 0,75 |
-| RA3 | Escribe y depura código, analizando y utilizando las estructuras de control… | 0,5 | 1,0 | 1,5 | 0,75 |
-| RA4 | Desarrolla programas organizados en clases… | 0,5 | 1,5 | 2,0 | 1,00 |
-| RA5 | Realiza operaciones de entrada y salida de información… | 0,5 | 1,0 | 1,5 | 0,75 |
-| RA6 | Escribe programas que manipulen información seleccionando y utilizando tipos avanzados… | 0,5 | 1,5 | 2,0 | 1,00 |
+| RA1 | Reconoce la estructura de un programa informático, identificando y relacionando los elementos propios del lenguaje de programación utilizado. | 0,5 | 2,0 | 2,5 | 1,25 |
+| RA3 | Escribe y depura código, analizando y utilizando las estructuras de control del lenguaje. | 0,5 | 2,0 | 2,5 | 1,25 |
+| RA5 | Realiza operaciones de entrada y salida de información, utilizando procedimientos específicos del lenguaje y librerías de clases. | 0,5 | 2,0 | 2,5 | 1,25 |
+| RA6 | Escribe programas que manipulen información seleccionando y utilizando tipos avanzados de datos. | 0,5 | 2,0 | 2,5 | 1,25 |
 
 ---
 
 ## Criteris dels exercicis pràctics
 
-- **RA1 (1,0 pt):** sortida real (0,25), declaració d'enterus (0,25), suma amb `+` (0,25), comentari `//` (0,25).
-- **RA2 (1,0 pt):** funció `getLongitud` (0,2), funció `compararLongitud` (0,2), ús de `.length()` (0,2), `return` (0,2), sortida correcta (0,2).
-- **RA3 (1,0 pt):** resultat correcte per a `15` (0,25), per a `-4` (0,25), per a `0` (0,25) i estructura `if / else if / else` (0,25).
-- **RA4 (1,5 pt):** classe `Persona` (0,3), camps `private` (0,3), constructor (0,3), getters (0,3), sortida correcta (0,3).
-- **RA5 (1,0 pt):** `Scanner` (0,2), `nextLine()` (0,2), `nextInt()` (0,2), càlcul de l'any (0,2), missatge exacte (0,2).
-- **RA6 (1,5 pt):** vector `int[5]` (0,3), bucle `for` (0,3), variables `max`/`min` (0,3), comparacions (0,3), sortida del màxim i mínim (0,3).
+- **RA1 (2,0 pt):** sortida real (0,5), declaració d'enterus (0,5), suma amb `+` (0,5), comentari `//` (0,5).
+- **RA3 (2,0 pt):** resultat correcte per a `15` (0,5), per a `-4` (0,5), per a `0` (0,5) i estructura `if / else if / else` (0,5).
+- **RA5 (2,0 pt):** `Scanner` (0,4), `nextLine()` (0,4), `nextInt()` (0,4), càlcul de l'any (0,4), missatge exacte (0,4).
+- **RA6 (2,0 pt):** vector `int[5]` (0,4), bucle `for` (0,4), variables `max`/`min` (0,4), comparacions (0,4), sortida del màxim i mínim (0,4).
 
-El simulador mostra a la consola la sortida real del codi de l'alumne i el detall de criteris assolits.
-Els errors d'execució s'informen amb el número de línia i comporten zero punts a l'exercici.
+## Exercicis integrats
+
+Els dos exercicis de **Practica integrada** combineu tots quatre RAs amb codi parcialment escrit
+(trossos ja programats i trossos que l'alumne ha de completar). Són **pràctica addicional**:
+mostren la solució guiada i la puntuació per criteris, però **no modifiquen la nota de 10 punts**.
+
+L'intèrpret integrat mostra la sortida real del codi, assenyala el número de línia de qualsevol error
+i dóna una explicació pedagogica de l'error més habitual (variable no declarada, punt i coma que falta,
+índex fora de rang, dades d'entrada insuficients, etc.) perquè l'alumne sàpiga què ha de corregir.

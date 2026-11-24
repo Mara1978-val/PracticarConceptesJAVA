@@ -4,15 +4,14 @@
   <span>✍️ Autora: Mara Vañó</span>
 </div>
 
-Resultats d'aprenentatge del mòdul de **Programació (DAM)** i solucions de cada exercici del simulacre.
+Solucions dels 4 resultats d'aprenentatge del mòdul de Programació que s'avaluen en aquest simulacre:
+**RA1** (estructura), **RA3** (control), **RA5** (entrada/sortida) i **RA6** (tipus avançats).
 
 ---
 
 ## 🟦 RA1 — Estructura d'un programa
 
 **Test:** 1-C, 2-B, 3-D, 4-C, 5-C
-
-### Solució de l'exercici
 
 ```java
 public class Main {
@@ -28,60 +27,9 @@ public class Main {
 
 ---
 
-## 🟩 RA2 — Escriure i provar programes senzills
-
-**Test:** 1-C, 2-C, 3-C, 4-C, 5-B
-
-### Solució de l'exercici (funcions auxiliars)
-
-```java
-import java.util.Scanner;
-
-public class Main {
-    public static int getLongitud(String text) {
-        return text.length();
-    }
-
-    public static int compararLongitud(int l1, int l2) {
-        if (l1 > l2) {
-            return l1;
-        } else {
-            return l2;
-        }
-    }
-
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-
-        System.out.print("Primer nom: ");
-        String nom1 = sc.nextLine();
-
-        System.out.print("Segon nom: ");
-        String nom2 = sc.nextLine();
-
-        int l1 = getLongitud(nom1);
-        int l2 = getLongitud(nom2);
-
-        System.out.println(nom1 + " té " + l1 + " lletres.");
-        System.out.println(nom2 + " té " + l2 + " lletres.");
-
-        int major = compararLongitud(l1, l2);
-        if (major == l1) {
-            System.out.println("El nom més llarg és: " + nom1);
-        } else {
-            System.out.println("El nom més llarg és: " + nom2);
-        }
-    }
-}
-```
-
----
-
 ## 🟨 RA3 — Estructures de control
 
 **Test:** 1-B, 2-B, 3-A, 4-B, 5-A
-
-### Solució de l'exercici
 
 ```java
 import java.util.Scanner;
@@ -105,47 +53,9 @@ public class Main {
 
 ---
 
-## 🟪 RA4 — Classes i programació orientada a objectes
-
-**Test:** 1-A, 2-A, 3-A, 4-A, 5-A
-
-### Solució de l'exercici
-
-```java
-import java.util.Scanner;
-
-class Persona {
-    private String nom;
-    private int edat;
-
-    public Persona(String nom, int edat) {
-        this.nom = nom;
-        this.edat = edat;
-    }
-
-    public String getNom() { return nom; }
-    public int getEdat() { return edat; }
-}
-
-public class Main {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        String nom = sc.nextLine();
-        int edat = sc.nextInt();
-
-        Persona p = new Persona(nom, edat);
-        System.out.println(p.getNom() + " té " + p.getEdat() + " anys.");
-    }
-}
-```
-
----
-
 ## 🟧 RA5 — Entrada i sortida d'informació
 
 **Test:** 1-A, 2-A, 3-A, 4-A, 5-A
-
-### Solució de l'exercici
 
 ```java
 import java.util.Scanner;
@@ -173,8 +83,6 @@ public class Main {
 
 **Test:** 1-A, 2-A, 3-B, 4-A, 5-C
 
-### Solució de l'exercici
-
 ```java
 import java.util.Scanner;
 
@@ -193,16 +101,82 @@ public class Main {
         int min = numeros[0];
 
         for (int i = 1; i < 5; i++) {
-            if (numeros[i] > max) {
-                max = numeros[i];
-            }
-            if (numeros[i] < min) {
-                min = numeros[i];
-            }
+            if (numeros[i] > max) { max = numeros[i]; }
+            if (numeros[i] < min) { min = numeros[i]; }
         }
 
         System.out.println("Màxim: " + max);
         System.out.println("Mínim: " + min);
+    }
+}
+```
+
+---
+
+## 🧩 Exercicis integrats (pràctica addicional)
+
+### 1. Anàlisi de temperatures
+
+```java
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        // Llegeix temperatures i calcula la màxima, la mínima i els dies calorosos
+        Scanner sc = new Scanner(System.in);
+        int[] temps = new int[5];
+
+        for (int i = 0; i < 5; i++) {
+            System.out.print("Temperatura " + (i + 1) + ": ");
+            temps[i] = sc.nextInt();
+        }
+
+        int max = temps[0];
+        int min = temps[0];
+        int calorosos = 0;
+
+        for (int i = 1; i < 5; i++) {
+            if (temps[i] > max) { max = temps[i]; }
+            if (temps[i] < min) { min = temps[i]; }
+            if (temps[i] > 30) { calorosos++; }
+        }
+
+        System.out.println("Màxima: " + max);
+        System.out.println("Mínima: " + min);
+        System.out.println("Dies calorosos: " + calorosos);
+    }
+}
+```
+
+### 2. Notes i mitjana
+
+```java
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        // Llegeix notes, calcula la mitjana i compta els aprovats
+        Scanner sc = new Scanner(System.in);
+        int[] notes = new int[4];
+        int suma = 0;
+        int aprovats = 0;
+
+        for (int i = 0; i < 4; i++) {
+            System.out.print("Nota " + (i + 1) + ": ");
+            notes[i] = sc.nextInt();
+            suma = suma + notes[i];
+        }
+
+        for (int i = 0; i < 4; i++) {
+            if (notes[i] >= 5) {
+                aprovats++;
+            }
+        }
+
+        int mitjana = suma / 4;
+
+        System.out.println("Mitjana: " + mitjana);
+        System.out.println("Aprovats: " + aprovats);
     }
 }
 ```

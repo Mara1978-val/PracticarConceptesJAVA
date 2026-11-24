@@ -425,7 +425,7 @@
       if (obj && obj.__scanner && node.nom === "in") return obj;
       return undefined;
     }
-    throw error(env.linia, "No es pot llegir aquest valor");
+    throw error(env.linia, "No es pot llegir eixe valor");
   }
 
   function escriureVar(objectiu, valor, scope, env) {
@@ -441,7 +441,7 @@
       arr[idx] = valor;
     } else if (objectiu.k === "membre") {
       const obj = avaluar(objectiu.obj, scope, env);
-      if (!obj || !obj.__obj) throw error(env.linia, "No es pot assignar a aquest membre");
+      if (!obj || !obj.__obj) throw error(env.linia, "No es pot assignar a eixe membre");
       obj.camps[objectiu.nom] = valor;
     } else throw error(env.linia, "Assignació no vàlida");
   }

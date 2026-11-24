@@ -9,7 +9,7 @@ window.RA_DATA.ra5 = {
           A: "Correcte! Scanner està al paquet java.util: import java.util.Scanner;",
           B: "Incorrecte: java.io.Print no és una classe estàndard per a entrada.",
           C: "Incorrecte: java.lang no conté la classe Scanner.",
-          D: "Incorrecte: java.text.Reader no existeix per a aquest ús."
+          D: "Incorrecte: java.text.Reader no existeix per a eixe ús."
         }
       },
       "ra5-q2": {

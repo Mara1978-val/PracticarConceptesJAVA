@@ -17,7 +17,7 @@ window.INTEGRATS.mitja = [
 
 public class Main {
     public static void main(String[] args) {
-        // TODO: escriu un comentari que expliqui què fa aquest tiquet
+        // TODO: escriu un comentari que expliqui què fa eixe tiquet
         Scanner sc = new Scanner(System.in);
 
         int n = sc.nextInt();
@@ -243,7 +243,7 @@ public class Main {
   {
     id: "int-mitja-4",
     titol: "Vendes i comissio",
-    enunciat: "Llegeix 5 importes de vendes. Calcula el total, troba la venda més petita i suma una comissió de 20 al total quan aquest supera 200.",
+    enunciat: "Llegeix 5 imports de vendes. Calcula el total, troba la venda més petita i suma una comissió de 20 al total quan eixe supera 200.",
     codi: `import java.util.Scanner;
 
 public class Main {
@@ -548,7 +548,7 @@ public class Main {
 
 public class Main {
     public static void main(String[] args) {
-        // TODO: comenta què fa aquest programa de ruta
+        // TODO: comenta què fa eixe programa de ruta
         Scanner sc = new Scanner(System.in);
 
         int n = sc.nextInt();

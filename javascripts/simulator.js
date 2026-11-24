@@ -272,7 +272,7 @@ function avaluarExerciciJava(exId, code, termBody, feedBox, card) {
     feedBox.innerHTML = "<strong>🎉 Molt bé!</strong> El codi s'ha executat correctament i compleix tots els criteris (" + score.toFixed(2) + " / " + cfg.max.toFixed(2) + ").";
   } else {
     feedBox.className = "pedagogical-feedback feedback-incorrect";
-    feedBox.innerHTML = "<strong>🔍 Revisa aquests punts (" + score.toFixed(2) + " / " + cfg.max.toFixed(2) + "):</strong><br><ul>" +
+    feedBox.innerHTML = "<strong>🔍 Revisa eixos punts (" + score.toFixed(2) + " / " + cfg.max.toFixed(2) + "):</strong><br><ul>" +
       feedback.map(function (f) { return "<li>" + f + "</li>"; }).join("") + "</ul>";
   }
 

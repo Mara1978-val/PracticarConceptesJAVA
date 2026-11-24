@@ -10,16 +10,16 @@ document.addEventListener("DOMContentLoaded", function () {
   initJavaCodeRunners();
 });
 
-const RAS = ["ra1", "ra2", "ra3", "ra4", "ra5", "ra6"];
+const RAS = ["ra1", "ra3", "ra5", "ra6"];
 
 const appState = {
   scores: {
-    ra1: { test: 0, code: 0, max: 1.5, min: 0.75 },
-    ra2: { test: 0, code: 0, max: 1.5, min: 0.75 },
-    ra3: { test: 0, code: 0, max: 1.5, min: 0.75 },
-    ra4: { test: 0, code: 0, max: 2.0, min: 1.0 },
-    ra5: { test: 0, code: 0, max: 1.5, min: 0.75 },
-    ra6: { test: 0, code: 0, max: 2.0, min: 1.0 },
+    ra1: { test: 0, code: 0, max: 2.5, min: 1.25 },
+    ra3: { test: 0, code: 0, max: 2.5, min: 1.25 },
+    ra5: { test: 0, code: 0, max: 2.5, min: 1.25 },
+    ra6: { test: 0, code: 0, max: 2.5, min: 1.25 },
+    integ1: { test: 0, code: 0, max: 1.0, min: 0.5 },
+    integ2: { test: 0, code: 0, max: 1.0, min: 0.5 },
   },
   quizAnswers: {},
 };
@@ -105,53 +105,6 @@ const QUIZ_DATA = {
   },
 
   // RA02
-  "ra2-q1": {
-    correct: "C",
-    explanations: {
-      A: "Incorrecte: System.read() no és la instrucció per mostrar text.",
-      B: "Incorrecte: System.get() no existeix per a sortida estàndard.",
-      C: "Correcte! System.out.println() imprimeix el text indicat a la consola seguit d'un salt de línia.",
-      D: "Incorrecte: Console.write() pertany a C# o altres llenguatges, no a l'estàndard de Java."
-    }
-  },
-  "ra2-q2": {
-    correct: "C",
-    explanations: {
-      A: "Incorrecte: 'function' no és paraula clau de Java (és pròpia d'altres llenguatges).",
-      B: "Incorrecte: 'struct' és pròpia de C o C#, no de Java.",
-      C: "Correcte! Les classes es declaren amb la paraula clau 'class', per exemple: class Persona { ... }.",
-      D: "Incorrecte: 'interface' declara una interfície, no una classe."
-    }
-  },
-  "ra2-q3": {
-    correct: "C",
-    explanations: {
-      A: "Incorrecte: Per a booleans s'utilitza nextBoolean().",
-      B: "Incorrecte: Per a decimals s'utilitza nextDouble().",
-      C: "Correcte! nextInt() llegeix i retorna el següent número enter ('int') de l'entrada.",
-      D: "Incorrecte: Per a String s'utilitza next() o nextLine()."
-    }
-  },
-  "ra2-q4": {
-    correct: "C",
-    explanations: {
-      A: "Incorrecte: System.out.println només imprimeix dades.",
-      B: "Incorrecte: Scanner serveix per llegir el flux, però cal guardar-lo amb '='.",
-      C: "Correcte! L'operador d'assignació '=' és el que emmagatzema el resultat d'una expressió dins d'una variable.",
-      D: "Incorrecte: input() pertany a Python."
-    }
-  },
-  "ra2-q5": {
-    correct: "B",
-    explanations: {
-      A: "Incorrecte: En Java pur cal indicar la classe i flux 'System.out.println'.",
-      B: "Correcte! System.out.println(\"Hola\"); és sintàcticament perfecte en Java.",
-      C: "Incorrecte: Console.out no és vàlid.",
-      D: "Incorrecte: Show() no és un mètode integrat en Java."
-    }
-  },
-
-  // RA03
   "ra3-q1": {
     correct: "B",
     explanations: {
@@ -245,52 +198,6 @@ const QUIZ_DATA = {
     }
   },
   // RA4 — Classes i programació orientada a objectes
-  "ra4-q1": {
-    correct: "A",
-    explanations: {
-      A: "Correcte! El constructor té el mateix nom que la classe i no indica tipus de retorn; s'executa en crear l'objecte amb new.",
-      B: "Incorrecte: main és el punt d'entrada del programa, no el constructor.",
-      C: "Incorrecte: static indica que el mètode pertany a la classe, no al constructor.",
-      D: "Incorrecte: un camp privat és un atribut, no un constructor."
-    }
-  },
-  "ra4-q2": {
-    correct: "A",
-    explanations: {
-      A: "Correcte! private limita l'accés al camp a la pròpia classe (encapsulació).",
-      B: "Incorrecte: public deixa el camp accessible des de qualsevol classe.",
-      C: "Incorrecte: static fa que el camp sigui de classe, no controla la visibilitat.",
-      D: "Incorrecte: void indica que un mètode no retorna valor."
-    }
-  },
-  "ra4-q3": {
-    correct: "A",
-    explanations: {
-      A: "Correcte! new crea una instància (objecte) de la classe i crida el seu constructor.",
-      B: "Incorrecte: la classe es declara amb class, no amb new.",
-      C: "Incorrecte: main no es crida amb new.",
-      D: "Incorrecte: per eliminar objectes Java ja té el recol·lector de memòria."
-    }
-  },
-  "ra4-q4": {
-    correct: "A",
-    explanations: {
-      A: "Correcte! Encapsular és amagar els camps (private) i exposar mètodes públics per accedir-hi.",
-      B: "Incorrecte: repetir codi és exactament el que cal evitar.",
-      C: "Incorrecte: heretar és un altre principi (heretatge).",
-      D: "Incorrecte: imprimir dades és entrada/sortida, no encapsulació."
-    }
-  },
-  "ra4-q5": {
-    correct: "A",
-    explanations: {
-      A: "Correcte! static indica que el mètode o camp pertany a la classe i es pot cridar sense crear un objecte.",
-      B: "Incorrecte: private controla la visibilitat, no la pertinença a la classe.",
-      C: "Incorrecte: final evita que el valor o la classe es modifici.",
-      D: "Incorrecte: new serveix per crear instàncies."
-    }
-  },
-  // RA5 — Entrada i sortida d'informació
   "ra5-q1": {
     correct: "A",
     explanations: {
@@ -410,7 +317,7 @@ function initJavaCodeRunners() {
     const solBox = card.querySelector(".solution-box");
     const defaultCode = codeArea.value;
 
-    const scoreKey = { "ex-ra1": "ra1", "ex-ra2": "ra2", "ex-ra3": "ra3", "ex-ra4": "ra4", "ex-ra5": "ra5", "ex-ra6": "ra6" }[exId];
+    const scoreKey = { "ex-ra1": "ra1", "ex-ra3": "ra3", "ex-ra5": "ra5", "ex-ra6": "ra6", "ex-integ1": "integ1", "ex-integ2": "integ2" }[exId];
     if (codeArea && scoreKey) {
       codeArea.addEventListener("input", function () {
         appState.scores[scoreKey].code = 0;
@@ -456,37 +363,21 @@ function initJavaCodeRunners() {
 
 const JAVA_EXERCISES = {
   "ex-ra1": {
-    ra: "ra1", max: 1.0,
+    ra: "ra1", max: 2.0,
     proves: [{ inputs: [], etiqueta: "Execució del programa" }],
     criteris: function (ctx) {
       return [
-        { ok: ctx.sortida.trim().length > 0, punts: 0.25, text: "El programa mostra un resultat per pantalla (sortida real)." },
-        { ok: /int\s+[A-Za-z_][A-Za-z0-9_]*\s*=/.test(ctx.net), punts: 0.25, text: "Declara variables enteres amb int." },
-        { ok: /\+\s*[A-Za-z0-9_]+/.test(ctx.net), punts: 0.25, text: " fa la suma amb l'operador +." },
-        { ok: /\/\/.+/.test(ctx.code), punts: 0.25, text: "Inclou un comentari d'una línia amb //." }
+        { ok: ctx.sortida.trim().length > 0, punts: 0.5, text: "El programa mostra un resultat per pantalla (sortida real)." },
+        { ok: /int\s+[A-Za-z_][A-Za-z0-9_]*\s*=/.test(ctx.net), punts: 0.5, text: "Declara variables enteres amb int." },
+        { ok: /\+\s*[A-Za-z0-9_]+/.test(ctx.net), punts: 0.5, text: " fa la suma amb l'operador +." },
+        { ok: /\/\/.+/.test(ctx.code), punts: 0.5, text: "Inclou un comentari d'una línia amb //." }
       ];
     }
   },
 
-  "ex-ra2": {
-    ra: "ra2", max: 1.0, defaultInputs: ["Marta", "Alejandro"],
-    criteris: function (ctx) {
-      const n1 = ctx.inputs[0] || "Marta", n2 = ctx.inputs[1] || "Alejandro";
-      const l1 = n1.length, l2 = n2.length;
-      const guanyador = l1 >= l2 ? n1 : n2;
-      const llines = [n1 + " té " + l1 + " lletres.", n2 + " té " + l2 + " lletres.", "El nom més llarg és: " + guanyador];
-      return [
-        { ok: ctx.metodes.indexOf("getLongitud") !== -1, punts: 0.2, text: "Defineix la funció getLongitud(String)." },
-        { ok: ctx.metodes.indexOf("compararLongitud") !== -1, punts: 0.2, text: "Defineix la funció compararLongitud(int, int)." },
-        { ok: /\.length\s*\(\s*\)/.test(ctx.net), punts: 0.2, text: "Fa servir .length() per comptar caràcters." },
-        { ok: (ctx.net.match(/\breturn\b/g) || []).length >= 2, punts: 0.2, text: "Les funcions retornen valors amb return." },
-        { ok: llines.every(function (l) { return ctx.sortida.indexOf(l) !== -1; }), punts: 0.2, text: "La sortida real mostra les tres línies esperades." }
-      ];
-    }
-  },
 
   "ex-ra3": {
-    ra: "ra3", max: 1.0,
+    ra: "ra3", max: 2.0,
     proves: [
       { inputs: ["15"], etiqueta: "Prova amb 15", esperat: "Positiu" },
       { inputs: ["-4"], etiqueta: "Prova amb -4", esperat: "Negatiu" },
@@ -494,57 +385,72 @@ const JAVA_EXERCISES = {
     ],
     criteris: function (ctx) {
       const criteris = ctx.resultats.map(function (r) {
-        return { ok: r.resultat && r.resultat.sortida.indexOf(r.prova.esperat) !== -1, punts: 0.25, text: r.prova.etiqueta + " → mostra " + r.prova.esperat + "." };
+        return { ok: r.resultat && r.resultat.sortida.indexOf(r.prova.esperat) !== -1, punts: 0.5, text: r.prova.etiqueta + " → mostra " + r.prova.esperat + "." };
       });
-      criteris.push({ ok: /\bif\s*\(/.test(ctx.net) && /else\s+if\s*\(/.test(ctx.net) && /\belse\b/.test(ctx.net), punts: 0.25, text: "Fa servir if / else if / else." });
+      criteris.push({ ok: /\bif\s*\(/.test(ctx.net) && /else\s+if\s*\(/.test(ctx.net) && /\belse\b/.test(ctx.net), punts: 0.5, text: "Fa servir if / else if / else." });
       return criteris;
     }
   },
 
-  "ex-ra4": {
-    ra: "ra4", max: 1.5, defaultInputs: ["Marta", "20"],
-    criteris: function (ctx) {
-      const nom = ctx.inputs[0] || "Marta";
-      const edat = parseInt(ctx.inputs[1], 10) || 20;
-      const esperat = nom + " té " + edat + " anys.";
-      return [
-        { ok: ctx.classes.indexOf("Persona") !== -1, punts: 0.3, text: "Declara la classe Persona." },
-        { ok: /private\s+(String|int)\s+[A-Za-z_]/.test(ctx.net), punts: 0.3, text: "Declara camps privats (private)." },
-        { ok: /Persona\s*\(\s*String\s+[A-Za-z_][A-Za-z0-9_]*\s*,\s*int\s+[A-Za-z_][A-Za-z0-9_]*\s*\)/.test(ctx.net), punts: 0.3, text: "Implementa el constructor Persona(String, int)." },
-        { ok: ctx.metodes.indexOf("getNom") !== -1 && ctx.metodes.indexOf("getEdat") !== -1, punts: 0.3, text: "Defineix els mètodes getNom() i getEdat()." },
-        { ok: ctx.sortida.indexOf(esperat) !== -1, punts: 0.3, text: "La sortida real mostra: " + esperat + "." }
-      ];
-    }
-  },
 
   "ex-ra5": {
-    ra: "ra5", max: 1.0, defaultInputs: ["Laura", "19"],
+    ra: "ra5", max: 2.0, defaultInputs: ["Laura", "19"],
     criteris: function (ctx) {
       const nom = ctx.inputs[0] || "Laura";
       const edat = parseInt(ctx.inputs[1], 10) || 19;
       const esperat = "Hola " + nom + ", vas nàixer l'any " + (2026 - edat) + ".";
       return [
-        { ok: /Scanner\s+[A-Za-z_][A-Za-z0-9_]*\s*=\s*new\s+Scanner/.test(ctx.net), punts: 0.2, text: "Crea l'objecte Scanner." },
-        { ok: /\.nextLine\s*\(\s*\)/.test(ctx.net), punts: 0.2, text: "Llegeix el nom amb nextLine()." },
-        { ok: /\.nextInt\s*\(\s*\)/.test(ctx.net), punts: 0.2, text: "Llegeix l'edat amb nextInt()." },
-        { ok: /20\d\d\s*-\s*[A-Za-z_][A-Za-z0-9_]*/.test(ctx.net), punts: 0.2, text: "Calcula l'any restant l'edat a 2026." },
-        { ok: ctx.sortida.indexOf(esperat) !== -1, punts: 0.2, text: 'La sortida real conté: "' + esperat + '"' }
+        { ok: /Scanner\s+[A-Za-z_][A-Za-z0-9_]*\s*=\s*new\s+Scanner/.test(ctx.net), punts: 0.4, text: "Crea l'objecte Scanner." },
+        { ok: /\.nextLine\s*\(\s*\)/.test(ctx.net), punts: 0.4, text: "Llegeix el nom amb nextLine()." },
+        { ok: /\.nextInt\s*\(\s*\)/.test(ctx.net), punts: 0.4, text: "Llegeix l'edat amb nextInt()." },
+        { ok: /20\d\d\s*-\s*[A-Za-z_][A-Za-z0-9_]*/.test(ctx.net), punts: 0.4, text: "Calcula l'any restant l'edat a 2026." },
+        { ok: ctx.sortida.indexOf(esperat) !== -1, punts: 0.4, text: 'La sortida real conté: "' + esperat + '"' }
       ];
     }
   },
 
   "ex-ra6": {
-    ra: "ra6", max: 1.5, defaultInputs: ["12", "4", "99", "1", "35"],
+    ra: "ra6", max: 2.0, defaultInputs: ["12", "4", "99", "1", "35"],
     criteris: function (ctx) {
       const nums = ctx.inputs.map(Number).filter(function (n) { return Number.isFinite(n); });
       const max = nums.length ? Math.max.apply(null, nums) : 99;
       const min = nums.length ? Math.min.apply(null, nums) : 1;
       return [
-        { ok: /int\s*\[\s*\]\s*[A-Za-z_][A-Za-z0-9_]*\s*=\s*new\s+int\s*\[\s*5\s*\]/.test(ctx.net) || /int\s+[A-Za-z_][A-Za-z0-9_]*\s*\[\s*\]\s*=\s*new\s+int\s*\[\s*5\s*\]/.test(ctx.net), punts: 0.3, text: "Crea el vector int[5]." },
-        { ok: /for\s*\(/.test(ctx.net), punts: 0.3, text: "Fa servir un bucle for." },
-        { ok: /\bmax\b/.test(ctx.net) && /\bmin\b/.test(ctx.net), punts: 0.3, text: "Empra les variables max i min." },
-        { ok: />\s*[A-Za-z_][A-Za-z0-9_]*/.test(ctx.net) && /<\s*[A-Za-z_][A-Za-z0-9_]*/.test(ctx.net), punts: 0.3, text: "Compara els valors del vector." },
-        { ok: ctx.sortida.indexOf("Màxim: " + max) !== -1 && ctx.sortida.indexOf("Mínim: " + min) !== -1, punts: 0.3, text: "La sortida mostra Màxim: " + max + " i Mínim: " + min + "." }
+        { ok: /int\s*\[\s*\]\s*[A-Za-z_][A-Za-z0-9_]*\s*=\s*new\s+int\s*\[\s*5\s*\]/.test(ctx.net) || /int\s+[A-Za-z_][A-Za-z0-9_]*\s*\[\s*\]\s*=\s*new\s+int\s*\[\s*5\s*\]/.test(ctx.net), punts: 0.4, text: "Crea el vector int[5]." },
+        { ok: /for\s*\(/.test(ctx.net), punts: 0.4, text: "Fa servir un bucle for." },
+        { ok: /\bmax\b/.test(ctx.net) && /\bmin\b/.test(ctx.net), punts: 0.4, text: "Empra les variables max i min." },
+        { ok: />\s*[A-Za-z_][A-Za-z0-9_]*/.test(ctx.net) && /<\s*[A-Za-z_][A-Za-z0-9_]*/.test(ctx.net), punts: 0.4, text: "Compara els valors del vector." },
+        { ok: ctx.sortida.indexOf("Màxim: " + max) !== -1 && ctx.sortida.indexOf("Mínim: " + min) !== -1, punts: 0.4, text: "La sortida mostra Màxim: " + max + " i Mínim: " + min + "." }
+      ];
+    }
+  },
+
+  // Exercicis integrats: pràctica addicional, no compten dins dels 10 punts
+  "ex-integ1": {
+    ra: "integ1", max: 1.0, defaultInputs: ["20", "35", "31", "18", "40"],
+    criteris: function (ctx) {
+      return [
+        { ok: /\/\/.+/.test(ctx.code), punts: 0.15, text: "RA1: has afegit un comentari amb //." },
+        { ok: /calorosos\s*=\s*0/.test(ctx.net), punts: 0.15, text: "RA1: has declarat i inicialitzat calorosos." },
+        { ok: /for\s*\(/.test(ctx.net), punts: 0.15, text: "RA6: fas servir un bucle for per recórrer el vector." },
+        { ok: />\s*max/.test(ctx.net) && /<\s*min/.test(ctx.net), punts: 0.15, text: "RA3: compares per actualitzar la màxima i la mínima." },
+        { ok: ctx.sortida.indexOf("Màxima: 40") !== -1, punts: 0.2, text: "RA5: la sortida mostra Màxima: 40." },
+        { ok: ctx.sortida.indexOf("Mínima: 18") !== -1, punts: 0.1, text: "RA5: la sortida mostra Mínima: 18." },
+        { ok: ctx.sortida.indexOf("Dies calorosos: 3") !== -1, punts: 0.1, text: "RA3: la sortida mostra Dies calorosos: 3." }
+      ];
+    }
+  },
+
+  "ex-integ2": {
+    ra: "integ2", max: 1.0, defaultInputs: ["4", "7", "5", "8"],
+    criteris: function (ctx) {
+      return [
+        { ok: /\/\/.+/.test(ctx.code), punts: 0.15, text: "RA1: has afegit un comentari amb //." },
+        { ok: /aprovats\s*=\s*0/.test(ctx.net), punts: 0.15, text: "RA1: has declarat i inicialitzat aprovats." },
+        { ok: /for\s*\(/.test(ctx.net), punts: 0.15, text: "RA6: fas servir un bucle for amb el vector." },
+        { ok: /notes\s*\[[^\]]+\]\s*>=\s*5/.test(ctx.net), punts: 0.15, text: "RA3: comptes les notes >= 5 amb un if." },
+        { ok: ctx.sortida.indexOf("Mitjana: 6") !== -1, punts: 0.2, text: "RA5: la sortida mostra Mitjana: 6." },
+        { ok: ctx.sortida.indexOf("Aprovats: 3") !== -1, punts: 0.2, text: "RA5: la sortida mostra Aprovats: 3." }
       ];
     }
   }
@@ -552,6 +458,23 @@ const JAVA_EXERCISES = {
 
 function llegirEntrades(text) {
   return String(text || "").split(/\r?\n/).map(function (x) { return x.trim(); }).filter(function (x) { return x.length > 0; });
+}
+
+// Explicació pedagogica dels errors d'execució més habituals
+function consellError(missatge) {
+  if (/no està declarada/i.test(missatge))
+    return "Comprova que has declarat la variable abans de fer-la servir, per exemple: int calorosos = 0;";
+  if (/S'esperava ';'/i.test(missatge))
+    return "Sembla que falta un punt i coma ';' al final de la instrucció de la línia indicada.";
+  if (/S'esperava '\)'/i.test(missatge))
+    return "Revisa els parèntesis: potser t'hi falta un ')' o has posat una coma de més.";
+  if (/índex fora|Index fora/i.test(missatge))
+    return "L'índex del vector està fora de rang. Recorda que un int[5] va de l'índex 0 al 4.";
+  if (/No queden dades/i.test(missatge))
+    return "Has cridat nextInt()/nextLine() més vegades que dades d'entrada. Revisa el camp «Dades d'entrada».";
+  if (/no existeix/i.test(missatge))
+    return "Revisa el nom del mètode o de la variable: potser està mal escrit o encara no l'has declarat.";
+  return "Llegeix la línia indicada i revisa la sintaxi: punts i coma, parèntesis i noms de variables.";
 }
 
 function avaluarExerciciJava(exId, code, termBody, feedBox, card) {
@@ -579,8 +502,9 @@ function avaluarExerciciJava(exId, code, termBody, feedBox, card) {
     logs.push("✘ No s'ha pogut executar el programa:");
     errors.forEach(function (r) {
       logs.push("  " + r.prova.etiqueta + " → " + (r.error.linia ? "línia " + r.error.linia + ": " : "") + r.error.message);
+      logs.push("    💡 " + consellError(r.error.message));
     });
-    feedback.push("Corregix els errors d'execució i torna a prémer «Executar i Corregir codi».");
+    feedback.push("Corregix els errors d'execució (la consola t'ho explica línia a línia) i torna a prémer «Executar i Corregir codi».");
   } else {
     resultats.forEach(function (r) {
       logs.push("▸ " + r.prova.etiqueta + (r.prova.inputs.length ? " · dades: " + r.prova.inputs.join(", ") : ""));

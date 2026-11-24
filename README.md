@@ -15,7 +15,8 @@ Repositori a GitHub:
 
 - **Home**: Informació del curs (CEEDCV, autors, llicència CC BY-NC-ND, síntesi i RAs avaluats).
 - **1a Avaluació**:
-  - `Examen`: Simulacre amb els **6 resultats d'aprenentatge** del mòdul de Programació (RA1 a RA6), cadascun amb test de 5 preguntes i exercici pràctic d'execució real de Java. Total: 10 punts.
+  - `Examen`: Simulacre amb els **4 resultats d'aprenentatge** del fitxer del curs (RA1, RA3, RA5 i RA6), cadascun amb test de 5 preguntes i exercici pràctic d'execució real de Java. Total: 10 punts. A més, **30 exercicis integrats** (10 bàsics, 10 mitjans i 10 avançats) amb codi parcial, solució guiada i explicació d'errors.
+  - Els continguts estan **separats per RA** a `docs/javascripts/dades/ra*.js` i `docs/1eval/ra*.md`, i els exercicis integrats a `dades/int-*.js`. Així, canviar un RA només requereix editar el seu fitxer.
   - `Solucions`: Respostes correctes del test i implementació completa de cada exercici en codi Java.
   - `Rúbrica correcció`: Criteris detallats de qualificació i percentatge mínim del 50% per superar cada RA.
 - **2a Avaluació**: Secció preparada per a futurs continguts.

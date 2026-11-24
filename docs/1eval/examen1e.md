@@ -12,7 +12,7 @@ Cada RA té un test de 5 preguntes (0,5 punts) i un exercici pràctic amb execuc
     <h2 class="score-title">📊 El teu Progrés i Puntuació de l'Examen</h2>
     <span class="total-score-badge" id="dash-total-score">0.00 / 10</span>
   </div>
-  <p>4 resultats d'aprenentatge · 10 punts. Els exercicis integrats són pràctica addicional i no modifiquen aquesta nota.</p>
+  <p>4 resultats d'aprenentatge · 10 punts. Els exercicis integrats són pràctica addicional i no modifiquen eixa nota.</p>
   <div class="ra-pills-grid">
     <div class="ra-pill">
       <div class="ra-pill-header"><span>RA1 · Estructura</span></div>

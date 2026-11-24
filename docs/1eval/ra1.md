@@ -5,7 +5,7 @@
 <div class="quiz-card" data-ra="ra1" data-qid="ra1-q1">
   <div class="quiz-question-title">
     <span class="quiz-q-num">1</span>
-    <span>Quina d’aquestes opcions <strong>NO</strong> és un tipus de dada bàsic en Java?</span>
+    <span>Quina d'eixes opcions <strong>NO</strong> és un tipus de dada bàsic en Java?</span>
   </div>
   <div class="quiz-options">
     <label class="quiz-option"><input type="radio" name="ra1-q1" value="A"> A) int</label>
@@ -73,7 +73,7 @@
 <div class="quiz-card" data-ra="ra1" data-qid="ra1-q5">
   <div class="quiz-question-title">
     <span class="quiz-q-num">5</span>
-    <span>Quin d’aquests literals és un <strong>numèric enter</strong> (tipus <code>int</code>)?</span>
+    <span>Quin d'eixos literals és un <strong>numèric enter</strong> (tipus <code>int</code>)?</span>
   </div>
   <div class="quiz-options">
     <label class="quiz-option"><input type="radio" name="ra1-q5" value="A"> A) '3'</label>
@@ -111,7 +111,7 @@ public class Main {
     }
 }
     </textarea>
-    <p class="java-run-note">ℹ️ Aquest exercici no necessita dades d'entrada. L'execució mostra la sortida real del teu codi.</p>
+    <p class="java-run-note">ℹ️ Eixe exercici no necessita dades d'entrada. L'execució mostra la sortida real del teu codi.</p>
     <div class="java-ex-actions">
       <button type="button" class="btn-run">▶ Executar i Corregir codi</button>
       <button type="button" class="btn-reset">🔄 Reiniciar codi</button>

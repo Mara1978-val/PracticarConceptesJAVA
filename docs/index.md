@@ -15,9 +15,9 @@
 
 ## 🎯 Benvinguts al Simulador Interactiu de Java
 
-Aquesta plataforma està dissenyada específicament per a l'alumnat de **1r de DAM** per a preparar els exàmens de **Programació en Java** de manera pràctica, guiada i interactiva.
+Eixa plataforma està dissenyada específicament per a l'alumnat de **1r de DAM** per a preparar els exàmens de **Programació en Java** de manera pràctica, guiada i interactiva.
 
-A diferència d'un document estàtic, en aquest portal pots:
+A diferència d'un document estàtic, en eixe portal pots:
 
 1. **📝 Respondre exercicis tipus test interactius:** Rebràs la teua nota al moment, veuràs quines opcions eren correctes o incorrectes i tindràs una explicació pedagògica detallada de **què has fet malament** i per què.
 2. **💻 Escriure i provar codi Java directament al navegador:** Trobaràs aplicacions amb esquelets i parts ja implementades on hauràs de completar els blocs de codi que manquen. Pots clicar a **"▶ Executar i Corregir codi"** per a que el sistema execute les teues instruccions, comprove casos de prova i t'indique els errors trobats.

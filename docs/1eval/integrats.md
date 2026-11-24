@@ -1105,7 +1105,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        // TODO: escriu un comentari que expliqui què fa aquest tiquet
+        // TODO: escriu un comentari que expliqui què fa eixe tiquet
         Scanner sc = new Scanner(System.in);
 
         int n = sc.nextInt();
@@ -1417,7 +1417,7 @@ public class Main {
     <h4 class="java-ex-title">Vendes i comissio</h4>
     <span class="java-ex-score-tag">Pràctica · 1.0 punt · RA1 + RA3 + RA5 + RA6</span>
   </div>
-  <div class="java-ex-desc"><strong>Enunciat:</strong> Llegeix 5 importes de vendes. Calcula el total, troba la venda més petita i suma una comissió de 20 al total quan aquest supera 200.</div>
+  <div class="java-ex-desc"><strong>Enunciat:</strong> Llegeix 5 imports de vendes. Calcula el total, troba la venda més petita i suma una comissió de 20 al total quan eixe supera 200.</div>
   <div class="java-editor-wrapper">
     <textarea class="java-code-area" spellcheck="false">
 import java.util.Scanner;
@@ -1845,7 +1845,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        // TODO: comenta què fa aquest programa de ruta
+        // TODO: comenta què fa eixe programa de ruta
         Scanner sc = new Scanner(System.in);
 
         int n = sc.nextInt();
@@ -2159,7 +2159,7 @@ public class Main {
 import java.util.Scanner;
 
 public class InformeSensors {
-    // TODO (RA1): escriu un comentari que expliqui què calcula aquest informe
+    // TODO (RA1): escriu un comentari que expliqui què calcula eixe informe
     static boolean esValida(int valor) {
         // TODO (RA3): substitueix false per la condicio valor >= 0 && valor <= 40
         return false;
@@ -2303,7 +2303,7 @@ public class InformeSensors {
 import java.util.Scanner;
 
 public class InformeNotes {
-    // TODO (RA1): escriu un comentari que expliqui què calcula aquest informe
+    // TODO (RA1): escriu un comentari que expliqui què calcula eixe informe
     static boolean notaValida(int nota) {
         // TODO (RA3): substitueix false per la condicio nota >= 0 && nota <= 10
         return false;
@@ -2447,7 +2447,7 @@ public class InformeNotes {
 import java.util.Scanner;
 
 public class InformeTemperatures {
-    // TODO (RA1): escriu un comentari que expliqui què calcula aquest informe
+    // TODO (RA1): escriu un comentari que expliqui què calcula eixe informe
     static boolean tempValida(int temp) {
         // TODO (RA3): substitueix false per la condicio temp >= -20 && temp <= 45
         return false;
@@ -2599,7 +2599,7 @@ public class InformeTemperatures {
 import java.util.Scanner;
 
 public class InformeVendes {
-    // TODO (RA1): escriu un comentari que expliqui què calcula aquest informe
+    // TODO (RA1): escriu un comentari que expliqui què calcula eixe informe
     static boolean vendaValida(int venda) {
         // TODO (RA3): substitueix false per la condicio venda > 0 && venda <= 1000
         return false;
@@ -2743,7 +2743,7 @@ public class InformeVendes {
 import java.util.Scanner;
 
 public class InformeEdats {
-    // TODO (RA1): escriu un comentari que expliqui què calcula aquest informe
+    // TODO (RA1): escriu un comentari que expliqui què calcula eixe informe
     static boolean edatValida(int edat) {
         // TODO (RA3): substitueix false per la condicio edat >= 0 && edat <= 110
         return false;
@@ -2887,7 +2887,7 @@ public class InformeEdats {
 import java.util.Scanner;
 
 public class InformePuntuacions {
-    // TODO (RA1): escriu un comentari que expliqui què calcula aquest informe
+    // TODO (RA1): escriu un comentari que expliqui què calcula eixe informe
     static boolean puntsValids(int punts) {
         // TODO (RA3): substitueix false per la condicio punts >= 0 && punts <= 100
         return false;
@@ -3033,7 +3033,7 @@ public class InformePuntuacions {
 import java.util.Scanner;
 
 public class InformeCurses {
-    // TODO (RA1): escriu un comentari que expliqui què calcula aquest informe
+    // TODO (RA1): escriu un comentari que expliqui què calcula eixe informe
     static boolean tempsValid(int temps) {
         // TODO (RA3): substitueix false per la condicio temps >= 0 && temps <= 300
         return false;
@@ -3185,7 +3185,7 @@ public class InformeCurses {
 import java.util.Scanner;
 
 public class InformeEstoc {
-    // TODO (RA1): escriu un comentari que expliqui què calcula aquest informe
+    // TODO (RA1): escriu un comentari que expliqui què calcula eixe informe
     static boolean unitatValida(int unitats) {
         // TODO (RA3): substitueix false per la condicio unitats >= 0 && unitats <= 500
         return false;
@@ -3330,7 +3330,7 @@ public class InformeEstoc {
 import java.util.Scanner;
 
 public class InformePressupost {
-    // TODO (RA1): escriu un comentari que expliqui què calcula aquest informe
+    // TODO (RA1): escriu un comentari que expliqui què calcula eixe informe
     static boolean quantiaValida(int quantia) {
         // TODO (RA3): substitueix false per la condicio quantia > 0 && quantia <= 10000
         return false;
@@ -3474,7 +3474,7 @@ public class InformePressupost {
 import java.util.Scanner;
 
 public class InformeQualitat {
-    // TODO (RA1): escriu un comentari que expliqui què calcula aquest informe
+    // TODO (RA1): escriu un comentari que expliqui què calcula eixe informe
     static boolean mostraValida(int defectes) {
         // TODO (RA3): substitueix false per la condicio defectes >= 0 && defectes <= 20
         return false;

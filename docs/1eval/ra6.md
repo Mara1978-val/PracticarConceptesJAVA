@@ -5,7 +5,7 @@
 <div class="quiz-card" data-ra="ra6" data-qid="ra6-q1">
   <div class="quiz-question-title">
     <span class="quiz-q-num">1</span>
-    <span>Quin d’aquests declara correctament una variable per a un array o vector d’enters?</span>
+    <span>Quin d'eixos declara correctament una variable per a un array o vector d’enters?</span>
   </div>
   <div class="quiz-options">
     <label class="quiz-option"><input type="radio" name="ra6-q1" value="A"> A) int numeros[];</label>

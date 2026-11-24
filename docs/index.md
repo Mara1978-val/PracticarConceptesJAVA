@@ -7,8 +7,8 @@
 !!! info "Informació del curs i mòdul"
     **Autora:** Mara Vañó  
     **Mòdul:** Programació (PRG) — Java  
-    **Curs:** 1r Desenvolupament d'Aplicacions Multiplataforma (DAM) / DAW  
-    **Any acadèmic:** 2025/2026  
+    **Curs:** 1r Desenvolupament d'Aplicacions Multiplataforma (DAM) / DAW — **Curs 26-27**  
+    **Any acadèmic:** 2026/2027  
     **Llicència:** [![CC BY-NC-ND](https://licensebuttons.net/l/by-nc-nd/3.0/88x31.png)](#)
 
 ---

@@ -1,13 +1,13 @@
 # 📚 Repàs de conceptes Java (1r DAM)
 
 Lloc web públic publicat a **GitHub Pages**:  
-👉 **[https://Mara1978-val.github.io/SimuladorExamenJava/](https://Mara1978-val.github.io/SimuladorExamenJava/)**
+👉 **[https://Mara1978-val.github.io/PracticarConceptesJAVA/](https://Mara1978-val.github.io/PracticarConceptesJAVA/)**
 
 Pàgina de pràctiques:  
-👉 **[https://Mara1978-val.github.io/SimuladorExamenJava/1eval/repaso1e/](https://Mara1978-val.github.io/SimuladorExamenJava/1eval/repaso1e/)**
+👉 **[https://Mara1978-val.github.io/PracticarConceptesJAVA/1eval/repaso1e/](https://Mara1978-val.github.io/PracticarConceptesJAVA/1eval/repaso1e/)**
 
 Repositori a GitHub:  
-👉 **[https://github.com/Mara1978-val/SimuladorExamenJava](https://github.com/Mara1978-val/SimuladorExamenJava)**
+👉 **[https://github.com/Mara1978-val/PracticarConceptesJAVA](https://github.com/Mara1978-val/PracticarConceptesJAVA)**
 
 ---
 

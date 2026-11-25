@@ -1,7 +1,7 @@
 site_name: Repàs de conceptes Java · 1r DAM
 site_description: Pràctiques interactives de programació Java per a 1r de DAM
 site_author: Mara Vañó
-site_url: https://Mara1978-val.github.io/SimuladorExamenJava/
+site_url: https://Mara1978-val.github.io/PracticarConceptesJAVA/
 
 theme:
   name: material

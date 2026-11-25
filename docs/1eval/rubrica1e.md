@@ -4,7 +4,7 @@
   <span>✍️ Autora: Mara Vañó</span>
 </div>
 
-L'examen avalua **4 resultats d'aprenentatge** del mòdul de Programació i val **10 punts**.
+Eixes pràctiques avaluen **4 resultats d'aprenentatge** del mòdul de Programació i val **10 punts**.
 Cada RA té un **test de 5 preguntes (0,5 punts)** i un **exercici pràctic (2 punts)** amb
 execució real de codi Java. Per superar un RA cal assolir almenys el **50%** (1,25 punts).
 

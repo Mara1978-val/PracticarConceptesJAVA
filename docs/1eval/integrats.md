@@ -2290,14 +2290,14 @@ public class InformeSensors {
   </div>
 </div>
 
-#### int-avancada-2 — Revisió de notes d'examen
+#### int-avancada-2 — Revisió de notes
 
 <div class="java-exercise-card" data-ex-id="int-avancada-2">
   <div class="java-ex-header">
-    <h4 class="java-ex-title">Revisió de notes d'examen</h4>
+    <h4 class="java-ex-title">Revisió de notes</h4>
     <span class="java-ex-score-tag">Pràctica · 1.0 punt · RA1 + RA3 + RA5 + RA6</span>
   </div>
-  <div class="java-ex-desc"><strong>Enunciat:</strong> El departament de matemàtiques introdueix <strong>6 notes</strong> d'examen. Una nota és correcta si està entre 0 i 10. Escriu l'informe amb el recompte de notes vàlides, la mitjana sencera, el nombre d'aprovats (nota major o igual que 5), la nota màxima i la mínima.</div>
+  <div class="java-ex-desc"><strong>Enunciat:</strong> El departament de matemàtiques introdueix <strong>6 notes</strong> del curs. Una nota és correcta si està entre 0 i 10. Escriu l'informe amb el recompte de notes vàlides, la mitjana sencera, el nombre d'aprovats (nota major o igual que 5), la nota màxima i la mínima.</div>
   <div class="java-editor-wrapper">
     <textarea class="java-code-area" spellcheck="false">
 import java.util.Scanner;

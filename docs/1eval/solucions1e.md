@@ -4,7 +4,7 @@
   <span>✍️ Autora: Mara Vañó</span>
 </div>
 
-Solucions dels 4 resultats d'aprenentatge avaluats (RA1, RA3, RA5 i RA6) i dels exercicis integrats per nivells.
+Solucions dels 4 resultats d'aprenentatge treballats (RA1, RA3, RA5 i RA6) i dels exercicis integrats per nivells.
 
 ---
 

@@ -1,10 +1,10 @@
-# 📚 Simulador d'Exàmens PRG 25/26 (DAM / DAW)
+# 📚 Repàs de conceptes Java (1r DAM)
 
 Lloc web públic publicat a **GitHub Pages**:  
 👉 **[https://Mara1978-val.github.io/SimuladorExamenJava/](https://Mara1978-val.github.io/SimuladorExamenJava/)**
 
-Subpàgina de l'examen:  
-👉 **[https://Mara1978-val.github.io/SimuladorExamenJava/1eval/examen1e/](https://Mara1978-val.github.io/SimuladorExamenJava/1eval/examen1e/)**
+Pàgina de pràctiques:  
+👉 **[https://Mara1978-val.github.io/SimuladorExamenJava/1eval/repaso1e/](https://Mara1978-val.github.io/SimuladorExamenJava/1eval/repaso1e/)**
 
 Repositori a GitHub:  
 👉 **[https://github.com/Mara1978-val/SimuladorExamenJava](https://github.com/Mara1978-val/SimuladorExamenJava)**
@@ -13,13 +13,13 @@ Repositori a GitHub:
 
 ## 📂 Continguts del lloc
 
-- **Home**: Informació del curs (CEEDCV, autors, llicència CC BY-NC-ND, síntesi i RAs avaluats).
-- **1a Avaluació**:
-  - `Examen`: Simulacre amb els **4 resultats d'aprenentatge** del fitxer del curs (RA1, RA3, RA5 i RA6), cadascun amb test de 5 preguntes i exercici pràctic d'execució real de Java. Total: 10 punts. A més, **30 exercicis integrats** (10 bàsics, 10 mitjans i 10 avançats) amb codi parcial, solució guiada i explicació d'errors.
+- **Home**: Informació del curs (CEEDCV, autors, llicència CC BY-NC-ND, síntesi i RAs del curs).
+- **Repàs de conceptes**:
+  - `Pràctiques i tests`: Col·lecció amb els **4 resultats d'aprenentatge** del fitxer del curs (RA1, RA3, RA5 i RA6), cadascun amb test de 5 preguntes i exercici pràctic d'execució real de Java. Total: 10 punts. A més, **30 exercicis integrats** (10 bàsics, 10 mitjans i 10 avançats) amb codi parcial, solució guiada i explicació d'errors.
   - Els continguts estan **separats per RA** a `docs/javascripts/dades/ra*.js` i `docs/1eval/ra*.md`, i els exercicis integrats a `dades/int-*.js`. Així, canviar un RA només requereix editar el seu fitxer.
   - `Solucions`: Respostes correctes del test i implementació completa de cada exercici en codi Java.
   - `Rúbrica correcció`: Criteris detallats de qualificació i percentatge mínim del 50% per superar cada RA.
-- **2a Avaluació**: Secció preparada per a futurs continguts.
+- **Bloc 2**: Secció preparada per a futurs continguts.
 
 ---
 
@@ -40,7 +40,7 @@ la sortida real a la consola. No hi ha sortides inventades ni cal connexió a in
 
 ## 💻 Com actualitzar el lloc web
 
-Quan vulguis fer canvis als enunciats, solucions o afegir nous exàmens:
+Quan vulguis fer canvis als enunciats, solucions o afegir noves pràctiques:
 
 1. Modifica els fitxers Markdown dins de la carpeta `docs/`.
 2. Publica els canvis actualitzats directament a GitHub Pages executant:

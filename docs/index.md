@@ -13,9 +13,9 @@
 
 ---
 
-## 🎯 Benvinguts al Simulador Interactiu de Java
+## 🎯 Benvinguts al repàs de conceptes Java
 
-Eixa plataforma està dissenyada específicament per a l'alumnat de **1r de DAM** per a preparar els exàmens de **Programació en Java** de manera pràctica, guiada i interactiva.
+Eixa plataforma està dissenyada específicament per a l'alumnat de **1r de DAM** per a practicar els conceptes de **Programació en Java** de manera pràctica, guiada i interactiva.
 
 A diferència d'un document estàtic, en eixe portal pots:
 
@@ -25,9 +25,9 @@ A diferència d'un document estàtic, en eixe portal pots:
 
 ---
 
-## 🔹 Resultats d'Aprenentatge (RAs) Avaluats (1a Avaluació)
+## 🔹 Resultats d'Aprenentatge (RAs) treballats
 
-Els **4 RAs** del curs que s'avaluen en eixe simulacre són:
+Els **4 RAs** del curs que es treballen en eixes pràctiques són:
 
 | RA | Descripció | Puntuació màxima | Mínim per aprovar (50%) |
 | :--- | :--- | :---: | :---: |
@@ -35,7 +35,7 @@ Els **4 RAs** del curs que s'avaluen en eixe simulacre són:
 | **RA3** | Escribe y depura código, analizando y utilizando las estructuras de control del lenguaje. | **2,5 punts** (Test 0,5 + Pràctica 2) | **1,25 punts** |
 | **RA5** | Realiza operaciones de entrada y salida de información, utilizando procedimientos específicos del lenguaje y librerías de clases. | **2,5 punts** (Test 0,5 + Pràctica 2) | **1,25 punts** |
 | **RA6** | Escribe programas que manipulen información seleccionando y utilizando tipos avanzados de datos. | **2,5 punts** (Test 0,5 + Pràctica 2) | **1,25 punts** |
-| **TOTAL** | **Simulacre complet de la 1a avaluació** | **10 punts** | **5,0 punts** (amb els mínims superats) |
+| **TOTAL** | **Conjunt complet de pràctiques** | **10 punts** | **5,0 punts** (amb els mínims superats) |
 
 A més, la web inclou **30 exercicis integrats de pràctica** (10 de nivell bàsic, 10 de mitjà i 10 d'avançat). Cadascú combina els 4 RAs, té parts de codi ja implementades, solució guiada i explicació dels errors. Són pràctica addicional i no modifiquen la nota de 10 punts.
 
@@ -43,4 +43,4 @@ A més, la web inclou **30 exercicis integrats de pràctica** (10 de nivell bàs
 
 ## 🚀 Com començar?
 
-Fes clic a la pestanya superior **[Primera Aval / Simulador d'Examen](1eval/examen1e.md)** per a començar a resoldre els exercicis i comprovar el teu nivell abans de la prova real!
+Fes clic a la pestanya superior **[Repàs de conceptes / Pràctiques i tests](1eval/repaso1e.md)** per a començar a resoldre els exercicis i comprovar el teu nivell i comprova el teu progrés!

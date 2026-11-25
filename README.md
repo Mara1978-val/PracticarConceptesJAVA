@@ -19,7 +19,6 @@ Repositori a GitHub:
   - Els continguts estan **separats per RA** a `docs/javascripts/dades/ra*.js` i `docs/1eval/ra*.md`, i els exercicis integrats a `dades/int-*.js`. Així, canviar un RA només requereix editar el seu fitxer.
   - `Solucions`: Respostes correctes del test i implementació completa de cada exercici en codi Java.
   - `Rúbrica correcció`: Criteris detallats de qualificació i percentatge mínim del 50% per superar cada RA.
-- **Bloc 2**: Secció preparada per a futurs continguts.
 
 ---
 

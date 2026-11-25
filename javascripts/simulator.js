@@ -1,7 +1,7 @@
 /**
  * SIMULADOR D'EXÀMENS INTERACTIU - JAVA DAM (PRG)
  * Autora: Mara Vañó
- * Motor de correcció de tests i avaluació de codi Java amb intèrpret integrat.
+ * Motor de correcció de tests i pràctiques de codi Java amb intèrpret integrat.
  */
 
 document.addEventListener("DOMContentLoaded", function () {

@@ -1,6 +1,6 @@
 /* =========================================================
    java-interpreter.js · Intèrpret del subconjunt Java emprat
-   als exercicis del simulador (PRG · 1r DAM).
+   als exercicis de pràctica (PRG · 1r DAM).
    Autora: Mara Vañó
 
    Executa de veritat el codi de l'alumne: variables, int/String/

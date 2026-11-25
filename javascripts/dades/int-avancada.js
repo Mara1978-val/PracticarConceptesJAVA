@@ -116,8 +116,8 @@ public class InformeSensors {
   },
   {
     id: "int-avancada-2",
-    titol: "Revisió de notes d'examen",
-    enunciat: "El departament de matemàtiques introdueix <strong>6 notes</strong> d'examen. Una nota és correcta si està entre 0 i 10. Escriu l'informe amb el recompte de notes vàlides, la mitjana sencera, el nombre d'aprovats (nota major o igual que 5), la nota màxima i la mínima.",
+    titol: "Revisió de notes",
+    enunciat: "El departament de matemàtiques introdueix <strong>6 notes</strong> del curs. Una nota és correcta si està entre 0 i 10. Escriu l'informe amb el recompte de notes vàlides, la mitjana sencera, el nombre d'aprovats (nota major o igual que 5), la nota màxima i la mínima.",
     codi: `import java.util.Scanner;
 
 public class InformeNotes {
